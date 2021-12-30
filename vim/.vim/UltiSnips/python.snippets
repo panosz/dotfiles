@@ -1,0 +1,26 @@
+extends python
+
+snippet subplot "subplot"
+fig, ax = plt.subplots()
+endsnippet
+
+snippet axlabel "set axis labels"
+$1.set_xlabel($2)
+$1.set_ylabel($3)
+endsnippet
+
+snippet pyplot "import pyplot"
+import matplotlib.pyplot as plt
+endsnippet
+
+snippet namedtuple "namedtuple"
+$1 = namedtuple('$1',[$2])
+endsnippet
+
+snippet numpy "import numpy"
+import numpy as np
+endsnippet
+
+snippet linspace "np.linspace"
+$1 = np.linspace(${2:0}, ${3:1}, num=${4:50})
+endsnippet

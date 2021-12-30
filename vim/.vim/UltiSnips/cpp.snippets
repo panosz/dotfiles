@@ -1,0 +1,14 @@
+extends cpp
+
+#inspired by honza/vim-snippets
+snippet forc "for const auto & loop (forc)"
+for ( const auto & ${2:c} : ${1:$2}) 
+{
+	${VISUAL}$3
+}
+endsnippet
+
+#inspired by honza/vim-snippets
+snippet cbeginend "$1.cbegin(), $1.cend() (cbeginend)"
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}cbegin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}cend()
+endsnippet
