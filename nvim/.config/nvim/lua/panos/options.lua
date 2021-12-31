@@ -50,6 +50,7 @@ local options = {
     iminsert=0,
     imsearch=-1,
     -- }}}
+-- }}}
    }
 
    for k, v in pairs(options) do
