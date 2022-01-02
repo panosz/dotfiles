@@ -57,4 +57,6 @@ local options = {
      vim.opt[k] = v
    end
 
+vim.cmd([[autocmd UIEnter * GuiFont MesloLGS\ NF]]) -- set gui font.
+
 -- vim:foldmethod=marker:foldlevel=0
