@@ -9,6 +9,7 @@ require "panos.lsp"
 require "panos.treesiter"
 require "panos.vimwiki"
 
+require "panos.abbreviations"
 
 
 vim.cmd "colorscheme gruvbox"
