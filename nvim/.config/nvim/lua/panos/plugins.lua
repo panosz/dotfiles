@@ -82,8 +82,15 @@ return packer.startup(function(use)
 
   use 'tpope/vim-eunuch'  -- eunuch.vim: Helpers for UNIX shell commands
   use 'tpope/vim-fugitive'  -- Git wrappers
-  use 'airblade/vim-gitgutter'   -- Gitgutter - A Vim plugin which shows a git diff in the sign column 
-
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   -- cmp plugins{{{
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
