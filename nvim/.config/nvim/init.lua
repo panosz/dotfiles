@@ -8,9 +8,10 @@ require "panos.cmp"
 require "panos.lsp"
 require "panos.treesiter"
 require "panos.vimwiki"
-
+require "panos.orgmode_config"
 require "panos.abbreviations"
 require "panos.gitsigns_config"
+require "panos.autopairs"
 
 
 vim.cmd "colorscheme gruvbox"

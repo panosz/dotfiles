@@ -83,13 +83,18 @@ return packer.startup(function(use)
   use 'mhinz/vim-startify'  -- vim-startify %a fancy start screen
 
   use 'tpope/vim-eunuch'  -- eunuch.vim: Helpers for UNIX shell commands
-  use 'tpope/vim-fugitive'  -- Git wrappers
+
+  use 'windwp/nvim-autopairs' -- autopair pluggin that suppors multiple characters
+
+-- Git wrappers{{{
+  use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
     },
   }
+--}}}
   -- cmp plugins{{{
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -99,7 +104,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   --}}}
-
   -- LSP{{{
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
