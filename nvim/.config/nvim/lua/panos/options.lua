@@ -45,12 +45,6 @@ local options = {
     grepprg="ack --nogroup --column $*",
     grepformat="%f:%l:%c:%m",
 --}}}
--- make it easy to use vim when typing greek {{{
-    keymap="greek_utf-8",
-    iminsert=0,
-    imsearch=-1,
-    -- }}}
--- }}}
    }
 
    for k, v in pairs(options) do
