@@ -123,7 +123,14 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "nvim-treesitter/playground"
+  use "nvim-treesitter/nvim-treesitter-textobjects"
   --}}}
+  -- org-mode{{{
+  use {'nvim-orgmode/orgmode', config = function()
+    require('orgmode').setup{}
+  end
+  }
+  -- }}}
 --{{{ devicons - add filetype signs to your plugins
   use {
     'kyazdani42/nvim-web-devicons',
