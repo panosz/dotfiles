@@ -68,6 +68,8 @@ return packer.startup(function(use)
 
   use 'tpope/vim-abolish'  -- abolish  - Tim pope's plugin for working with variants of a word
 
+  use 'Vimjas/vim-python-pep8-indent'  -- A nicer Python indentation style for vim
+
   use 'vimwiki/vimwiki'  -- vim-wiki
 
   use 'mattn/calendar-vim'  -- callendar-vim
