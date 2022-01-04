@@ -24,6 +24,7 @@ npairs.setup {
   },
 }
 
+-- automatically add parentheses at autocompleted functions.
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
