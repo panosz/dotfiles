@@ -116,7 +116,8 @@ return packer.startup(function(use)
 -- Telescope{{{
   use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-media-files.nvim'
-  use 'nvim-telescope/telescope-fzf-native.nvim' -- improve sorting performance
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }-- improve sorting performance
+  use 'nvim-telescope/telescope-symbols.nvim' -- symbols
   --}}}
 -- Treesitter {{{
   use {
