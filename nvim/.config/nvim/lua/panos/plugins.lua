@@ -87,9 +87,6 @@ return packer.startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
   }
   -- cmp plugins{{{
   use "hrsh7th/nvim-cmp" -- The completion plugin
