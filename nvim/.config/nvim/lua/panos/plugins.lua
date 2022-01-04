@@ -120,6 +120,14 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   --}}}
+--{{{ devicons - add filetype signs to your plugins
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('nvim-web-devicons').setup()
+    end
+  }
+--}}}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
