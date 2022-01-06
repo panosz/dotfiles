@@ -13,6 +13,8 @@ require "panos.abbreviations"
 require "panos.gitsigns_config"
 require "panos.autopairs"
 require "panos.greek"
+require "panos.nvim-tree"
+
 
 
 vim.cmd "colorscheme gruvbox"

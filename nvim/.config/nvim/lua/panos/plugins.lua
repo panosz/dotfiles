@@ -141,6 +141,8 @@ return packer.startup(function(use)
     end
   }
 --}}}
+use 'kyazdani42/nvim-tree.lua' -- A File Explorer For Neovim Written In Lua
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
