@@ -11,7 +11,7 @@ local options = {
     --}}}
 -- UI{{{
     number=true,              -- show line numbers
-    relativenumber=false,      -- show absolute number only on cursor line 
+    relativenumber=false,      -- show absolute number only on cursor line
     showcmd=true,             -- show command in bottom bar
     showmode=true,            -- always show current mode at the bottom
     cursorline=true,          -- highlight current line
@@ -30,14 +30,14 @@ local options = {
     mouse="a",                -- enable mouse for scrolling and resizing
     autochdir=true,           -- change the current working directory whenever you open a file, switch buffers, delete a buffer or open/close a window.
     scrolloff=3,              -- Minimal number of screen lines to keep above and below the cursor.
-    sidescrolloff=5,          -- The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.  
+    sidescrolloff=5,          -- The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.
     history=1000,             -- Determine number of entries of ":" commands and previous search patterns that is remembered.
     tags="tags;",             -- look for tags recursively in parent directories, (due to ';')
     foldmethod="marker",       -- Use markers for folding
      --}}}
 -- Searching{{{
     incsearch=true,           -- search as characters are entered
-    ignorecase=true,          -- ignore case when searching..           
+    ignorecase=true,          -- ignore case when searching..
     smartcase=true,           -- unless you type a capital
     hlsearch=true,            -- highlight matches
     --}}}
