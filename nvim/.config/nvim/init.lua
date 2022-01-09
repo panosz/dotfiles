@@ -14,7 +14,6 @@ require "panos.gitsigns_config"
 require "panos.autopairs"
 require "panos.greek"
 require "panos.nvim-tree"
-
-
+require "panos.toggleterm"
 
 vim.cmd "colorscheme gruvbox"
