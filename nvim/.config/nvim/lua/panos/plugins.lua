@@ -94,6 +94,7 @@ return packer.startup(function(use)
       'nvim-lua/plenary.nvim'
     },
   }
+  use 'junegunn/gv.vim' -- A git commit browser.
 --}}}
   -- cmp plugins{{{
   use "hrsh7th/nvim-cmp" -- The completion plugin
