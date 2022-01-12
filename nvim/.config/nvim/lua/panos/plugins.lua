@@ -44,7 +44,9 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  --{{{ colorschemes
   use 'morhetz/gruvbox'  -- gruvbox: Colorscheme for Vim
+  --}}}
   use 'tpope/vim-unimpaired' -- Vim-Unimpared - useful mappings
   use 'lervag/vimtex'  -- vimtex
   use 'moll/vim-bbye'  -- Buffer bye - delete buffers without closing windows
@@ -119,6 +121,8 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }-- improve sorting performance
   use 'nvim-telescope/telescope-symbols.nvim' -- symbols
+  use 'jvgrootveld/telescope-zoxide' -- integration with zoxide
+
   --}}}
 -- Treesitter {{{
   use {

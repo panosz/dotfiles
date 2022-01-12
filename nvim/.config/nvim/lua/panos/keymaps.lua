@@ -94,6 +94,7 @@ keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
 -- }}}
 
