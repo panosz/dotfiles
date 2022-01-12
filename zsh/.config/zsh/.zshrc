@@ -30,10 +30,11 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 # Antigen {{{
   source $HOME/.lib/antigen/antigen.zsh
   # Load the oh-my-zsh's library.
-  antigen use oh-my-zsh
+  # antigen use oh-my-zsh
 
   # Bundles from the default repo (robbyrussell's oh-my-zsh).
   antigen bundle git
