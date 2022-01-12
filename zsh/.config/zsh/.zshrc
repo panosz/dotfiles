@@ -117,7 +117,7 @@ baby (){
 }
 # }}}
 # history{{{
-# HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history
 HISTSIZE=5000  # lines of history within the shell
 SAVEHIST=15000 # lines of history in $HISTFILE
 HISTORY_IGNORE = '[ \t]*' # prevent commands starting with whitespace from being added to your histfile
