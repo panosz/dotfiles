@@ -93,6 +93,9 @@ alias mkvenv="python3 -m venv venv"
 alias nvim="~/.local/bin/nvim.appimage"
 alias gnvim="nvim-qt --nvim ~/.local/bin/nvim.appimage"
 alias cgr="covid_cases greece"
+alias battery="system76-power profile battery"
+alias balanced="system76-power profile balanced"
+alias performance="system76-power profile performance"
 
   # copy and paste{{{
    alias -g c="| xclip" # copy to X clipboard
