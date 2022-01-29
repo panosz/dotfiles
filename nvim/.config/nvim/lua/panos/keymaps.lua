@@ -33,15 +33,6 @@ vim.g.maplocalleader = ","
 	keymap("n", "<C-k>", "<C-w>k", opts)
 	keymap("n", "<C-l>", "<C-w>l", opts)
 	--}}}
-	-- copy and paste {{{
-	keymap("n","<Leader>y","\"+y", opts)
-	keymap("n","<Leader>Y","\"+Y", opts)
-	keymap("n","<Leader>d","\"+d", opts)
-	keymap("n","<Leader>p","\"+p", opts)
-	keymap("n","<Leader>P","\"+P", opts)
-	keymap("n","<Leader>p","\"+p", opts)
-	keymap("n","<Leader>P","\"+P", opts)
-	--  }}}
 
 -- move vertically by visual line{{{
 	keymap("n","j", "gj",opts)
@@ -78,6 +69,24 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 --}}}
 --}}}
+
+	-- copy and paste {{{
+	keymap("n","<Leader>y","\"+y", opts)
+	keymap("n","<Leader>Y","\"+Y", opts)
+	keymap("n","<Leader>d","\"+d", opts)
+	keymap("n","<Leader>p","\"+p", opts)
+	keymap("n","<Leader>P","\"+P", opts)
+	keymap("n","<Leader>p","\"+p", opts)
+	keymap("n","<Leader>P","\"+P", opts)
+
+	keymap("v","<Leader>y","\"+y", opts)
+	keymap("v","<Leader>Y","\"+Y", opts)
+	keymap("v","<Leader>d","\"+d", opts)
+	keymap("v","<Leader>p","\"+p", opts)
+	keymap("v","<Leader>P","\"+P", opts)
+	keymap("v","<Leader>p","\"+p", opts)
+	keymap("v","<Leader>P","\"+P", opts)
+	--  }}}
 
 -- Terminal --{{{
 -- Better terminal navigation --{{{
