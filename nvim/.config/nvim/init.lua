@@ -16,6 +16,8 @@ require "panos.greek"
 require "panos.nvim-tree"
 require "panos.telescope"
 require "panos.toggleterm"
+require "panos.dial"
 require "panos.commands"
+
 
 vim.cmd "colorscheme gruvbox"

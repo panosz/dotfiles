@@ -122,7 +122,6 @@ return packer.startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }-- improve sorting performance
   use 'nvim-telescope/telescope-symbols.nvim' -- symbols
   use 'jvgrootveld/telescope-zoxide' -- integration with zoxide
-
   --}}}
 -- Treesitter {{{
   use {
@@ -149,6 +148,9 @@ return packer.startup(function(use)
 use 'kyazdani42/nvim-tree.lua' -- A File Explorer For Neovim Written In Lua
 use "akinsho/toggleterm.nvim"
 use "lukas-reineke/indent-blankline.nvim"
+use "monaqa/dial.nvim" -- Extended increment/decrement plugin for Neovim.
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

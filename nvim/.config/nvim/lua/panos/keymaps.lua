@@ -107,4 +107,14 @@ keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
 -- }}}
 
+-- dial {{{
+keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
+keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
+keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
+keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
+keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
+keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
+--- }}}
+
+
 -- vim:foldmethod=marker:foldlevel=0
