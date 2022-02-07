@@ -62,10 +62,11 @@ return packer.startup(function(use)
 
   use 'godlygeek/tabular'  -- tabular.vim: Text aligning tools
 
+  -- status line{{{
   use 'vim-airline/vim-airline'  -- vim-airline: Lean & mean status/tabline for vim
   use 'vim-airline/vim-airline-themes'
       vim.g.airline_theme='gruvbox'
-
+--}}}
   use 'easymotion/vim-easymotion'  -- Easymotion - Vim motion on speed!
 
   use 'tpope/vim-abolish'  -- abolish  - Tim pope's plugin for working with variants of a word
