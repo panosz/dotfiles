@@ -18,6 +18,7 @@ require "panos.telescope"
 require "panos.toggleterm"
 require "panos.dial"
 require "panos.commands"
+require "panos.lualine"
 
 
 vim.cmd "colorscheme gruvbox"

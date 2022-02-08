@@ -63,9 +63,10 @@ return packer.startup(function(use)
   use 'godlygeek/tabular'  -- tabular.vim: Text aligning tools
 
   -- status line{{{
-  use 'vim-airline/vim-airline'  -- vim-airline: Lean & mean status/tabline for vim
-  use 'vim-airline/vim-airline-themes'
-      vim.g.airline_theme='gruvbox'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 --}}}
   use 'easymotion/vim-easymotion'  -- Easymotion - Vim motion on speed!
 
