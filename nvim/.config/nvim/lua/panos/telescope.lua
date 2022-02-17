@@ -88,12 +88,12 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- media_files = {
-        -- -- filetypes whitelist
-        -- -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-        -- filetypes = {"png", "webp", "jpg", "jpeg", "pdf"},
-        -- find_cmd = "rg" -- find command (defaults to `fd`)
-      -- },
+    media_files = {
+        -- filetypes whitelist
+        -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+        filetypes = {"png", "webp", "jpg", "jpeg", "pdf"},
+        find_cmd = "rg" -- find command (defaults to `fd`)
+      },
       fzf ={
         fuzzy = true,                    -- false will only do exact matching
         override_generic_sorter = true,  -- override the generic sorter
