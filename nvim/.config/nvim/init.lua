@@ -19,6 +19,7 @@ require "panos.toggleterm"
 require "panos.dial"
 require "panos.commands"
 require "panos.lualine"
+require "panos.tabline"
 
 
 vim.cmd "colorscheme gruvbox"

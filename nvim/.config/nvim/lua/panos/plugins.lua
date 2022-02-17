@@ -68,6 +68,13 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 --}}}
+-- tabline{{{
+  use {
+    'romgrk/barbar.nvim',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+--}}}
+
   use 'easymotion/vim-easymotion'  -- Easymotion - Vim motion on speed!
 
   use 'tpope/vim-abolish'  -- abolish  - Tim pope's plugin for working with variants of a word
