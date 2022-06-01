@@ -30,6 +30,13 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+# conda {{{
+source ~/miniconda3/etc/profile.d/conda.sh
+if [[ -z ${CONDA_PREFIX+x} ]]; then
+    export PATH="~/conda/bin:$PATH"
+fi
+# }}}
+
 source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 # Antigen {{{
   source $HOME/.lib/antigen/antigen.zsh
