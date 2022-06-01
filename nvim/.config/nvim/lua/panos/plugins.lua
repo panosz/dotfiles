@@ -139,6 +139,7 @@ return packer.startup(function(use)
   }
   use "nvim-treesitter/playground"
   use "nvim-treesitter/nvim-treesitter-textobjects"
+  use "p00f/nvim-ts-rainbow"
   --}}}
 --{{{ devicons - add filetype signs to your plugins
   use {
@@ -152,6 +153,9 @@ use 'kyazdani42/nvim-tree.lua' -- A File Explorer For Neovim Written In Lua
 use "akinsho/toggleterm.nvim"
 use "lukas-reineke/indent-blankline.nvim"
 use "monaqa/dial.nvim" -- Extended increment/decrement plugin for Neovim.
+use  "xiyaowong/nvim-transparent" 
+use  "sunjon/Shade.nvim" 
+
 
 
   -- Automatically set up your configuration after cloning packer.nvim
