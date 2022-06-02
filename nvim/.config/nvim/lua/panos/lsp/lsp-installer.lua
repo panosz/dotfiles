@@ -5,9 +5,14 @@ end
 
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
+local function my_custom_attach(client, bufnr)
+  require("panos.lsp.handlers").on_attach(client, bufnr)
+  require("aerial").on_attach(client, bufnr)
+end
+
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("panos.lsp.handlers").on_attach,
+		on_attach = my_custom_attach,
 		capabilities = require("panos.lsp.handlers").capabilities,
 	}
 

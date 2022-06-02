@@ -46,6 +46,8 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   --{{{ colorschemes
   use 'morhetz/gruvbox'  -- gruvbox: Colorscheme for Vim
+  use 'EdenEast/nightfox.nvim'  -- nightfox: Colorscheme for Vim
+
   --}}}
   use 'tpope/vim-unimpaired' -- Vim-Unimpared - useful mappings
   use 'lervag/vimtex'  -- vimtex
@@ -153,8 +155,9 @@ use 'kyazdani42/nvim-tree.lua' -- A File Explorer For Neovim Written In Lua
 use "akinsho/toggleterm.nvim"
 use "lukas-reineke/indent-blankline.nvim"
 use "monaqa/dial.nvim" -- Extended increment/decrement plugin for Neovim.
-use  "xiyaowong/nvim-transparent" 
-use  "sunjon/Shade.nvim" 
+use  "xiyaowong/nvim-transparent"
+use  "lambdalisue/glyph-palette.vim"
+use  "stevearc/aerial.nvim"  -- A code outline window for skimming and quick navigation
 
 
 
