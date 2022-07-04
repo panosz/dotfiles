@@ -21,6 +21,8 @@ require "panos.dial"
 require "panos.commands"
 require "panos.lualine"
 require "panos.tabline"
+require "panos.blankline"
+
 
 vim.cmd[[
 	augroup my-glyph-palette
