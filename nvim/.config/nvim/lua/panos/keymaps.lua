@@ -117,5 +117,17 @@ keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
 keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
 --- }}}
 
+-- hop{{{
+vim.api.nvim_set_keymap('', '<Leader><Leader>w', "<cmd>HopWordAC<cr>", {})
+vim.api.nvim_set_keymap('', '<Leader><Leader>W', "<cmd>HopWordBC<cr>", {})
+vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineBC<cr>", {})
+vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineAC<cr>", {})
+vim.api.nvim_set_keymap('', '<Leader><Leader>k', "<cmd>HopLineBC<cr>", {})
+vim.api.nvim_set_keymap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+-- }}}
+
 
 -- vim:foldmethod=marker:foldlevel=0

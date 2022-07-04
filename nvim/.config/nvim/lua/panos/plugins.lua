@@ -77,7 +77,14 @@ return packer.startup(function(use)
   }
 --}}}
 
-  use 'easymotion/vim-easymotion'  -- Easymotion - Vim motion on speed!
+  use {
+    'phaazon/hop.nvim', -- Easymotion-like plugin
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
 
   use 'tpope/vim-abolish'  -- abolish  - Tim pope's plugin for working with variants of a word
 
