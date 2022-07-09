@@ -33,7 +33,9 @@ local options = {
     sidescrolloff=5,                                -- The minimal number of screen columns to keep to the left and to the right of the cursor if 'nowrap' is set.
     history=1000,                                   -- Determine number of entries of ":" commands and previous search patterns that is remembered.
     tags="tags;",                                   -- look for tags recursively in parent directories, (due to ';')
-    foldmethod="marker",                            -- Use markers for folding
+    -- foldmethod="marker",                            -- Use markers for folding
+    foldmethod="expr",                              -- Use ...
+    foldexpr="nvim_treesitter#foldexpr()",           -- treesitter for folding
      --}}}
 -- Searching{{{
     incsearch=true,                                 -- search as characters are entered
