@@ -165,7 +165,16 @@ use "monaqa/dial.nvim" -- Extended increment/decrement plugin for Neovim.
 use  "xiyaowong/nvim-transparent"
 use  "lambdalisue/glyph-palette.vim"
 use  "stevearc/aerial.nvim"  -- A code outline window for skimming and quick navigation
-
+use {
+  "ahmedkhalf/project.nvim", -- an all in one neovim plugin written in lua that provides superior project management.
+  config = function()
+    require("project_nvim").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 
 
   -- Automatically set up your configuration after cloning packer.nvim
