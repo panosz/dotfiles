@@ -104,6 +104,8 @@ alias battery="system76-power profile battery"
 alias balanced="system76-power profile balanced"
 alias performance="system76-power profile performance"
 
+alias zshrc='${=EDITOR} ${HOME}/.config/zsh/.zshrc'
+
   # copy and paste{{{
    alias -g c="| xclip" # copy to X clipboard
    alias v="xclip -o" # paste from X clipboard
@@ -124,6 +126,10 @@ baby (){
   local dir
   dir=/home/panosz/Documents/medical/baby_growth
   $dir/venv/bin/python $dir/plot_data.py
+}
+
+fn (){
+$EDITOR $(rg -n '>*' "$HOME/vimwiki/"| fzf --layout=reverse --height 50% --ansi| sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
 }
 # }}}
 # history{{{
