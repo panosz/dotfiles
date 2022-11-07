@@ -134,19 +134,19 @@ ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
-  path = 2,                -- 0: Just the filename
+  path = 1,                -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path
 
-  shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+  shorting_target = 60,    -- Shortens path to leave 60 spaces in the window
   -- for other components. (terrible name, any suggestions?)
 }
 
-ins_left { 'location' }
+ins_right { 'location' }
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
-ins_left {
+ins_right {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -159,32 +159,32 @@ ins_left {
 
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
-ins_left {
-  function()
-    return '%='
-  end,
-}
-
 -- ins_left {
-  -- -- Lsp server name .
   -- function()
-    -- local msg = 'No Active Lsp'
-    -- local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    -- local clients = vim.lsp.get_active_clients()
-    -- if next(clients) == nil then
-      -- return msg
-    -- end
-    -- for _, client in ipairs(clients) do
-      -- local filetypes = client.config.filetypes
-      -- if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        -- return client.name
-      -- end
-    -- end
-    -- return msg
+    -- return '%='
   -- end,
-  -- icon = ' LSP:',
-  -- color = { fg = '#ffffff', gui = 'bold' },
 -- }
+
+ins_right {
+  -- Lsp server name .
+  function()
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  icon = ' LSP:',
+  color = { fg = '#ffffff', gui = 'bold' },
+}
 
 -- Add components to right sections
 -- ins_right {

@@ -31,7 +31,14 @@ nightfox.setup({
     modules = {             -- List of various plugins and additional options
     barbar = true,
     cmp = true,
-    diagnostic = true,
+    diagnostic = {
+      enable = true,
+      background = true,
+    },
+    native_lsp = {
+      enable = true,
+      background = true,
+    },
     gitgutter = true,
     gitsigns = true,
     glyph_palette = true,

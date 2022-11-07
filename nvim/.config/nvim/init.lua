@@ -22,7 +22,7 @@ require "panos.commands"
 require "panos.lualine"
 require "panos.tabline"
 require "panos.blankline"
-
+-- require "panos.clangd-extensions_config"
 
 vim.cmd[[
 	augroup my-glyph-palette

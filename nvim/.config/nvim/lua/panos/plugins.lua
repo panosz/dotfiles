@@ -94,7 +94,7 @@ return packer.startup(function(use)
 
   use 'mattn/calendar-vim'  -- callendar-vim
 
-  use 'tools-life/taskwiki'  -- task-wiki %integrate vim-wiki with taskwarrior
+  -- use 'tools-life/taskwiki'  -- task-wiki %integrate vim-wiki with taskwarrior
 
   use 'powerman/vim-plugin-AnsiEsc'  -- AnsiEsc %color text with Ansi escape sequences
 
@@ -175,6 +175,20 @@ use {
     }
   end
 }
+
+use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- review all changed files for any git rev.
+
+use {"p00f/clangd_extensions.nvim"} -- extensions for c/cpp
+
+-- use{ 'folke/twilight.nvim',
+  -- config = function()
+  -- require("twilight").setup {
+    -- -- your configuration comes here
+    -- -- or leave it empty to use the default settings
+    -- -- refer to the configuration section below
+  -- }
+  -- end
+-- }
 
 
   -- Automatically set up your configuration after cloning packer.nvim
