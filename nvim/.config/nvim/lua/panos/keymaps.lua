@@ -129,5 +129,8 @@ vim.api.nvim_set_keymap('', '<LocalLeader>t', "<cmd>lua require'hop'.hint_char1(
 vim.api.nvim_set_keymap('', '<LocalLeader>T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
 -- }}}
 
+-- aerial{{{
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+-- }}}
 
 -- vim:foldmethod=marker:foldlevel=0

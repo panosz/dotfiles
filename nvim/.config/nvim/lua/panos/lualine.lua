@@ -142,7 +142,10 @@ ins_left {
   -- for other components. (terrible name, any suggestions?)
 }
 
+ins_right("aerial")
+
 ins_right { 'location' }
+
 
 ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
@@ -193,6 +196,7 @@ ins_right {
   -- cond = conditions.hide_in_width,
   -- color = { fg = colors.green, gui = 'bold' },
 -- }
+
 
 ins_right {
   'filetype',
