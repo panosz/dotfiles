@@ -113,8 +113,8 @@ keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
 keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
 keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
 keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
-keymap("v", "g<C-a>", "<Plug>(dial-increment-additional)", {})
-keymap("v", "g<C-x>", "<Plug>(dial-decrement-additional)", {})
+keymap("v", "g<C-a>", "g<Plug>(dial-increment)", {})
+keymap("v", "g<C-x>", "g<Plug>(dial-decrement)", {})
 --- }}}
 
 -- hop{{{
