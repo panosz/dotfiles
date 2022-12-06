@@ -41,7 +41,7 @@ end
   --   unfocus       - close aerial when you leave the original source window
   --   switch_buffer - close aerial when you change buffers in the source window
   --   unsupported   - close aerial when attaching to a buffer that has no symbol source
-  close_automatic_events = {},
+  close_automatic_events = {"unfocus","switch_buffer"},
 
   -- Keymaps in aerial window. Can be any value that `vim.keymap.set` accepts OR a table of keymap
   -- options with a `callback` (e.g. { callback = function() ... end, desc = "", nowait = true })
@@ -191,8 +191,8 @@ end
   -- "auto" will set it to true if nvim-web-devicons or lspkind-nvim is installed.
   nerd_font = "auto",
 
-  -- Call this function when aerial attaches to a buffer.
-  on_attach = function(bufnr) end,
+  -- -- Call this function when aerial attaches to a buffer.
+  -- on_attach = function(bufnr) end,
 
   -- Call this function when aerial first sets symbols on a buffer.
   on_first_symbols = function(bufnr) end,
