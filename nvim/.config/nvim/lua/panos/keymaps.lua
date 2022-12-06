@@ -99,10 +99,12 @@ keymap("t", "<Esc>", "<C-\\><C-N>", opts) -- easier switch from terminal to norm
 keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 --}}}
 -- Telescope {{{
--- keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+local t_b = require('telescope.builtin')
+vim.keymap.set("n", "<leader>ff",t_b.find_files, opts)
+vim.keymap.set("n", "<leader>fb",t_b.buffers, opts)
+vim.keymap.set("n", "<leader>fh",t_b.help_tags, opts)
+keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
+keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>", opts)
 keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
