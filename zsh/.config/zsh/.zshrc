@@ -49,6 +49,7 @@ source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
   antigen bundle command-not-found
   antigen bundle common-aliases
   antigen bundle vi-mode
+  antigen bundle dirhistory
 
 
   # Syntax highlighting bundle.
@@ -106,13 +107,23 @@ alias performance="system76-power profile performance"
 
 alias zshrc='${=EDITOR} ${HOME}/.config/zsh/.zshrc'
 
-  # copy and paste{{{
-   alias -g c="| xclip" # copy to X clipboard
-   alias v="xclip -o" # paste from X clipboard
-   alias -g cs="| xclip -selection clipboard" # copy to clipboard so that it can be pasted to non `X` application
-   alias vs="xclip -o -selection clipboard" # paste from clipboard (from non `X` application)
+# disk usage analyzer
+alias d="ncdu --exclude /mnt --color dark"
 
-  # }}}
+
+## conda 
+alias ca="conda activate"
+
+## connections
+alias gateafs="ssh -X gateafs"
+
+# copy and paste{{{
+alias -g c="| xclip" # copy to X clipboard
+alias v="xclip -o" # paste from X clipboard
+alias -g cs="| xclip -selection clipboard" # copy to clipboard so that it can be pasted to non `X` application
+alias vs="xclip -o -selection clipboard" # paste from clipboard (from non `X` application)
+
+# }}}
 # }}}
 # custom functions{{{
 
@@ -131,6 +142,12 @@ baby (){
 fn (){
 $EDITOR $(rg -n '>*' "$HOME/vimwiki/"| fzf --layout=reverse --height 50% --ansi| sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
 }
+
+#myip - finds your current IP if your connected to the internet
+myip() {
+	lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '{ print $4 }' | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g'
+}
+
 # }}}
 # history{{{
 HISTFILE=~/.zsh_history
