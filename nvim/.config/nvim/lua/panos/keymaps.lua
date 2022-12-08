@@ -101,8 +101,19 @@ keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 -- Telescope {{{
 
 local t_b = require('telescope.builtin')
-vim.keymap.set("n", "<leader>fr",":Telescope find_files find_command=rg,--hidden,--files prompt_prefix=🔍<cr>", opts)
-vim.keymap.set("n", "<leader>ff",":Telescope find_files find_command=fdfind,--hidden,--follow,--exclude,'.git' prompt_prefix=🔍<cr>", opts)
+local function fd()
+  t_b.find_files{
+  find_command = {
+    'fdfind',
+    '--hidden',
+    '--follow',
+    '-E .git',
+  },
+  prompt_prefix='🔍',
+}
+end
+
+vim.keymap.set("n", "<leader>ff",fd, opts)
 vim.keymap.set("n", "<leader>fb",t_b.buffers, opts)
 vim.keymap.set("n", "<leader>fh",t_b.help_tags, opts)
 keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
