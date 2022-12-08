@@ -86,7 +86,7 @@ zstyle ':completion:*' menu select
 eval "$(zoxide init zsh)"
 # }}}
 # fzf{{{
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/zsh/fzf_config.zsh ] && source ~/.config/zsh/fzf_config.zsh
 #}}}
 # custom aliases {{{
 
