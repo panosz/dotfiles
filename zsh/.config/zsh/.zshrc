@@ -89,7 +89,7 @@ eval "$(zoxide init zsh)"
 [ -f ~/.config/zsh/fzf_config.zsh ] && source ~/.config/zsh/fzf_config.zsh
 #}}}
 # custom aliases {{{
-
+alias fd=fdfind # this is the name of `fd` in ubuntu, when installed with apt
 alias toka="cd ~/Documents/programming/python/Dynamics/tokamaks"
 alias vact="source venv/bin/activate"
 alias certh_connect="openvpn3 session-start --config /home/panosz/Documents/eketa/vpn/zestanakis/EKETA-T70.ovpn"
