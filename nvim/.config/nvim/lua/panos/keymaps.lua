@@ -124,6 +124,13 @@ keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('
 keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
+vim.keymap.set('n', '<leader>/', function()
+  -- Inspired by ` nvim-lua/kickstart.nvim`
+  t_b.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
 -- }}}
 
 -- dial {{{
