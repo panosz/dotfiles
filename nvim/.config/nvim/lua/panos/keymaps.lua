@@ -13,44 +13,44 @@ vim.g.maplocalleader = ","
 -- Normal{{{
 
 
-    keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
-    keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search and replace under cursor
-    keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
-	keymap("n","<Leader>w", ":w<CR>|", opts) -- Save file
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
+keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search and replace under cursor
+keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
+keymap("n", "<Leader>w", ":w<CR>|", opts) -- Save file
 
 
-    keymap("n", "<Leader>t", ":vs |:term<CR> i", opts) -- open terminal in vertical split
-    keymap("n", "<Leader>T", ":sp |:term<CR> i", opts) -- open terminal in horizontal split
+keymap("n", "<Leader>t", ":vs |:term<CR> i", opts) -- open terminal in vertical split
+keymap("n", "<Leader>T", ":sp |:term<CR> i", opts) -- open terminal in horizontal split
 
-    keymap("n", "gV", "`[v`]", opts) -- highlight last inserted text
+keymap("n", "gV", "`[v`]", opts) -- highlight last inserted text
 
-    keymap("n", "<leader>n", ":nohlsearch<CR>", opts) -- turn off search highlight
+keymap("n", "<leader>n", ":nohlsearch<CR>", opts) -- turn off search highlight
 
-    keymap("n", "<F5>", ":MundoToggle<CR>", opts) -- Toggle undo tree
-	-- Better window navigation{{{
-	keymap("n", "<C-h>", "<C-w>h", opts)
-	keymap("n", "<C-j>", "<C-w>j", opts)
-	keymap("n", "<C-k>", "<C-w>k", opts)
-	keymap("n", "<C-l>", "<C-w>l", opts)
-	--}}}
+keymap("n", "<F5>", ":MundoToggle<CR>", opts) -- Toggle undo tree
+-- Better window navigation{{{
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+--}}}
 
 -- move vertically by visual line{{{
-	keymap("n","j", "gj",opts)
-	keymap("n","k", "gk",opts)
-    --}}}
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+--}}}
 
 -- Resize with arrows{{{
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts) 
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 --}}}
 
 --}}}
 
 -- Insert {{{
-	-- Press jk fast to esc
-	keymap("i", "jk", "<ESC>", opts)
+-- Press jk fast to esc
+keymap("i", "jk", "<ESC>", opts)
 --}}}
 
 -- Visual --{{{
@@ -70,23 +70,23 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 --}}}
 --}}}
 
-	-- copy and paste {{{
-	keymap("n","<Leader>y","\"+y", opts)
-	keymap("n","<Leader>Y","\"+Y", opts)
-	keymap("n","<Leader>d","\"+d", opts)
-	keymap("n","<Leader>p","\"+p", opts)
-	keymap("n","<Leader>P","\"+P", opts)
-	keymap("n","<Leader>p","\"+p", opts)
-	keymap("n","<Leader>P","\"+P", opts)
+-- copy and paste {{{
+keymap("n", "<Leader>y", "\"+y", opts)
+keymap("n", "<Leader>Y", "\"+Y", opts)
+keymap("n", "<Leader>d", "\"+d", opts)
+keymap("n", "<Leader>p", "\"+p", opts)
+keymap("n", "<Leader>P", "\"+P", opts)
+keymap("n", "<Leader>p", "\"+p", opts)
+keymap("n", "<Leader>P", "\"+P", opts)
 
-	keymap("v","<Leader>y","\"+y", opts)
-	keymap("v","<Leader>Y","\"+Y", opts)
-	keymap("v","<Leader>d","\"+d", opts)
-	keymap("v","<Leader>p","\"+p", opts)
-	keymap("v","<Leader>P","\"+P", opts)
-	keymap("v","<Leader>p","\"+p", opts)
-	keymap("v","<Leader>P","\"+P", opts)
-	--  }}}
+keymap("v", "<Leader>y", "\"+y", opts)
+keymap("v", "<Leader>Y", "\"+Y", opts)
+keymap("v", "<Leader>d", "\"+d", opts)
+keymap("v", "<Leader>p", "\"+p", opts)
+keymap("v", "<Leader>P", "\"+P", opts)
+keymap("v", "<Leader>p", "\"+p", opts)
+keymap("v", "<Leader>P", "\"+P", opts)
+--  }}}
 
 -- Terminal --{{{
 -- Better terminal navigation --{{{
@@ -102,23 +102,25 @@ keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 
 local t_b = require('telescope.builtin')
 local function fd()
-  t_b.find_files{
-  find_command = {
-    'fdfind',
-    '--hidden',
-    '--follow',
-    '-E .git',
-  },
-  prompt_prefix='🔍',
-}
+  t_b.find_files {
+    find_command = {
+      'fdfind',
+      '--hidden',
+      '--follow',
+      '-E .git',
+    },
+    prompt_prefix = '🔍',
+  }
 end
 
-vim.keymap.set("n", "<leader>ff",fd, opts)
-vim.keymap.set("n", "<leader>fb",t_b.buffers, opts)
-vim.keymap.set("n", "<leader>fh",t_b.help_tags, opts)
-vim.keymap.set("n", "<leader>fw",t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
-keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
-keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>", opts)
+vim.keymap.set("n", "<leader>ff", fd, opts)
+vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
+vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
+vim.keymap.set("n", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
+keymap("n", "<leader>g",
+  "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
+keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>"
+  , opts)
 keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
@@ -139,10 +141,18 @@ vim.api.nvim_set_keymap('', '<Leader><Leader>W', "<cmd>HopWordBC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineBC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineAC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>k', "<cmd>HopLineBC<cr>", {})
-vim.api.nvim_set_keymap('', '<LocalLeader>f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('', '<LocalLeader>F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-vim.api.nvim_set_keymap('', '<LocalLeader>t', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
-vim.api.nvim_set_keymap('', '<LocalLeader>T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+vim.api.nvim_set_keymap('', '<LocalLeader>f',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', '<LocalLeader>F',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', '<LocalLeader>t',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', '<LocalLeader>T',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
+  , {})
 -- }}}
 
 -- aerial{{{
