@@ -116,7 +116,7 @@ end
 vim.keymap.set("n", "<leader>ff", fd, opts)
 vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
 vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
-vim.keymap.set("n", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
+vim.keymap.set("", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
 keymap("n", "<leader>g",
   "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>"
