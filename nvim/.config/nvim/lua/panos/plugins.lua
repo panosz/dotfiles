@@ -115,6 +115,7 @@ return packer.startup(function(use)
     },
   }
   use 'junegunn/gv.vim' -- A git commit browser.
+  use 'tpope/vim-rhubarb' -- If fugitive.vim is the Git, rhubarb.vim is the Hub
 --}}}
   -- cmp plugins{{{
   use "hrsh7th/nvim-cmp" -- The completion plugin
