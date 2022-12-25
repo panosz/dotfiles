@@ -136,11 +136,10 @@ keymap("v", "g<C-x>", "g<Plug>(dial-decrement)", {})
 --- }}}
 
 -- hop{{{
-vim.api.nvim_set_keymap('', '<Leader><Leader>w', "<cmd>HopWordAC<cr>", {})
-vim.api.nvim_set_keymap('', '<Leader><Leader>W', "<cmd>HopWordBC<cr>", {})
-vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineBC<cr>", {})
-vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineAC<cr>", {})
-vim.api.nvim_set_keymap('', '<Leader><Leader>k', "<cmd>HopLineBC<cr>", {})
+keymap('', '<Leader><Leader>w', "<cmd>HopWordAC<cr>", {})
+keymap('', '<Leader><Leader>W', "<cmd>HopWordBC<cr>", {})
+keymap('', '<Leader><Leader>j', "<cmd>HopLineAC<cr>", {})
+keymap('', '<Leader><Leader>k', "<cmd>HopLineBC<cr>", {})
 local hop = require('hop')
 local hop_hint = require('hop.hint')
 
