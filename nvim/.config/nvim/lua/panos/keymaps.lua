@@ -141,18 +141,43 @@ vim.api.nvim_set_keymap('', '<Leader><Leader>W', "<cmd>HopWordBC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineBC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>j', "<cmd>HopLineAC<cr>", {})
 vim.api.nvim_set_keymap('', '<Leader><Leader>k', "<cmd>HopLineBC<cr>", {})
-vim.api.nvim_set_keymap('', '<LocalLeader>f',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
-  , {})
-vim.api.nvim_set_keymap('', '<LocalLeader>F',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
-  , {})
-vim.api.nvim_set_keymap('', '<LocalLeader>t',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
-  , {})
-vim.api.nvim_set_keymap('', '<LocalLeader>T',
-  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
-  , {})
+local hop = require('hop')
+local hop_hint = require('hop.hint')
+
+local function fchar()
+  hop.hint_char1({
+    direction = hop_hint.HintDirection.AFTER_CURSOR,
+    current_line_only = true
+  })
+end
+
+local function Fchar()
+  hop.hint_char1({
+    direction = hop_hint.HintDirection.BEFORE_CURSOR,
+    current_line_only = true
+  })
+end
+
+local function tchar()
+  hop.hint_char1({
+    direction = hop_hint.HintDirection.AFTER_CURSOR,
+    current_line_only = true,
+    hint_offset = -1
+  })
+end
+
+local function Tchar()
+  hop.hint_char1({
+    direction = hop_hint.HintDirection.BEFORE_CURSOR,
+    current_line_only = true,
+    hint_offset = -1
+  })
+end
+
+vim.keymap.set('', '<LocalLeader>f', fchar, {})
+vim.keymap.set('', '<LocalLeader>F', Fchar, {})
+vim.keymap.set('', '<LocalLeader>t', tchar, {})
+vim.keymap.set('', '<LocalLeader>T', Tchar, {})
 -- }}}
 
 -- aerial{{{
