@@ -127,7 +127,14 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lua"
   --}}}
   -- LSP{{{
-  use "neovim/nvim-lspconfig" -- enable LSP
+    use {
+      "neovim/nvim-lspconfig", -- enable LSP
+    requires = {
+      -- Additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
+    }
+
+  }
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "ray-x/lsp_signature.nvim" -- show function signature when you type
   --}}}
