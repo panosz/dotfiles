@@ -91,7 +91,11 @@ local function lsp_keymaps(bufnr)
   nmap( bufnr, "gl", vim.diagnostic.open_float, "open float with diagnostic message")
   nmap(bufnr, "]d", vim.diagnostic.goto_next, "goto next diagnostic")
   nmap(bufnr, "<LocalLeader>q", vim.diagnostic.setloclist, "send diagnostics to local list")
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
+
+  -- Create a command `:Format` local to the LSP buffer
+  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    vim.lsp.buf.format()
+  end, { desc = 'Format current buffer with LSP' })
 end
 
 M.on_attach = function(client, bufnr)
