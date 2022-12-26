@@ -22,7 +22,7 @@ M.setup = function()
     },
     update_in_insert = true,
     underline = true,
-    source=true,
+    source = true,
     severity_sort = true,
     float = {
       focusable = false,
@@ -55,14 +55,14 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]],
+    ]] ,
       false
     )
   end
 end
 
 local nmap = function(bufnr, keys, func, desc)
--- us more easily define mappings specific for LSP related items. Inspired by kickstart.nvim 
+  -- define mappings specific for LSP related items. Inspired by kickstart.nvim
   if desc then
     desc = 'LSP: ' .. desc
   end
