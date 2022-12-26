@@ -78,6 +78,8 @@ local nmap = function(bufnr, keys, func, desc)
 
 end
 
+local tb = require("telescope.builtin")
+
 local function lsp_keymaps(bufnr)
   nmap(bufnr, "gD", vim.lsp.buf.declaration, "Goto Declaration")
   nmap(bufnr, "gd", vim.lsp.buf.definition, "Goto Definition")
@@ -85,7 +87,6 @@ local function lsp_keymaps(bufnr)
   nmap(bufnr, "gi", vim.lsp.buf.implementation, "Goto implementation")
   nmap(bufnr, "gs", vim.lsp.buf.signature_help, "signature help")
   nmap(bufnr, "<leader>rn", vim.lsp.buf.rename, "buf rename")
-  nmap(bufnr, "gr", vim.lsp.buf.references, "buf references")
   nmap(bufnr, "<leader>ca", vim.lsp.buf.code_action, "buf code action")
   nmap(bufnr, "[d", vim.diagnostic.goto_prev, "goto previous diagnostic")
   nmap( bufnr, "gl", vim.diagnostic.open_float, "open float with diagnostic message")
@@ -96,6 +97,14 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+end
+
+local function telescope_lsp_keymaps(bufnr)
+  nmap(bufnr, "gr", tb.lsp_references, "buf references")
+  nmap(bufnr, '<leader>ds', tb.lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap(bufnr, '<leader>ws', tb.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
 end
 
 M.on_attach = function(client, bufnr)
@@ -104,6 +113,7 @@ M.on_attach = function(client, bufnr)
   end
   require "lsp_signature".on_attach()
   lsp_keymaps(bufnr)
+  telescope_lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
 
