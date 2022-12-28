@@ -11,59 +11,8 @@ local servers = {
   pylsp = {},
   jsonls = require("panos.lsp.settings.jsonls"),
   clangd = {},
-  pyright = {
-    settings = {
-
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          typeCheckingMode = "off"
-        }
-      }
-    },
-
-  },
-  texlab = {
-    settings = {
-      texlab = {
-        auxDirectory = ".",
-        bibtexFormatter = "texlab",
-        build = {
-          args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-          executable = "latexmk",
-          forwardSearchAfter = false,
-          onSave = false
-        },
-        chktex = {
-          onEdit = false,
-          onOpenAndSave = false
-        },
-        diagnosticsDelay = 300,
-        formatterLineLength = 80,
-        forwardSearch = {
-          -- executable = "okular",
-          -- args = { "--unique", "file:%p#src:%l%f" },
-        },
-        latexFormatter = "latexindent",
-        latexindent = {
-          modifyLineBreaks = false
-        },
-      }
-    }
-
-  },
-  cmake = {},
-  ltex = {},
-  html = {},
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      completion = {
-        callSnippet = "Replace"
-      },
-    },
-  },
+  pyright = require("panos.lsp.settings.pyright"),
+  texlab = require("panos.lsp.settings.texlab"),
 }
 
 
