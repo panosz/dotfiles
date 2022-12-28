@@ -37,3 +37,18 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+       null_ls.builtins.diagnostics.flake8,
+       null_ls.builtins.diagnostics.chktex
+     }
+  }
+)
+require("mason-null-ls").setup({
+    ensure_installed = nil,
+    automatic_installation = true,
+    automatic_setup = false,
+})

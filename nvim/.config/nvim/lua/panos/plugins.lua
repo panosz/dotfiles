@@ -130,18 +130,23 @@ return packer.startup(function(use)
   -- LSP{{{
   use { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
-  requires = {
-    -- Automatically install LSPs to stdpath for neovim
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
 
-    -- Useful status updates for LSP
-    'j-hui/fidget.nvim',
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
 
-    -- Additional lua configuration, makes nvim stuff amazing
-    'folke/neodev.nvim',
-  },
-}
+      -- Additional lua configuration, makes nvim stuff amazing
+      'folke/neodev.nvim',
+      },
+  }
+  use { -- For non-lsp sources, such as linters
+  "jose-elias-alvarez/null-ls.nvim",
+  "jayp0521/mason-null-ls.nvim",
+  }
+
   use "ray-x/lsp_signature.nvim" -- show function signature when you type
   --}}}
   -- snippets{{{
