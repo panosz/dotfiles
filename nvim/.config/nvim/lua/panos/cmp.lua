@@ -116,6 +116,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "git" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
@@ -131,3 +132,6 @@ cmp.setup {
     entries = 'native'
   }
 }
+
+ -- Set configuration for specific filetype
+require("cmp_git").setup()

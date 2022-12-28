@@ -125,6 +125,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+  use({"petertriho/cmp-git", requires = "nvim-lua/plenary.nvim"}) -- git completins
   --}}}
   -- LSP{{{
   use { -- LSP Configuration & Plugins
