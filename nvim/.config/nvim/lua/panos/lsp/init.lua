@@ -8,5 +8,8 @@ if not lspconfig_status then
   return
 end
 
-require("panos.lsp.lsp-installer")
+
+require("panos.lsp.mason_config")
 require("panos.lsp.handlers").setup()
+-- Turn on lsp status information
+require('fidget').setup()
