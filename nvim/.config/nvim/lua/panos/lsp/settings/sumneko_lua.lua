@@ -1,9 +1,7 @@
 return {
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
+  Lua = {
+    completion = {
+      callSnippet = "Replace"
     }
   }
 }
