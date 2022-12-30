@@ -7,8 +7,8 @@ lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -23,14 +23,23 @@ lualine.setup {
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = {
-      'filename'
+      {
+        'filename',
+        path = 1, -- 0: Just the filename
+        -- 1: Relative path
+        -- 2: Absolute path
+
+        shorting_target = 60, -- Shortens path to leave 60 spaces in the window
+        -- for other components. (terrible name, any suggestions?)
+      }
+
     },
-    lualine_x = {'filetype'},
-    lualine_y = {'aerial'},
-    lualine_z = {'location', 'progress'}
+    lualine_x = { 'filetype' },
+    lualine_y = { 'aerial' },
+    lualine_z = { 'location', 'progress' }
   },
   inactive_sections = {
     lualine_a = {},
@@ -43,6 +52,5 @@ lualine.setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions={'quickfix', 'fugitive'},
+  extensions = { 'quickfix', 'fugitive' },
 }
-
