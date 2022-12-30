@@ -26,6 +26,10 @@ toggleterm.setup({
 	},
 })
 
+vim.api.nvim_set_keymap("n", "<leader>\\", ":ToggleTerm dir=%:p:h<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<leader>\\", [[<C-\><C-n>:ToggleTerm<CR>]], { noremap = true, silent = true })
+
+
 function _G.set_terminal_keymaps()
   local opts = {noremap = true}
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
