@@ -153,7 +153,7 @@ myip() {
 HISTFILE=~/.zsh_history
 HISTSIZE=5000  # lines of history within the shell
 SAVEHIST=15000 # lines of history in $HISTFILE
-HISTORY_IGNORE = '[ \t]*' # prevent commands starting with whitespace from being added to your histfile
+HISTORY_IGNORE='[ \t]*' # prevent commands starting with whitespace from being added to your histfile
 
 # This hook makes it possible to ignore the commands specified in
 # HISTORY_IGNORE from all history, so that they cannot be recalled by the up
