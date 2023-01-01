@@ -37,9 +37,10 @@ if [[ -z ${CONDA_PREFIX+x} ]]; then
 fi
 # }}}
 
-source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 # Antigen {{{
   source $HOME/.lib/antigen/antigen.zsh
+
+  antigen use oh-my-zsh
   # Load the oh-my-zsh's library.
   # antigen use oh-my-zsh
 
