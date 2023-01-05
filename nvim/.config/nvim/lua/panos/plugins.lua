@@ -207,15 +207,16 @@ use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- review a
 
 use {"p00f/clangd_extensions.nvim"} -- extensions for c/cpp
 
--- use{ 'folke/twilight.nvim',
-  -- config = function()
-  -- require("twilight").setup {
-    -- -- your configuration comes here
-    -- -- or leave it empty to use the default settings
-    -- -- refer to the configuration section below
-  -- }
-  -- end
--- }
+use{ 'folke/twilight.nvim',
+  config = function()
+  require("twilight").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+  end
+}
+
 
 
   -- Automatically set up your configuration after cloning packer.nvim
