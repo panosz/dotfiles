@@ -41,16 +41,19 @@ mason_lspconfig.setup_handlers {
 
 local null_ls = require("null-ls")
 null_ls.setup({
-    sources = {
-       null_ls.builtins.diagnostics.flake8,
-       null_ls.builtins.diagnostics.chktex,
-       null_ls.builtins.code_actions.refactoring,
-       null_ls.builtins.formatting.black,
-     }
+  sources = {
+    null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.chktex,
+    null_ls.builtins.code_actions.refactoring,
+    null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.black.with({
+      extra_args = { "--line-length", "79" }
+    }),
   }
+}
 )
 require("mason-null-ls").setup({
-    ensure_installed = nil,
-    automatic_installation = true,
-    automatic_setup = false,
+  ensure_installed = nil,
+  automatic_installation = true,
+  automatic_setup = false,
 })
