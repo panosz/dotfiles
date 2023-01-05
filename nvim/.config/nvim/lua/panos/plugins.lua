@@ -149,6 +149,14 @@ return packer.startup(function(use)
 
   use "ray-x/lsp_signature.nvim" -- show function signature when you type
   --}}}
+use { -- refactoring tool
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+}
+
   -- snippets{{{
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
