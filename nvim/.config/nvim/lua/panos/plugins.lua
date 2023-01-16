@@ -148,7 +148,19 @@ return packer.startup(function(use)
   }
 
   use "ray-x/lsp_signature.nvim" -- show function signature when you type
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require "panos.copilot"
+      end, 10)
+    end,
+  }
+
   --}}}
+
 use { -- refactoring tool
     "ThePrimeagen/refactoring.nvim",
     requires = {
