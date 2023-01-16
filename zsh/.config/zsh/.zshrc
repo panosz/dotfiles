@@ -37,11 +37,18 @@ if [[ -z ${CONDA_PREFIX+x} ]]; then
 fi
 # }}}
 
-source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
+
+# options {{{ man zshoptions for more info
+setopt auto_cd
+setopt multios
+setopt prompt_subst
+# }}}
+
+# source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 # Antigen {{{
   source $HOME/.lib/antigen/antigen.zsh
   # Load the oh-my-zsh's library.
-  # antigen use oh-my-zsh
+  antigen use oh-my-zsh
 
   # Bundles from the default repo (robbyrussell's oh-my-zsh).
   antigen bundle git
