@@ -49,6 +49,8 @@ null_ls.setup({
     null_ls.builtins.formatting.black.with({
       extra_args = { "--line-length", "79" }
     }),
+	null_ls.builtins.formatting.beautysh,
+	null_ls.builtins.diagnostics.zsh
   }
 }
 )
