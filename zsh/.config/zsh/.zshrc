@@ -73,7 +73,7 @@ setopt prompt_subst
   antigen bundle MichaelAquilina/zsh-you-should-use
 
   # theme
-  antigen theme romkatv/powerlevel10k
+  # antigen theme romkatv/powerlevel10k
 
   # Tell Antigen that you're done.
   antigen apply
@@ -88,7 +88,7 @@ compinit
 zstyle ':completion:*' menu select
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # zoxide{{{
 eval "$(zoxide init zsh)"
@@ -183,3 +183,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# enable starship
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
