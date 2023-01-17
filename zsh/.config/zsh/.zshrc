@@ -48,35 +48,8 @@ setopt prompt_subst
 # Antigen {{{
   ANTIGEN_PATH=~/dotfiles
   source $ANTIGEN_PATH/antigen/antigen.zsh
-  # Load the oh-my-zsh's library.
-  antigen use oh-my-zsh
-
-  # Bundles from the default repo (robbyrussell's oh-my-zsh).
-  antigen bundle git
-  antigen bundle pip
-  antigen bundle command-not-found
-  antigen bundle common-aliases
-  antigen bundle vi-mode
-  antigen bundle dirhistory
-
-
-  # Syntax highlighting bundle.
-  antigen bundle zsh-users/zsh-syntax-highlighting
-
-  # ZSH-z - a native ZSH port of rupa/z,
-  antigen bundle agkozak/zsh-z
-
-  # taskwarrior. Add it here, because adding it before zsh-z breaks zsh-z's tab autocompletion
-  antigen bundle taskwarrior
-
-  # suggest existing aliases.
-  antigen bundle MichaelAquilina/zsh-you-should-use
-
-  # theme
-  # antigen theme romkatv/powerlevel10k
-
-  # Tell Antigen that you're done.
-  antigen apply
+  ## Load antigen configuration (see [https://github.com/zsh-users/antigen/wiki/Cookbook#init-command])
+  antigen init ~/.config/zsh/.antigenrc
 # }}}
 
 # The following lines were added by compinstall
