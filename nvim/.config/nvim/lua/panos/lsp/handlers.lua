@@ -42,6 +42,7 @@ M.setup = function()
 
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = "rounded",
+    focus = false,
   })
 end
 
@@ -78,6 +79,24 @@ local nmap = function(bufnr, keys, func, desc)
 
 end
 
+local imap = function(bufnr, keys, func, desc)
+  -- define mappings specific for LSP related items. Inspired by kickstart.nvim
+  if desc then
+    desc = 'LSP: ' .. desc
+  end
+
+  local opts = {
+    buffer = bufnr,
+    desc = desc,
+    noremap = true,
+    silent = true
+  }
+
+  vim.keymap.set('i', keys, func, opts)
+
+end
+
+
 local tb = require("telescope.builtin")
 
 local function lsp_keymaps(bufnr)
@@ -85,7 +104,8 @@ local function lsp_keymaps(bufnr)
   nmap(bufnr, "gd", vim.lsp.buf.definition, "Goto Definition")
   nmap(bufnr, "K", vim.lsp.buf.hover, "Hover documentation")
   nmap(bufnr, "gi", vim.lsp.buf.implementation, "Goto implementation")
-  nmap(bufnr, "gs", vim.lsp.buf.signature_help, "signature help")
+  nmap(bufnr, "<C-s>", vim.lsp.buf.signature_help, "signature help")
+  imap(bufnr, "<C-s>", vim.lsp.buf.signature_help, "signature help")
   nmap(bufnr, "<leader>rn", vim.lsp.buf.rename, "buf rename")
   nmap(bufnr, "<leader>ca", vim.lsp.buf.code_action, "buf code action")
   nmap(bufnr, "[d", vim.diagnostic.goto_prev, "goto previous diagnostic")
@@ -116,7 +136,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
-  require "lsp_signature".on_attach()
+  -- require "lsp_signature".on_attach()
   lsp_keymaps(bufnr)
   telescope_lsp_keymaps(bufnr)
   lsp_highlight_document(client)
