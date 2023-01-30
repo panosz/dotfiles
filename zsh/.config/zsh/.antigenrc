@@ -23,7 +23,7 @@
   antigen bundle MichaelAquilina/zsh-you-should-use
 
   # theme
-  # antigen theme romkatv/powerlevel10k
+  antigen theme romkatv/powerlevel10k
 
   # Tell Antigen that you're done.
   antigen apply
