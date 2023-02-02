@@ -161,6 +161,7 @@ return packer.startup(function(use)
       end, 10)
     end,
   }
+  use "zbirenbaum/neodim" -- dim the highlights of unused elements
 
   --}}}
 
