@@ -90,7 +90,10 @@ return packer.startup(function(use)
 
   use 'Vimjas/vim-python-pep8-indent'  -- A nicer Python indentation style for vim
 
-  use 'vimwiki/vimwiki'  -- vim-wiki
+  use {
+    'vimwiki/vimwiki', -- vim-wiki
+    branch = 'dev'
+}
 
   use 'mattn/calendar-vim'  -- callendar-vim
 

@@ -1,14 +1,13 @@
 local wiki = {
-  path = '~/vimwiki/',
+  path = '~/vimwiki_markdown/',
   syntax = 'markdown',
-  ext = '.wiki',
+  ext = '.md',
   diary_caption_level = 2,
   auto_diary_index = 1,
   auto_tags = 1,
 }
 
 vim.g.vimwiki_list = {wiki}
+vim.g.vimwiki_hl_headers= 1 --Use group colors to highlight different header levels.
 
--- " Append wiki file extension to links in Markdown. This is needed for
--- " compatibility with other Markdown tools.
-vim.g.vimwiki_markdown_link_ext = 1
+vim.g.vimwiki_global_ext = 0 -- Dont treat other makrdown files as wikis
