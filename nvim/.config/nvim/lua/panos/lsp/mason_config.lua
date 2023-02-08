@@ -50,6 +50,7 @@ null_ls.setup({
       extra_args = { "--line-length", "79" }
     }),
 	null_ls.builtins.formatting.beautysh,
+	null_ls.builtins.formatting.stylua,
 	null_ls.builtins.diagnostics.zsh
   }
 }
