@@ -189,6 +189,7 @@ use { -- refactoring tool
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }-- improve sorting performance
   use 'nvim-telescope/telescope-symbols.nvim' -- symbols
   use 'jvgrootveld/telescope-zoxide' -- integration with zoxide
+  use 'nvim-telescope/telescope-project.nvim' -- switch between projects
   --}}}
 -- Treesitter {{{
   use {

@@ -138,7 +138,7 @@ dashboard.section.buttons.val = {
 dashboard.button("<spc>ft", "  > nnn", "<cmd>lua _nnn_toggle()<cr>"),
 dashboard.button("<spc>o", "  > open file",
 "<cmd>Telescope find_files<cr>"),
-dashboard.button("p", "  > projects", "<cmd>Telescope projects<cr>"),
+dashboard.button("p", "  > projects", "<cmd>Telescope project<cr>"),
 dashboard.button("l", "  > mason", "<cmd>Mason<cr>"),
 dashboard.button("h", "  > health", "<cmd>checkhealth<cr>"),
 dashboard.button("s", "  > settings", "<cmd>e $MYVIMRC | :cd %:p:h<cr>"),
