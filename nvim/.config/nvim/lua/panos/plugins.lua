@@ -103,7 +103,13 @@ return packer.startup(function(use)
 
   use 'farseer90718/vim-taskwarrior'  -- vim-taskwarrior %a vim interface for taskwarrior
 
-  use 'mhinz/vim-startify'  -- vim-startify %a fancy start screen
+  -- use 'mhinz/vim-startify'  -- vim-startify %a fancy start screen
+  use {
+      'goolord/alpha-nvim',
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      end
+  }
 
   use 'tpope/vim-eunuch'  -- eunuch.vim: Helpers for UNIX shell commands
 
