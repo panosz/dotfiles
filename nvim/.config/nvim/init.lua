@@ -24,6 +24,7 @@ require "panos.tabline"
 require "panos.blankline"
 -- require "panos.clangd-extensions_config"
 -- require "panos.copilot"
+require "panos.neodim"
 
 vim.cmd[[
 	augroup my-glyph-palette
