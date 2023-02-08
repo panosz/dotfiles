@@ -5,6 +5,7 @@ end
 
 
 local actions = require "telescope.actions"
+local themes = require "telescope.themes"
 
 telescope.setup {
   defaults = {
@@ -86,6 +87,31 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+    find_files = {
+      find_command = {
+        'fdfind',
+        '--hidden',
+        '--follow',
+        '-E .git',
+      },
+      prompt_prefix = '🔍',
+    },
+
+    git_files = themes.get_dropdown(),
+    oldfiles = themes.get_dropdown(),
+
+    live_grep = {
+      additional_args = {
+        '--hidden',
+      },
+    },
+
+    current_buffer_fuzzy_find = themes.get_dropdown({
+      winblend = 10,
+      previewer = false,
+    }),
+
+
   },
   extensions = {
     media_files = {

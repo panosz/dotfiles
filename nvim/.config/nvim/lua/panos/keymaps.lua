@@ -99,46 +99,17 @@ keymap("t", "<Esc>", "<C-\\><C-N>", opts) -- easier switch from terminal to norm
 keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 --}}}
 -- Telescope {{{
-
 local t_b = require('telescope.builtin')
-local function fd()
-  t_b.find_files {
-    find_command = {
-      'fdfind',
-      '--hidden',
-      '--follow',
-      '-E .git',
-    },
-    prompt_prefix = '🔍',
-  }
-end
-
-local function live_grep()
-  t_b.live_grep {
-    additional_args = {
-      '--hidden',
-    },
-  }
-end
-
-vim.keymap.set("n", "<leader>ff", fd, opts)
+local t_zoxide = require('telescope').extensions.zoxide
+vim.keymap.set("n", "<leader>ff", t_b.find_files, opts)
 vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
 vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
 vim.keymap.set("", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
-keymap("n", "<leader>g",
-  "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
-keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>"
-  , opts)
-vim.keymap.set("n", "<c-g>", live_grep, opts)
-keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
-
-vim.keymap.set('n', '<leader>/', function()
-  -- Inspired by ` nvim-lua/kickstart.nvim`
-  t_b.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer]' })
+vim.keymap.set("n", "<leader>g", t_b.git_files, { desc = '[G]it files', noremap = true, silent = true })
+vim.keymap.set("n", "<leader>o", t_b.oldfiles, { desc = '[O]ld files', noremap = true, silent = true })
+vim.keymap.set("n", "<c-g>", t_b.live_grep, opts)
+vim.keymap.set("n", "<leader>cd", t_zoxide.list, opts)
+vim.keymap.set('n', '<leader>/', t_b.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer]' , noremap = true, silent = true})
 -- }}}
 
 -- dial {{{
