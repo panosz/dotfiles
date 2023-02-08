@@ -113,6 +113,14 @@ local function fd()
   }
 end
 
+local function live_grep()
+  t_b.live_grep {
+    additional_args = {
+      '--hidden',
+    },
+  }
+end
+
 vim.keymap.set("n", "<leader>ff", fd, opts)
 vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
 vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
@@ -121,7 +129,7 @@ keymap("n", "<leader>g",
   "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({}))<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({}))<cr>"
   , opts)
-keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", opts)
+vim.keymap.set("n", "<c-g>", live_grep, opts)
 keymap("n", "<leader>cd", "<cmd>Telescope zoxide list<cr>", opts)
 
 vim.keymap.set('n', '<leader>/', function()
