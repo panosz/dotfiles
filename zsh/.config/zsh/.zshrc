@@ -134,20 +134,7 @@ myip() {
 HISTFILE=~/.zsh_history
 HISTSIZE=5000  # lines of history within the shell
 SAVEHIST=15000 # lines of history in $HISTFILE
-HISTORY_IGNORE='[ \t]*' # prevent commands starting with whitespace from being added to your histfile
-
-# This hook makes it possible to ignore the commands specified in
-# HISTORY_IGNORE from all history, so that they cannot be recalled by the up
-# and down buttons. See https://unix.stackexchange.com/a/593637/351934
-
-zshaddhistory() {
-  emulate -L zsh
-  ## uncomment if HISTORY_IGNORE
-  ## should use EXTENDED_GLOB syntax
-  # setopt extendedglob
-  [[ $1 != ${~HISTORY_IGNORE} ]]
-}
-
+setopt hist_ignore_space # remove command from history if it starts with a space
 # }}}
 
 export NVM_DIR="$HOME/.nvm"
