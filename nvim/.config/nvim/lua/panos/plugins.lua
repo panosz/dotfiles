@@ -104,12 +104,15 @@ return packer.startup(function(use)
   use 'farseer90718/vim-taskwarrior'  -- vim-taskwarrior %a vim interface for taskwarrior
 
   -- use 'mhinz/vim-startify'  -- vim-startify %a fancy start screen
-  use {
-      'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.config)
-      end
-  }
+  -- use {
+      -- 'goolord/alpha-nvim',
+      -- config = function ()
+          -- require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      -- end
+  -- }
+
+  use 'echasnovski/mini.nvim'
+
 
   use 'tpope/vim-eunuch'  -- eunuch.vim: Helpers for UNIX shell commands
 
@@ -192,6 +195,13 @@ use { -- refactoring tool
   use 'nvim-telescope/telescope-project.nvim' -- switch between projects
   use { "nvim-telescope/telescope-frecency.nvim", -- intelligent prioritization when selecting files from your editing history.
         requires = {"kkharji/sqlite.lua"}
+  }
+  use {
+    'rmagatti/session-lens',
+    requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+    config = function()
+      require('session-lens').setup({--[[your custom config--]]})
+    end
   }
   --}}}
 -- Treesitter {{{
