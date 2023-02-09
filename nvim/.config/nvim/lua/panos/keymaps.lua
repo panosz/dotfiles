@@ -101,10 +101,13 @@ keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 -- Telescope {{{
 local t_b = require('telescope.builtin')
 local t_zoxide = require('telescope').extensions.zoxide
+local t_frecency = require('telescope').extensions.frecency.frecency
+
 vim.keymap.set("n", "<leader>ff", t_b.find_files, opts)
 vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
 vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
 vim.keymap.set("", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fr", t_frecency, { desc = '[F]ind [R]recent', noremap = true, silent = true })
 vim.keymap.set("n", "<leader>g", t_b.git_files, { desc = '[G]it files', noremap = true, silent = true })
 vim.keymap.set("n", "<leader>o", t_b.oldfiles, { desc = '[O]ld files', noremap = true, silent = true })
 vim.keymap.set("n", "<c-g>", t_b.live_grep, opts)

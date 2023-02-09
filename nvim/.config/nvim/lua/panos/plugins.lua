@@ -190,6 +190,9 @@ use { -- refactoring tool
   use 'nvim-telescope/telescope-symbols.nvim' -- symbols
   use 'jvgrootveld/telescope-zoxide' -- integration with zoxide
   use 'nvim-telescope/telescope-project.nvim' -- switch between projects
+  use { "nvim-telescope/telescope-frecency.nvim", -- intelligent prioritization when selecting files from your editing history.
+        requires = {"kkharji/sqlite.lua"}
+  }
   --}}}
 -- Treesitter {{{
   use {
