@@ -1,9 +1,4 @@
-local header_art = 
-[[
- ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
- │││├┤ │ │╰┐┌╯││││
- ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
-]]
+local header_art = require('panos.header_art')
 
 -- using the mini plugins
 require('mini.sessions').setup({
@@ -37,6 +32,7 @@ starter.setup({
     starter.gen_hook.adding_bullet("» "),
     starter.gen_hook.aligning('center', 'center'),
   },
-  header = header_art,
+  header = header_art[#header_art],
+  -- header = header_art[math.random(#header_art)],
   footer = '',
 })

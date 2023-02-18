@@ -25,7 +25,7 @@ require "panos.blankline"
 -- require "panos.clangd-extensions_config"
 -- require "panos.copilot"
 require "panos.neodim"
-require "panos.mini"
+require "panos.alpha"
 require "panos.session_manager"
 
 vim.cmd[[
