@@ -46,8 +46,14 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   --{{{ colorschemes
   use 'morhetz/gruvbox'  -- gruvbox: Colorscheme for Vim
+  use 'lifepillar/vim-gruvbox8'
+  use 'sainnhe/gruvbox-material'
   use 'EdenEast/nightfox.nvim'  -- nightfox: Colorscheme for Vim
-
+  use 'cocopon/iceberg.vim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use  'sainnhe/sonokai'
+  use 'savq/melange-nvim'
+  use 'aktersnurra/no-clown-fiesta.nvim'
   --}}}
   use 'tpope/vim-unimpaired' -- Vim-Unimpared - useful mappings
   use 'lervag/vimtex'  -- vimtex
