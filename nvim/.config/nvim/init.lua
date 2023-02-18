@@ -26,6 +26,7 @@ require "panos.blankline"
 -- require "panos.copilot"
 require "panos.neodim"
 require "panos.mini"
+require "panos.session_manager"
 
 vim.cmd[[
 	augroup my-glyph-palette

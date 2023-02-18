@@ -202,14 +202,12 @@ use { -- refactoring tool
   use { "nvim-telescope/telescope-frecency.nvim", -- intelligent prioritization when selecting files from your editing history.
         requires = {"kkharji/sqlite.lua"}
   }
-  -- use {
-    -- 'rmagatti/session-lens',
-    -- requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
-    -- config = function()
-      -- require('session-lens').setup({[>your custom config--<]})
-    -- end
-  -- }
-  --}}}
+  use {'nvim-telescope/telescope-ui-select.nvim' } -- It sets vim.ui.select to telescope
+---}}}
+
+
+  use 'Shatur/neovim-session-manager' -- neovim session manager
+
 -- Treesitter {{{
   use {
     "nvim-treesitter/nvim-treesitter",
