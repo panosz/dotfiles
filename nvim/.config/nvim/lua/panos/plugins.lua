@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use  'sainnhe/sonokai'
   use 'savq/melange-nvim'
   use 'aktersnurra/no-clown-fiesta.nvim'
+  use 'arcticicestudio/nord-vim'
   --}}}
   use 'tpope/vim-unimpaired' -- Vim-Unimpared - useful mappings
   use 'lervag/vimtex'  -- vimtex
@@ -249,6 +250,10 @@ use{ 'folke/twilight.nvim',
   end
 }
 
+use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
 
 
   -- Automatically set up your configuration after cloning packer.nvim
