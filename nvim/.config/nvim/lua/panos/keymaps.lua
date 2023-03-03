@@ -1,7 +1,7 @@
 -- Shorten function and options{{{
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 --}}}
 
 -- leader key{{{
@@ -97,6 +97,15 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 --}}}
 keymap("t", "<Esc>", "<C-\\><C-N>", opts) -- easier switch from terminal to normal mode
 keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
+
+-- run current buffer in an ipython terminal
+local function ipython_term()
+  local fname = vim.fn.expand("%:p")
+  local file_dir = vim.fn.expand("%:p:h") 
+  local cmd = "cd " .. file_dir .. "; echo " .. fname
+  vim.cmd("vnew | term " .. cmd)
+end
+
 --}}}
 -- Telescope {{{
 local t_b = require('telescope.builtin')
@@ -104,9 +113,9 @@ local t_zoxide = require('telescope').extensions.zoxide
 local t_frecency = require('telescope').extensions.frecency.frecency
 local t_project = require('telescope').extensions.project.project
 
-vim.keymap.set("n", "<leader>ff", t_b.find_files, opts)
-vim.keymap.set("n", "<leader>fb", t_b.buffers, opts)
-vim.keymap.set("n", "<leader>fh", t_b.help_tags, opts)
+vim.keymap.set("n", "<leader>ff", t_b.find_files, { desc = '[F]ind [F]ile', noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fb", t_b.buffers, { desc = '[F]ind [B]ufer', noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fh", t_b.help_tags, { desc = '[F]ind [H]elp', noremap = true, silent = true })
 vim.keymap.set("", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fr", t_frecency, { desc = '[F]ind [R]ecent', noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fp", t_project, { desc = '[F]ind [P]roject', noremap = true, silent = true })
@@ -118,12 +127,15 @@ vim.keymap.set('n', '<leader>/', t_b.current_buffer_fuzzy_find, { desc = '[/] Fu
 -- }}}
 
 -- dial {{{
-keymap("n", "<C-a>", "<Plug>(dial-increment)", {})
-keymap("n", "<C-x>", "<Plug>(dial-decrement)", {})
-keymap("v", "<C-a>", "<Plug>(dial-increment)", {})
-keymap("v", "<C-x>", "<Plug>(dial-decrement)", {})
-keymap("v", "g<C-a>", "g<Plug>(dial-increment)", {})
-keymap("v", "g<C-x>", "g<Plug>(dial-decrement)", {})
+local status_ok, dm = pcall(require, "dial.map")
+if status_ok then
+  keymap("n", "<C-a>", dm.inc_normal(), {noremap=true, silent=true})
+  keymap("n", "<C-x>", dm.dec_normal(), {noremap=true, silent=true})
+  keymap("v", "<C-a>", dm.inc_visual(), {noremap=true, silent=true})
+  keymap("v", "<C-x>", dm.dec_visual(), {noremap=true, silent=true})
+  keymap("v", "g<C-a>", dm.inc_gvisual(), {noremap=true, silent=true})
+  keymap("v", "g<C-x>", dm.dec_gvisual(), {noremap=true, silent=true})
+end
 --- }}}
 
 -- hop{{{
@@ -164,10 +176,10 @@ local function Tchar()
   })
 end
 
-vim.keymap.set('', '<LocalLeader>f', fchar, {})
-vim.keymap.set('', '<LocalLeader>F', Fchar, {})
-vim.keymap.set('', '<LocalLeader>t', tchar, {})
-vim.keymap.set('', '<LocalLeader>T', Tchar, {})
+vim.keymap.set('', '<Leader><Leader>f', fchar, { desc = 'find character foward', noremap = true, silent = true })
+vim.keymap.set('', '<Leader><Leader>F', Fchar, { desc = 'find character backward', noremap = true, silent = true })
+vim.keymap.set('', '<Leader><Leader>t', tchar, { desc = 'to character forward', noremap = true, silent = true })
+vim.keymap.set('', '<Leader><Leader>T', Tchar, { desc = 'to character backward', noremap = true, silent = true })
 -- }}}
 
 -- aerial{{{
