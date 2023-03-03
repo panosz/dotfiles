@@ -8,6 +8,7 @@
   antigen bundle common-aliases
   antigen bundle vi-mode
   antigen bundle dirhistory
+  antigen bundle colored-man-pages
 
 
   # Syntax highlighting bundle.
