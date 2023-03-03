@@ -121,13 +121,14 @@ baby (){
 }
 
 fn (){
-$EDITOR $(rg -n '>*' "$HOME/vimwiki/"| fzf --layout=reverse --height 50% --ansi| sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+$EDITOR $(rg -n '>*' "$HOME/vimwiki_markdown/"| fzf --layout=reverse --height 50% --ansi| sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
 }
 
 #myip - finds your current IP if your connected to the internet
 myip() {
 	lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '{ print $4 }' | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g'
 }
+
 
 # }}}
 # history{{{
