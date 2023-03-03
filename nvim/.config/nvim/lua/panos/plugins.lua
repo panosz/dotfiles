@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use 'savq/melange-nvim'
   use 'aktersnurra/no-clown-fiesta.nvim'
   use 'arcticicestudio/nord-vim'
+  use 'folke/tokyonight.nvim'
   --}}}
   use 'tpope/vim-unimpaired' -- Vim-Unimpared - useful mappings
   use 'lervag/vimtex'  -- vimtex
@@ -227,13 +228,6 @@ use  "lambdalisue/glyph-palette.vim"
 use  "stevearc/aerial.nvim"  -- A code outline window for skimming and quick navigation
 use {
   "ahmedkhalf/project.nvim", -- an all in one neovim plugin written in lua that provides superior project management.
-  config = function()
-    require("project_nvim").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
 }
 
 use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' } -- review all changed files for any git rev.
@@ -255,10 +249,46 @@ use({
     run = function() vim.fn["mkdp#util#install"]() end,
 })
 
+use {
+  "folke/trouble.nvim",
+  requires = "nvim-tree/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
+use {
+  "folke/todo-comments.nvim", -- highlight and search for todo comments in your code base
+  requires = "nvim-lua/plenary.nvim",
+  config = function()
+    require("todo-comments").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
 
+-- Lua
+use {
+  "folke/which-key.nvim", -- displays a popup with possible key bindings of the command you started typing
+  config = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+
