@@ -168,7 +168,9 @@ return packer.startup(function(use)
 
 	use("ray-x/lsp_signature.nvim") -- show function signature when you type
 
-	--}}}
+    use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
+
+	--}}} LSP
 
 	-- {{{ Colilot
 	use({
