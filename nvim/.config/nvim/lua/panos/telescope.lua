@@ -5,7 +5,44 @@ end
 
 
 local actions = require "telescope.actions"
+local action_state = require("telescope.actions.state")
 local themes = require "telescope.themes"
+
+-- Copied from benfrain
+--- Insert filename into the current buffer and keeping the insert mode. 
+actions.insert_name_i = function(prompt_bufnr)
+  local symbol = action_state.get_selected_entry().ordinal
+  actions.close(prompt_bufnr)
+  vim.schedule(function()
+    vim.cmd([[startinsert]])
+    vim.api.nvim_put({ symbol }, "", true, true)
+  end)
+end
+
+-- Copied from benfrain
+--- Insert file path and name into the current buffer and keeping the insert mode.
+actions.insert_name_and_path_i = function(prompt_bufnr)
+  local symbol = action_state.get_selected_entry().value
+  actions.close(prompt_bufnr)
+  vim.schedule(function()
+    vim.cmd([[startinsert]])
+    vim.api.nvim_put({ symbol }, "", true, true)
+  end)
+end
+
+
+--- Insert relative file path and name into the current buffer and keeping the insert mode.
+actions.insert_name_and_relative_path_i = function(prompt_bufnr)
+  local symbol = action_state.get_selected_entry().value
+  actions.close(prompt_bufnr)
+  vim.schedule(function()
+    local cwd = vim.fn.expand("%:p:h")
+    local filepath= require("plenary.path"):new(symbol)
+    filepath:make_relative(cwd)
+    vim.cmd([[startinsert]])
+    vim.api.nvim_put({ filepath.filename }, "", true, true)
+  end)
+end
 
 telescope.setup {
   defaults = {
@@ -44,6 +81,8 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+        ["<C-Y>"] = actions.insert_name_i,
+        ["<C-r>"] = actions.insert_name_and_relative_path_i,
       },
 
       n = {
@@ -76,6 +115,8 @@ telescope.setup {
         ["<PageDown>"] = actions.results_scrolling_down,
 
         ["?"] = actions.which_key,
+        ["<C-Y>"] = actions.insert_name_i,
+        ["<C-r>"] = actions.insert_name_and_relative_path_i,
       },
     },
   },
@@ -156,3 +197,4 @@ telescope.load_extension('media_files')
 telescope.load_extension('project')
 telescope.load_extension("frecency")
 telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")

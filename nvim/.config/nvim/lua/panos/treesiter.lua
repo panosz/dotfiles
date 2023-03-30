@@ -12,7 +12,16 @@ configs.setup {
     disable = { "org", "markdown" }, -- list of language that will be disabled
     additional_vim_regex_highlighting = true,
   },
-  -- indent = { enable = true, disable = { "yaml" } },
+  incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gnn", -- set to `false` to disable one of the mappings
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      },
+    },
+  indent = { enable = true, disable = { "yaml" } },
   playground = {
     enable = true,
     disable = {},
