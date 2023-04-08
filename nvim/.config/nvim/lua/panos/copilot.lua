@@ -15,12 +15,12 @@ require('copilot').setup({
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<M-l>",
+      accept = "<c-a>",
       accept_word = false,
       accept_line = false,
-      next = "<M-]>",
-      prev = "<M-[>",
-      dismiss = "<C-]>",
+      next = "<c-l>",
+      prev = "<c-h>",
+      dismiss = "<C-e>",
     },
   },
   filetypes = {
@@ -38,6 +38,3 @@ require('copilot').setup({
   copilot_node_command = 'node', -- Node.js version must be > 16.x
   server_opts_overrides = {},
 })
-
-
-
