@@ -28,6 +28,7 @@ require "panos.neodim"
 require "panos.alpha"
 require "panos.session_manager"
 require "panos.project_nvim"
+require "panos.dap-python"
 
 vim.cmd[[
 	augroup my-glyph-palette
