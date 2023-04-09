@@ -11,8 +11,6 @@ vim.g.maplocalleader = ","
 --}}}
 
 -- Normal{{{
-
-
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
 keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search and replace under cursor
 keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
@@ -113,17 +111,25 @@ local t_zoxide = require('telescope').extensions.zoxide
 local t_frecency = require('telescope').extensions.frecency.frecency
 local t_project = require('telescope').extensions.project.project
 
-vim.keymap.set("n", "<leader>ff", t_b.find_files, { desc = '[F]ind [F]ile', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fb", t_b.buffers, { desc = '[F]ind [B]ufer', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fh", t_b.help_tags, { desc = '[F]ind [H]elp', noremap = true, silent = true })
-vim.keymap.set("", "<leader>fw", t_b.grep_string, { desc = '[F]ind [W]ord', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fr", t_frecency, { desc = '[F]ind [R]ecent', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fp", t_project, { desc = '[F]ind [P]roject', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>g", t_b.git_files, { desc = '[G]it files', noremap = true, silent = true })
-vim.keymap.set("n", "<leader>o", t_b.oldfiles, { desc = '[O]ld files', noremap = true, silent = true })
-vim.keymap.set("n", "<c-g>", t_b.live_grep, opts)
-vim.keymap.set("n", "<leader>cd", t_zoxide.list, opts)
-vim.keymap.set('n', '<leader>/', t_b.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer]' , noremap = true, silent = true})
+local wk = require("which-key")
+wk.register({
+  ["<leader>"] = {
+    ["f"] = {
+      name = "+[F]ind",
+      ["f"] = { t_b.find_files, "Find File" },
+      ["b"] = { t_b.buffers, "Find Buffer" },
+      ["h"] = { t_b.help_tags, "Find Help" },
+      ["w"] = { t_b.grep_string, "Find Word" },
+      ["r"] = { t_frecency, "Find Recent" },
+      ["p"] = { t_project, "Find Project" },
+      ["d"] = { t_zoxide.list, "Find Directory" },
+      ["g"] = { t_b.git_files, "Find file in Git repo" },
+      ["o"] = { t_b.oldfiles, "Find old file" },
+      ["s"] = { t_b.live_grep, "Find string in files" },
+      ["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
+    },
+  },
+})
 -- }}}
 
 -- dial {{{
