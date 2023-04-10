@@ -136,9 +136,16 @@ vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 -- }}}
 
 -- sessions{{{
-vim.keymap.set('n', '<leader>ss', '<cmd>SessionManager save_current_session<CR>')
-vim.keymap.set('n', '<leader>sl', '<cmd>SessionManager load_session<CR>')
-vim.keymap.set('n', '<leader>sL', '<cmd>SessionManager load_last_session<CR>')
+wk.register({
+  ["<leader>"] = {
+    ["s"] = {
+      name = "+[S]ession",
+      ["s"] = { '<cmd>SessionManager save_current_session<CR>', "Save current session" },
+      ["l"] = { '<cmd>SessionManager load_session<CR>', "Load session" },
+      ["L"] = { '<cmd>SessionManager load_last_session<CR>', "Load last session" },
+    },
+  }
+})
 -- }}}
 
 -- vim:foldmethod=marker:foldlevel=0
