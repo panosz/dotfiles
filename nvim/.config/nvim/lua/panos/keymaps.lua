@@ -16,7 +16,6 @@ keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search 
 keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
 keymap("n", "<Leader>w", ":w<CR>|", opts) -- Save file
 
-
 keymap("n", "<Leader>t", ":vs |:term<CR> i", opts) -- open terminal in vertical split
 keymap("n", "<Leader>T", ":sp |:term<CR> i", opts) -- open terminal in horizontal split
 
@@ -69,21 +68,21 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 --}}}
 
 -- copy and paste {{{
-keymap("n", "<Leader>y", "\"+y", opts)
-keymap("n", "<Leader>Y", "\"+Y", opts)
-keymap("n", "<Leader>d", "\"+d", opts)
-keymap("n", "<Leader>p", "\"+p", opts)
-keymap("n", "<Leader>P", "\"+P", opts)
-keymap("n", "<Leader>p", "\"+p", opts)
-keymap("n", "<Leader>P", "\"+P", opts)
+keymap("n", "<Leader>y", '"+y', opts)
+keymap("n", "<Leader>Y", '"+Y', opts)
+keymap("n", "<Leader>d", '"+d', opts)
+keymap("n", "<Leader>p", '"+p', opts)
+keymap("n", "<Leader>P", '"+P', opts)
+keymap("n", "<Leader>p", '"+p', opts)
+keymap("n", "<Leader>P", '"+P', opts)
 
-keymap("v", "<Leader>y", "\"+y", opts)
-keymap("v", "<Leader>Y", "\"+Y", opts)
-keymap("v", "<Leader>d", "\"+d", opts)
-keymap("v", "<Leader>p", "\"+p", opts)
-keymap("v", "<Leader>P", "\"+P", opts)
-keymap("v", "<Leader>p", "\"+p", opts)
-keymap("v", "<Leader>P", "\"+P", opts)
+keymap("v", "<Leader>y", '"+y', opts)
+keymap("v", "<Leader>Y", '"+Y', opts)
+keymap("v", "<Leader>d", '"+d', opts)
+keymap("v", "<Leader>p", '"+p', opts)
+keymap("v", "<Leader>P", '"+P', opts)
+keymap("v", "<Leader>p", '"+p', opts)
+keymap("v", "<Leader>P", '"+P', opts)
 --  }}}
 
 -- Terminal --{{{
@@ -98,53 +97,52 @@ keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 
 -- run current buffer in an ipython terminal
 local function ipython_term()
-  local fname = vim.fn.expand("%:p")
-  local file_dir = vim.fn.expand("%:p:h") 
-  local cmd = "cd " .. file_dir .. "; echo " .. fname
-  vim.cmd("vnew | term " .. cmd)
+	local fname = vim.fn.expand("%:p")
+	local file_dir = vim.fn.expand("%:p:h")
+	local cmd = "cd " .. file_dir .. "; echo " .. fname
+	vim.cmd("vnew | term " .. cmd)
 end
 
 --}}}
 -- Telescope {{{
-local t_b = require('telescope.builtin')
-local t_zoxide = require('telescope').extensions.zoxide
-local t_frecency = require('telescope').extensions.frecency.frecency
-local t_project = require('telescope').extensions.project.project
+local t_b = require("telescope.builtin")
+local t_zoxide = require("telescope").extensions.zoxide
+local t_frecency = require("telescope").extensions.frecency.frecency
+local t_project = require("telescope").extensions.project.project
 
 local wk = require("which-key")
 wk.register({
-    ["f"] = {
-      name = "+[F]ind",
-      ["f"] = { t_b.find_files, "Find File" },
-      ["b"] = { t_b.buffers, "Find Buffer" },
-      ["h"] = { t_b.help_tags, "Find Help" },
-      ["w"] = { t_b.grep_string, "Find Word" },
-      ["r"] = { t_frecency, "Find Recent" },
-      ["p"] = { t_project, "Find Project" },
-      ["d"] = { t_zoxide.list, "Find Directory" },
-      ["g"] = { t_b.git_files, "Find file in Git repo" },
-      ["o"] = { t_b.oldfiles, "Find old file" },
-      ["s"] = { t_b.live_grep, "Find string in files" },
-      ["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
-  },
+	["f"] = {
+		name = "+[F]ind",
+		["f"] = { t_b.find_files, "Find File" },
+		["b"] = { t_b.buffers, "Find Buffer" },
+		["h"] = { t_b.help_tags, "Find Help" },
+		["w"] = { t_b.grep_string, "Find Word" },
+		["r"] = { t_frecency, "Find Recent" },
+		["p"] = { t_project, "Find Project" },
+		["d"] = { t_zoxide.list, "Find Directory" },
+		["g"] = { t_b.git_files, "Find file in Git repo" },
+		["o"] = { t_b.oldfiles, "Find old file" },
+		["s"] = { t_b.live_grep, "Find string in files" },
+		["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
+	},
 })
 -- }}}
 
-
 -- aerial{{{
-vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 -- }}}
 
 -- sessions{{{
 wk.register({
-  ["<leader>"] = {
-    ["s"] = {
-      name = "+[S]ession",
-      ["s"] = { '<cmd>SessionManager save_current_session<CR>', "Save current session" },
-      ["l"] = { '<cmd>SessionManager load_session<CR>', "Load session" },
-      ["L"] = { '<cmd>SessionManager load_last_session<CR>', "Load last session" },
-    },
-  }
+	["<leader>"] = {
+		["s"] = {
+			name = "+[S]ession",
+			["s"] = { "<cmd>SessionManager save_current_session<CR>", "Save current session" },
+			["l"] = { "<cmd>SessionManager load_session<CR>", "Load session" },
+			["L"] = { "<cmd>SessionManager load_last_session<CR>", "Load last session" },
+		},
+	},
 })
 -- }}}
 
