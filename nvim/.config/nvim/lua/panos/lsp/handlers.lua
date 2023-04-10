@@ -4,9 +4,9 @@ local M = {}
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
-    { name = "DiagnosticSignWarn", text = "" },
-    { name = "DiagnosticSignHint", text = "" },
-    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignWarn",  text = "" },
+    { name = "DiagnosticSignHint",  text = "" },
+    { name = "DiagnosticSignInfo",  text = "" },
   }
 
   for _, sign in ipairs(signs) do
@@ -56,7 +56,7 @@ local function lsp_highlight_document(client)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]] ,
+    ]],
       false
     )
   end
@@ -76,7 +76,6 @@ local nmap = function(bufnr, keys, func, desc)
   }
 
   vim.keymap.set('n', keys, func, opts)
-
 end
 
 local imap = function(bufnr, keys, func, desc)
@@ -93,44 +92,58 @@ local imap = function(bufnr, keys, func, desc)
   }
 
   vim.keymap.set('i', keys, func, opts)
-
 end
 
 
 local tb = require("telescope.builtin")
+local wk = require("which-key")
 
 local function lsp_keymaps(bufnr)
-  nmap(bufnr, "gD", vim.lsp.buf.declaration, "Goto Declaration")
-  nmap(bufnr, "gd", vim.lsp.buf.definition, "Goto Definition")
-  nmap(bufnr, "K", vim.lsp.buf.hover, "Hover documentation")
-  nmap(bufnr, "gi", vim.lsp.buf.implementation, "Goto implementation")
-  nmap(bufnr, "<C-s>", vim.lsp.buf.signature_help, "signature help")
-  imap(bufnr, "<C-s>", vim.lsp.buf.signature_help, "signature help")
-  nmap(bufnr, "<leader>rn", vim.lsp.buf.rename, "buf rename")
-  nmap(bufnr, "<leader>ca", vim.lsp.buf.code_action, "buf code action")
-  nmap(bufnr, "[d", vim.diagnostic.goto_prev, "goto previous diagnostic")
-  nmap(bufnr, "gl", vim.diagnostic.open_float, "open float with diagnostic message")
-  nmap(bufnr, "]d", vim.diagnostic.goto_next, "goto next diagnostic")
-  nmap(bufnr, "<LocalLeader>q", vim.diagnostic.setloclist, "send diagnostics to local list")
-  nmap(bufnr, '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap(bufnr, '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap(bufnr, '<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
+  -- define mappings specific for LSP related items.
+  wk.register({
+    ["<leader>l"] = {
+      name = "LSP",
+      a = { vim.lsp.buf.code_action, "Code Action" },
+      d = { vim.lsp.buf.definition, "Goto Definition" },
+      D = { vim.lsp.buf.declaration, "Goto Declaration" },
+      f = { vim.lsp.buf.format, "Format" },
+      i = { vim.lsp.buf.implementation, "Goto Implementation" },
+      h = { vim.lsp.buf.hover, "Hover" },
+      l = { vim.diagnostic.setloclist, "Send diagnostics to Loclist" },
+      q = { vim.diagnostic.setqflist, "Send diagnostics to Qflist" },
+      r = { tb.lsp_references, "References"},
+      R = { vim.lsp.buf.rename, "Rename in buffer" },
+      s = { vim.lsp.buf.signature_help, "Signature Help" },
+      S = {
+        name = "Symbols",
+        d = { tb.lsp_document_symbols, "Document Symbols" },
+        w = { tb.lsp_dynamic_workspace_symbols, "Workspace Symbols" },
+      },
+      o = { vim.diagnostic.open_float, "Open float with diagnostic message" },
+      w = {
+        name = "Workspace",
+        a = { vim.lsp.buf.add_workspace_folder, "Add Folder" },
+        r = { vim.lsp.buf.remove_workspace_folder, "Remove Folder" },
+        l = { function()
+          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, "List Folders" },
+      },
+    },
+    { buffer = bufnr }
+  }
+  )
+
+  wk.register( {
+    ["<C-s>"]= {vim.lsp.buf.signature_help, "signature help", buffer=bufnr, mode='i'},
+    ["[d"]= {vim.diagnostic.goto_prev, "previous diagnostic", buffer=bufnr, mode='n'},
+    ["]d"]= {vim.diagnostic.goto_next, "next diagnostic", buffer=bufnr, mode='n'},
+  })
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
-  nmap(bufnr, '<LocalLeader>f', vim.lsp.buf.format, 'Format buffer')
-
 end
 
-local function telescope_lsp_keymaps(bufnr)
-  nmap(bufnr, "gr", tb.lsp_references, "buf references")
-  nmap(bufnr, '<leader>ds', tb.lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap(bufnr, '<leader>ws', tb.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
@@ -138,7 +151,6 @@ M.on_attach = function(client, bufnr)
   end
   -- require "lsp_signature".on_attach()
   lsp_keymaps(bufnr)
-  telescope_lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end
 
