@@ -130,17 +130,6 @@ wk.register({
 })
 -- }}}
 
--- dial {{{
-local status_ok, dm = pcall(require, "dial.map")
-if status_ok then
-  keymap("n", "<C-a>", dm.inc_normal(), {noremap=true, silent=true})
-  keymap("n", "<C-x>", dm.dec_normal(), {noremap=true, silent=true})
-  keymap("v", "<C-a>", dm.inc_visual(), {noremap=true, silent=true})
-  keymap("v", "<C-x>", dm.dec_visual(), {noremap=true, silent=true})
-  keymap("v", "g<C-a>", dm.inc_gvisual(), {noremap=true, silent=true})
-  keymap("v", "g<C-x>", dm.dec_gvisual(), {noremap=true, silent=true})
-end
---- }}}
 
 -- aerial{{{
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
