@@ -113,7 +113,6 @@ local t_project = require('telescope').extensions.project.project
 
 local wk = require("which-key")
 wk.register({
-  ["<leader>"] = {
     ["f"] = {
       name = "+[F]ind",
       ["f"] = { t_b.find_files, "Find File" },
@@ -127,7 +126,6 @@ wk.register({
       ["o"] = { t_b.oldfiles, "Find old file" },
       ["s"] = { t_b.live_grep, "Find string in files" },
       ["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
-    },
   },
 })
 -- }}}
