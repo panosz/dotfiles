@@ -301,6 +301,8 @@ return packer.startup(function(use)
   
   --}}}
 
+  use({"frabjous/knap"})  -- auto-refreshing latex
+
     -- ChatGPT
     use({
       "jackMort/ChatGPT.nvim",
@@ -366,7 +368,7 @@ return packer.startup(function(use)
                   },
                   keymaps = {
                     close = { "<C-c>" },
-                    submit = "<C-Enter>",
+                    submit = "<C-s>",
                     yank_last = "<C-y>",
                     yank_last_code = "<C-k>",
                     scroll_up = "<C-u>",
