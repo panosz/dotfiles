@@ -37,6 +37,9 @@ if [[ -z ${CONDA_PREFIX+x} ]]; then
 fi
 # }}}
 
+# sectrets {{{
+[[ ! -f ~/.secrets.zsh ]] || source ~/.secrets.zsh
+# }}}
 
 # options {{{ man zshoptions for more info
 setopt auto_cd
@@ -150,3 +153,5 @@ export NVM_DIR="$HOME/.nvm"
 # export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+
