@@ -55,6 +55,5 @@ end
 vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*.tex",
     callback = register_knap_on_whichkey,
-    once = true,
 })
 
