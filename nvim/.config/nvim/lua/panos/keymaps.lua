@@ -112,19 +112,21 @@ local t_project = require("telescope").extensions.project.project
 
 local wk = require("which-key")
 wk.register({
-	["f"] = {
-		name = "+[F]ind",
-		["f"] = { t_b.find_files, "Find File" },
-		["b"] = { t_b.buffers, "Find Buffer" },
-		["h"] = { t_b.help_tags, "Find Help" },
-		["w"] = { t_b.grep_string, "Find Word" },
-		["r"] = { t_frecency, "Find Recent" },
-		["p"] = { t_project, "Find Project" },
-		["d"] = { t_zoxide.list, "Find Directory" },
-		["g"] = { t_b.git_files, "Find file in Git repo" },
-		["o"] = { t_b.oldfiles, "Find old file" },
-		["s"] = { t_b.live_grep, "Find string in files" },
-		["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
+	["<leader>"] = {
+		["f"] = {
+			name = "+[F]ind",
+			["f"] = { t_b.find_files, "Find File" },
+			["b"] = { t_b.buffers, "Find Buffer" },
+			["h"] = { t_b.help_tags, "Find Help" },
+			["w"] = { t_b.grep_string, "Find Word" },
+			["r"] = { t_frecency, "Find Recent" },
+			["p"] = { t_project, "Find Project" },
+			["d"] = { t_zoxide.list, "Find Directory" },
+			["g"] = { t_b.git_files, "Find file in Git repo" },
+			["o"] = { t_b.oldfiles, "Find old file" },
+			["s"] = { t_b.live_grep, "Find string in files" },
+			["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
+		},
 	},
 })
 -- }}}
