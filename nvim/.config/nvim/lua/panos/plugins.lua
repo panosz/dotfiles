@@ -303,6 +303,8 @@ return packer.startup(function(use)
 
   use({"frabjous/knap"})  -- auto-refreshing latex
 
+  use {'junegunn/fzf'}
+
     -- ChatGPT
     use({
       "jackMort/ChatGPT.nvim",
