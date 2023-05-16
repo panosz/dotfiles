@@ -95,7 +95,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("t", "<Esc>", "<C-\\><C-N>", opts) -- easier switch from terminal to normal mode
 keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 
-
 --}}}
 -- Telescope {{{
 local t_b = require("telescope.builtin")
@@ -136,6 +135,19 @@ wk.register({
 			["s"] = { "<cmd>SessionManager save_current_session<CR>", "Save current session" },
 			["l"] = { "<cmd>SessionManager load_session<CR>", "Load session" },
 			["L"] = { "<cmd>SessionManager load_last_session<CR>", "Load last session" },
+		},
+	},
+})
+-- }}}
+--
+-- Git{{{
+wk.register({
+	["<leader>"] = {
+		["g"] = {
+			name = "+[G]it",
+			["g"] = { "<cmd>Git<CR>", "Git window" },
+            ["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
+            ["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
 		},
 	},
 })
