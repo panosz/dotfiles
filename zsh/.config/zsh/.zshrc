@@ -123,8 +123,9 @@ baby (){
   $dir/venv/bin/python $dir/plot_data.py
 }
 
+# find in notes (recipe from here: https://github.com/junegunn/fzf#turning-into-a-different-process)
 fn (){
-$EDITOR $(rg -n '>*' "$HOME/vimwiki_markdown/"| fzf --layout=reverse --height 50% --ansi| sed -E 's/(.*):([0-9]+):.*/\1 +\2/g');
+rg -n '>*' "$HOME/vimwiki_markdown/" | fzf --layout=reverse --height 50% --ansi --delimiter : --nth 3.. --bind 'enter:become(nvim.appimage {1} +{2})'
 }
 
 #myip - finds your current IP if your connected to the internet
