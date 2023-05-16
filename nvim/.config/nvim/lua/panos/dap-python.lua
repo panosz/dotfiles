@@ -4,3 +4,4 @@ if not status then
 end
 
 dap_python.setup("~/venvs/neovim_venv/bin/python")
+dap_python.test_runner = "pytest"
