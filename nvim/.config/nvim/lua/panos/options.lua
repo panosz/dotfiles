@@ -1,4 +1,5 @@
 local options = {
+    textwidth=120,
 -- Spaces and Tabs{{{
     expandtab=true,                                 -- tabs are spaces
     tabstop=4,                                      -- number of visual spaces per TAB
