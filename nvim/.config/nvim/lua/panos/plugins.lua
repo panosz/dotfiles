@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use("morhetz/gruvbox") -- gruvbox: Colorscheme for Vim
 	use("lifepillar/vim-gruvbox8")
 	use("sainnhe/gruvbox-material")
+    use "rebelot/kanagawa.nvim"
 	use("EdenEast/nightfox.nvim") -- nightfox: Colorscheme for Vim
 	use("cocopon/iceberg.vim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
@@ -306,6 +307,15 @@ return packer.startup(function(use)
   use {'junegunn/fzf'}
 
     -- ChatGPT
+  --
+  --
+
+  use ({
+      "Bryley/neoai.nvim",
+      require = { "MunifTanjim/nui.nvim" },
+  })
+
+
     use({
       "jackMort/ChatGPT.nvim",
         config = function()
