@@ -95,13 +95,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("t", "<Esc>", "<C-\\><C-N>", opts) -- easier switch from terminal to normal mode
 keymap("t", "<C-v><Esc>", "<Esc>", opts) -- verbatim escape in terminal buffer
 
--- run current buffer in an ipython terminal
-local function ipython_term()
-	local fname = vim.fn.expand("%:p")
-	local file_dir = vim.fn.expand("%:p:h")
-	local cmd = "cd " .. file_dir .. "; echo " .. fname
-	vim.cmd("vnew | term " .. cmd)
-end
 
 --}}}
 -- Telescope {{{
