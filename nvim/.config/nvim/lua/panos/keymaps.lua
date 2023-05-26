@@ -10,6 +10,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 --}}}
 
+-- keymap to enter the tail of the current file name to the command line
+
+keymap("c", "<C-r><C-f>", "<C-r>=expand('%:t')<CR>", {noremap=true})
+
 -- Normal{{{
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
 keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search and replace under cursor
