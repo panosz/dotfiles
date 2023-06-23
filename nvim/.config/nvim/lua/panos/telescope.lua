@@ -139,7 +139,7 @@ telescope.setup {
     },
 
     git_files = themes.get_dropdown(),
-    oldfiles = themes.get_dropdown(),
+    -- oldfiles = themes.get_dropdown(),
 
     live_grep = {
       additional_args = {
