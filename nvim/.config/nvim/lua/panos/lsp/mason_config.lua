@@ -57,7 +57,7 @@ local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.flake8.with({
-			extra_args = { "--extend-ignore", "E203,E501" },
+			extra_args = { "--extend-ignore", "E203,E501,W503," }, -- ignore line break after binary operator
 		}),
 		null_ls.builtins.diagnostics.chktex,
 		null_ls.builtins.code_actions.refactoring,
@@ -70,6 +70,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.diagnostics.zsh,
+		null_ls.builtins.formatting.clang_format,
 	},
 })
 require("mason-null-ls").setup({
