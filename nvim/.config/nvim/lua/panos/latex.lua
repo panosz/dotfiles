@@ -1,5 +1,5 @@
 vim.g.tex_flavor = "latex"
-vim.g.vimtex_view_method = "sioyek"
+vim.g.vimtex_view_method = "zathura"
 -- vim.g.vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 -- vim.g.vimtex_view_general_options_latexmk = '--unique'
 -- vim.g.vimtex_view_method = skim
@@ -9,8 +9,8 @@ vim.g.vimtex_complete_bib_simple = 1
 local gknapsettings = {
     texoutputext = "pdf",
     textopdf = "xelatex -output-directory=build -synctex=1 -halt-on-error -interaction=batchmode %docroot% ",
-    textopdfviewerlaunch = "sioyek --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --new-window build/%outputfile%",
-    textopdfforwardjump = "sioyek --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-window --forward-search-file %srcfile% --forward-search-line %line% build/%outputfile%",
+    textopdfviewerlaunch = "mupdf --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --new-window build/%outputfile%",
+    textopdfforwardjump = "mupdf --inverse-search 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%1'\"'\"',%2,%3)\"' --reuse-window --forward-search-file %srcfile% --forward-search-line %line% build/%outputfile%",
     textopdfshorterror = "A=build/%outputfile% ; LOGFILE=\"${A%.pdf}.log\" ; rubber-info \"$LOGFILE\" 2>&1 | head -n 1",
 }
 vim.g.knap_settings = gknapsettings
