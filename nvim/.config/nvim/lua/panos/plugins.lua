@@ -57,6 +57,7 @@ return packer.startup(function(use)
 	use("aktersnurra/no-clown-fiesta.nvim")
 	use("arcticicestudio/nord-vim")
 	use("folke/tokyonight.nvim")
+    use('ishan9299/nvim-solarized-lua')
 	--}}}
 	use("tpope/vim-unimpaired") -- Vim-Unimpared - useful mappings
 	use("lervag/vimtex") -- vimtex
@@ -186,7 +187,7 @@ return packer.startup(function(use)
 	})
 	--}}}
 
-	use("zbirenbaum/neodim") -- dim the highlights of unused elements
+	-- use("zbirenbaum/neodim") -- dim the highlights of unused elements
 
 	-- snippets{{{
 	use("L3MON4D3/LuaSnip") --snippet engine
@@ -299,17 +300,17 @@ return packer.startup(function(use)
   use{"rcarriga/nvim-dap-ui"}
   --- add python support
   use{"mfussenegger/nvim-dap-python"}
-  
   --}}}
 
   use({"frabjous/knap"})  -- auto-refreshing latex
 
   use {'junegunn/fzf'}
 
-    -- ChatGPT
-  --
-  --
+  use 'stevearc/dressing.nvim' -- A plugin for applying a consistent style to your Neovim UI
 
+  -- ChatGPT
+  --
+  --
   use ({
       "Bryley/neoai.nvim",
       require = { "MunifTanjim/nui.nvim" },
@@ -320,7 +321,7 @@ return packer.startup(function(use)
       "jackMort/ChatGPT.nvim",
         config = function()
           require("chatgpt").setup({
-                  welcome_message = WELCOME_MESSAGE,
+                  welcome_message = "WELCOME_MESSAGE",
                   loading_text = "loading",
                   question_sign = "", -- you can use emoji if you want e.g. 🙂
                   answer_sign = "🤖", -- 🤖
