@@ -31,7 +31,7 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # conda {{{
-source ~/miniconda3/etc/profile.d/conda.sh
+[[ ! -f ~/miniconda3/etc/profile.d/conda.sh ]] || source ~/miniconda3/etc/profile.d/conda.sh
 if [[ -z ${CONDA_PREFIX+x} ]]; then
     export PATH="~/conda/bin:$PATH"
 fi
@@ -133,6 +133,12 @@ myip() {
 	lynx -dump -hiddenlinks=ignore -nolist http://checkip.dyndns.org:8245/ | awk '{ print $4 }' | sed '/^$/d; s/^[ ]*//g; s/[ ]*$//g'
 }
 
+jpg_to_pdf(){
+  local infile="$1"
+  local quality="${2:-40}"
+  local outfile="${infile%.*}.pdf"
+  convert "$infile" -quality "$quality" -page a4 "$outfile"
+}
 
 # }}}
 # history{{{
