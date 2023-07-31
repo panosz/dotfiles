@@ -109,6 +109,10 @@ alias vs="xclip -o -selection clipboard" # paste from clipboard (from non `X` ap
 
 # }}}
 # }}}
+# key bindings{{{
+#
+bindkey -s '^Z' 'zi\n'
+# }}}
 # custom functions{{{
 
 covid_cases (){
