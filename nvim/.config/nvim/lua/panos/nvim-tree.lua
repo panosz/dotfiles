@@ -10,7 +10,7 @@ require'nvim-tree'.setup {
     -- auto_open = true,
   -- },
   diagnostics = {
-    enable = false,
+    enable = true,
     icons = {
       hint = "",
       info = "",
@@ -38,7 +38,6 @@ require'nvim-tree'.setup {
   },
   view = {
     width = 30,
-    hide_root_folder = false,
     side = 'left',
     number = false,
     relativenumber = false,
