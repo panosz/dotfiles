@@ -6,7 +6,7 @@ require "panos.latex"
 require "panos.whichkey"
 require "panos.keymaps"
 require "panos.hop"
-require "panos.nightfox" -- should go before "lualine"
+require "panos.colorscheme"
 require "panos.cmp"
 require "panos.aerial"
 require "panos.lsp"
@@ -41,3 +41,5 @@ vim.cmd[[
 	  autocmd FileType startify call glyph_palette#apply()
 	augroup END
 ]]
+
+
