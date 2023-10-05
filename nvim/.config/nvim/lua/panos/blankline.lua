@@ -1,8 +1,9 @@
-local status_ok, blankline = pcall(require, "ibl")
+local status_ok, ibl = pcall(require, "ibl")
 if not status_ok then
-  return
+	return
 end
 
-blankline.setup {
-}
-
+ibl.setup({
+	scope = { enabled = false },
+	indent = { char = "┊" },
+})
