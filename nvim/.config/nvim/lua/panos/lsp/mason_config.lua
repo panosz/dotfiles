@@ -5,30 +5,31 @@
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
 	eslint = {},
-	rome = {},
+	biome = {},
 	volar = {},
-	vuels = {},
 	pylsp = {
-		plugins = {
-			jedi_completion = { include_params = true },
-		},
+      pylsp = {       -- needs a seemingly redundant pylsp key, see https://vi.stackexchange.com/a/39768/32018
+        plugins = {
+          jedi_completion = { include_params = true },
+          pycodestyle = { enabled = false },
+        }
+      },
 	},
+    vuels = {},
 	jsonls = require("panos.lsp.settings.jsonls"),
 	clangd = {},
-    pyright = require("panos.lsp.settings.pyright"),
+	pyright = require("panos.lsp.settings.pyright"),
 	texlab = require("panos.lsp.settings.texlab"),
-    ltex = {
-         root_dir = function(fname)
-           return require"lspconfig".util.find_git_ancestor(fname)
-         end,
-
-  },
-  rust_analyzer = {
-    checkOnSave = {
-      command = "clippy"
-    }
-  },
-
+	ltex = {
+		root_dir = function(fname)
+			return require("lspconfig").util.find_git_ancestor(fname)
+		end,
+	},
+	rust_analyzer = {
+		checkOnSave = {
+			command = "clippy",
+		},
+	},
 }
 
 -- Setup mason so it can manage external tooling
@@ -57,7 +58,7 @@ local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.flake8.with({
-			extra_args = { "--extend-ignore", "E203,E501,W503," }, -- ignore line break after binary operator
+			extra_args = { "--extend-ignore=E203,E501,W503,W504" }, -- ignore line break after binary operator
 		}),
 		null_ls.builtins.diagnostics.chktex,
 		null_ls.builtins.code_actions.refactoring,
@@ -68,7 +69,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.beautysh,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.diagnostics.zsh,
 		null_ls.builtins.formatting.clang_format,
 	},
