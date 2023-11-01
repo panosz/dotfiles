@@ -17,6 +17,19 @@ end
 
 
 local lspkind = require('lspkind')
+lspkind.init({
+  symbol_map = {
+    Copilot = "",
+  },
+})
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+end
 
 cmp.setup {
   snippet = {
@@ -39,7 +52,7 @@ cmp.setup {
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
+      if cmp.visible() and has_words_before() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
         luasnip.expand()
@@ -69,18 +82,19 @@ cmp.setup {
   },
   formatting = {
       format = lspkind.cmp_format({
-        mode = 'text_symbol',       -- show text and symbol annotations
-        maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        mode = 'symbol_text',       -- show text and symbol annotations
+        maxwidth = 80,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
         ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
         -- The function below will be called before any actual modifications from lspkind
         -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
         before = function(entry, vim_item)
           -- ...
           return vim_item
-        end
+        end,
       })
     },
   sources = {
+    { name = "copilot"},
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
@@ -98,9 +112,6 @@ cmp.setup {
   experimental = {
     ghost_text = false,
   },
-  view = {
-    entries = 'native'
-  }
 }
 
 -- Set configuration for specific filetype

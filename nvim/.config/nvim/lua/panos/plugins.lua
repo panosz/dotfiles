@@ -48,7 +48,7 @@ return packer.startup(function(use)
 	use("morhetz/gruvbox") -- gruvbox: Colorscheme for Vim
 	use("lifepillar/vim-gruvbox8")
 	use("sainnhe/gruvbox-material")
-    use "rebelot/kanagawa.nvim"
+	use("rebelot/kanagawa.nvim")
 	use("EdenEast/nightfox.nvim") -- nightfox: Colorscheme for Vim
 	use("cocopon/iceberg.vim")
 	use({ "catppuccin/nvim", as = "catppuccin" })
@@ -57,10 +57,11 @@ return packer.startup(function(use)
 	use("aktersnurra/no-clown-fiesta.nvim")
 	use("arcticicestudio/nord-vim")
 	use("folke/tokyonight.nvim")
-    use('ishan9299/nvim-solarized-lua')
+	use("ishan9299/nvim-solarized-lua")
 	--}}}
 	use("tpope/vim-unimpaired") -- Vim-Unimpared - useful mappings
 	use("lervag/vimtex") -- vimtex
+	use("anufrievroman/vim-angry-reviewer")
 	use("moll/vim-bbye") -- Buffer bye - delete buffers without closing windows
 
 	use("scrooloose/nerdcommenter") -- comment functions
@@ -170,7 +171,7 @@ return packer.startup(function(use)
 
 	use("ray-x/lsp_signature.nvim") -- show function signature when you type
 
-    use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
+	use("onsails/lspkind-nvim") -- vscode-like pictograms for neovim lsp completion items
 
 	--}}} LSP
 
@@ -183,6 +184,13 @@ return packer.startup(function(use)
 			vim.defer_fn(function()
 				require("panos.copilot")
 			end, 10)
+		end,
+	})
+	use({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
 		end,
 	})
 	--}}}
@@ -295,113 +303,112 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-  ---{{{Debug
-  use{"mfussenegger/nvim-dap"}
-  use{"rcarriga/nvim-dap-ui"}
-  --- add python support
-  use{"mfussenegger/nvim-dap-python"}
-  --}}}
+	---{{{Debug
+	use({ "mfussenegger/nvim-dap" })
+	use({ "rcarriga/nvim-dap-ui" })
+	--- add python support
+	use({ "mfussenegger/nvim-dap-python" })
+	--}}}
 
-  use({"frabjous/knap"})  -- auto-refreshing latex
+	use({ "frabjous/knap" }) -- auto-refreshing latex
 
-  use {'junegunn/fzf'}
+	use({ "junegunn/fzf" })
 
-  use 'stevearc/dressing.nvim' -- A plugin for applying a consistent style to your Neovim UI
+	use("stevearc/dressing.nvim") -- A plugin for applying a consistent style to your Neovim UI
 
-  -- ChatGPT
-  --
-  --
-  use ({
-      "Bryley/neoai.nvim",
-      require = { "MunifTanjim/nui.nvim" },
-  })
+	-- ChatGPT
+	--
+	--
+	use({
+		"Bryley/neoai.nvim",
+		require = { "MunifTanjim/nui.nvim" },
+	})
 
-
-    use({
-      "jackMort/ChatGPT.nvim",
-        config = function()
-          require("chatgpt").setup({
-                  welcome_message = "WELCOME_MESSAGE",
-                  loading_text = "loading",
-                  question_sign = "", -- you can use emoji if you want e.g. 🙂
-                  answer_sign = "🤖", -- 🤖
-                  max_line_length = 120,
-                  yank_register = "+",
-                  chat_layout = {
-                    relative = "editor",
-                    position = "50%",
-                    size = {
-                      height = "80%",
-                      width = "80%",
-                    },
-                  },
-                  settings_window = {
-                    border = {
-                      style = "rounded",
-                      text = {
-                        top = " Settings ",
-                      },
-                    },
-                  },
-                  chat_window = {
-                    filetype = "chatgpt",
-                    border = {
-                      highlight = "FloatBorder",
-                      style = "rounded",
-                      text = {
-                        top = " ChatGPT ",
-                      },
-                    },
-                  },
-                  chat_input = {
-                    prompt = "  ",
-                    border = {
-                      highlight = "FloatBorder",
-                      style = "rounded",
-                      text = {
-                        top_align = "center",
-                        top = " Prompt ",
-                      },
-                    },
-                  },
-                  openai_params = {
-                    model = "gpt-3.5-turbo",
-                    frequency_penalty = 0,
-                    presence_penalty = 0,
-                    max_tokens = 300,
-                    temperature = 0,
-                    top_p = 1,
-                    n = 1,
-                  },
-                  openai_edit_params = {
-                    model = "code-davinci-edit-001",
-                    temperature = 0,
-                    top_p = 1,
-                    n = 1,
-                  },
-                  keymaps = {
-                    close = { "<C-c>" },
-                    submit = "<C-s>",
-                    yank_last = "<C-y>",
-                    yank_last_code = "<C-k>",
-                    scroll_up = "<C-u>",
-                    scroll_down = "<C-d>",
-                    toggle_settings = "<C-o>",
-                    new_session = "<C-n>",
-                    cycle_windows = "<Tab>",
-                    -- in the Sessions pane
-                    select_session = "<Space>",
-                    rename_session = "r",
-                    delete_session = "d",
-                  },
-                })
-        end,
-        requires = {
-          "MunifTanjim/nui.nvim",
-          "nvim-lua/plenary.nvim",
-          "nvim-telescope/telescope.nvim"
-        }
-    })
+	use({
+		"jackMort/ChatGPT.nvim",
+		config = function()
+			require("chatgpt").setup({
+				welcome_message = "WELCOME_MESSAGE",
+				loading_text = "loading",
+				question_sign = "", -- you can use emoji if you want e.g. 🙂
+				answer_sign = "🤖", -- 🤖
+				max_line_length = 120,
+				yank_register = "+",
+				chat_layout = {
+					relative = "editor",
+					position = "50%",
+					size = {
+						height = "80%",
+						width = "80%",
+					},
+				},
+				settings_window = {
+					border = {
+						style = "rounded",
+						text = {
+							top = " Settings ",
+						},
+					},
+				},
+				chat_window = {
+					filetype = "chatgpt",
+					border = {
+						highlight = "FloatBorder",
+						style = "rounded",
+						text = {
+							top = " ChatGPT ",
+						},
+					},
+				},
+				chat_input = {
+					prompt = "  ",
+					border = {
+						highlight = "FloatBorder",
+						style = "rounded",
+						text = {
+							top_align = "center",
+							top = " Prompt ",
+						},
+					},
+				},
+				openai_params = {
+					model = "gpt-3.5-turbo",
+					frequency_penalty = 0,
+					presence_penalty = 0,
+					max_tokens = 300,
+					temperature = 0,
+					top_p = 1,
+					n = 1,
+				},
+				openai_edit_params = {
+					model = "code-davinci-edit-001",
+					temperature = 0,
+					top_p = 1,
+					n = 1,
+				},
+				keymaps = {
+					close = { "<C-c>" },
+					submit = "<C-s>",
+					yank_last = "<C-y>",
+					yank_last_code = "<C-k>",
+					scroll_up = "<C-u>",
+					scroll_down = "<C-d>",
+					toggle_settings = "<C-o>",
+					new_session = "<C-n>",
+					cycle_windows = "<Tab>",
+					-- in the Sessions pane
+					select_session = "<Space>",
+					rename_session = "r",
+					delete_session = "d",
+				},
+			})
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
