@@ -32,6 +32,7 @@ require "panos.session_manager"
 require "panos.project_nvim"
 require "panos.dap-python"
 require "panos.neoai"
+require "panos.chatgpt"
 
 vim.cmd[[
 	augroup my-glyph-palette
