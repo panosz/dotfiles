@@ -143,6 +143,19 @@ return packer.startup(function(use)
           "nvim-telescope/telescope.nvim" -- optional: for multi-select
        }
     })
+
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }) -- review all changed files for any git rev.
+
+    use({"NeogitOrg/neogit",
+        config = function()
+            require("neogit").setup({
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            })
+        end,
+        }
+    )
 	--}}}
 	-- cmp plugins{{{
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -252,20 +265,8 @@ return packer.startup(function(use)
 		"ahmedkhalf/project.nvim", -- an all in one neovim plugin written in lua that provides superior project management.
 	})
 
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }) -- review all changed files for any git rev.
-
 	use({ "p00f/clangd_extensions.nvim" }) -- extensions for c/cpp
 
-    use({"NeogitOrg/neogit",
-		config = function()
-			require("neogit").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-  }
-  )
 
 	use({
 		"folke/twilight.nvim",
