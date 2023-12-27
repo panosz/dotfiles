@@ -128,7 +128,7 @@ return packer.startup(function(use)
 
 	use("windwp/nvim-autopairs") -- autopair pluggin that suppors multiple characters
 
-	-- Git wrappers{{{
+	-- Git stuff{{{
 	use("tpope/vim-fugitive")
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -138,6 +138,11 @@ return packer.startup(function(use)
 	})
 	use("junegunn/gv.vim") -- A git commit browser.
 	use("tpope/vim-rhubarb") -- If fugitive.vim is the Git, rhubarb.vim is the Hub
+    use({"wintermute-cell/gitignore.nvim",
+       requires = {
+          "nvim-telescope/telescope.nvim" -- optional: for multi-select
+       }
+    })
 	--}}}
 	-- cmp plugins{{{
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -214,6 +219,7 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-ui-select.nvim" }) -- It sets vim.ui.select to telescope
 	use("nvim-telescope/telescope-file-browser.nvim")
+    use("ElPiloto/telescope-vimwiki.nvim")
 	---}}}
 
 	use("Shatur/neovim-session-manager") -- neovim session manager
@@ -249,6 +255,17 @@ return packer.startup(function(use)
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }) -- review all changed files for any git rev.
 
 	use({ "p00f/clangd_extensions.nvim" }) -- extensions for c/cpp
+
+    use({"NeogitOrg/neogit",
+		config = function()
+			require("neogit").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+  }
+  )
 
 	use({
 		"folke/twilight.nvim",
