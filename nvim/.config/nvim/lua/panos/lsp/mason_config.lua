@@ -71,6 +71,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.diagnostics.zsh,
 		null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.cmake_format,
 	},
 })
 require("mason-null-ls").setup({
