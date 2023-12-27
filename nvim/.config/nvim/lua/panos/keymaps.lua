@@ -121,6 +121,11 @@ wk.register({
 			["g"] = { t_b.git_files, "Find file in Git repo" },
 			["o"] = { t_b.oldfiles, "Find old file" },
 			["s"] = { t_b.live_grep, "Find string in files" },
+            ["v"] = {
+                name = "+[V]imwiki",
+                ["v"] = {require('telescope').extensions.vimwiki.vimwiki, "Find in wiki"},
+                ["s"] = {require('telescope').extensions.vimwiki.live_grep, "Search notes"},
+            },
 			["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
 		},
 	},
