@@ -114,7 +114,28 @@ return packer.startup(function(use)
 
 	use("farseer90718/vim-taskwarrior") -- vim-taskwarrior %a vim interface for taskwarrior
 
-	-- use 'mhinz/vim-startify'  -- vim-startify %a fancy start screen
+    use({
+      "epwalsh/obsidian.nvim",
+      tag = "*",  -- recommended, use latest release instead of latest commit
+      requires = {
+        -- Required.
+        "nvim-lua/plenary.nvim",
+
+        -- see below for full list of optional dependencies 👇
+      },
+      config = function()
+        require("obsidian").setup({
+          workspaces = {
+            {
+              name = "personal",
+              path = "~/obsidian_home/",
+            },
+          },
+
+        })
+      end,
+    })
+
 	use({
 		"goolord/alpha-nvim",
 		config = function()
@@ -183,7 +204,7 @@ return packer.startup(function(use)
 		},
 	})
 	use({ -- For non-lsp sources, such as linters
-		"jose-elias-alvarez/null-ls.nvim",
+		"/nvimtools/none-ls.nvim", -- replacement for "jose-elias-alvarez/null-ls.nvim",
 		"jayp0521/mason-null-ls.nvim",
 	})
 
