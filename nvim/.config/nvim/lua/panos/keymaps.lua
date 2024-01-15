@@ -12,7 +12,7 @@ vim.g.maplocalleader = ","
 
 -- keymap to enter the tail of the current file name to the command line
 
-keymap("c", "<C-r><C-f>", "<C-r>=expand('%:t')<CR>", {noremap=true})
+keymap("c", "<C-r><C-f>", "<C-r>=expand('%:t')<CR>", { noremap = true })
 
 -- Normal{{{
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
@@ -121,16 +121,25 @@ wk.register({
 			["g"] = { t_b.git_files, "Find file in Git repo" },
 			["o"] = { t_b.oldfiles, "Find old file" },
 			["s"] = { t_b.live_grep, "Find string in files" },
-            ["v"] = {
-                name = "+[V]imwiki",
-                ["v"] = {require('telescope').extensions.vimwiki.vimwiki, "Find in wiki"},
-                ["s"] = {require('telescope').extensions.vimwiki.live_grep, "Search notes"},
-            },
 			["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
 		},
 	},
 })
 -- }}}
+
+--vimwiki{{{
+wk.register({
+	["<leader>"] = {
+		["v"] = {
+			name = "+[V]imwiki",
+			["n"] = { require("telescope").extensions.vimwiki.vimwiki, "find Note" },
+			["s"] = { require("telescope").extensions.vimwiki.live_grep, "Search in notes" },
+            ["l"] = {"<cmd>Telescope vw link<CR>", "insert Link"},
+            ["b"] = {"<cmd>VimwikiBacklinks<CR>", "Back links"},
+		},
+	},
+})
+---}}}
 
 -- aerial{{{
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
@@ -155,32 +164,32 @@ wk.register({
 		["g"] = {
 			name = "+[G]it",
 			["g"] = { "<cmd>Git<CR>", "Git window" },
-            ["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
-            ["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
+			["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
+			["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
 		},
 	},
 })
 -- }}}
 -- chat-gpt{{{
 wk.register({
-  ["<LocalLeader>"] = {
-    ["c"] = {
-      name = "+[C]hatGPT",
-    c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-    e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-    g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-    t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-    k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-    d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-    a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-    o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-    s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-    f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-    x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-    r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-    l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-    },
-  },
+	["<LocalLeader>"] = {
+		["c"] = {
+			name = "+[C]hatGPT",
+			c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+			e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+			g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+			t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+			k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+			d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+			a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+			o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+			s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+			f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+			x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+			r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+			l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
+		},
+	},
 })
 
 -- }}}
