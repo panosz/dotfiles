@@ -206,7 +206,7 @@ return packer.startup(function(use)
 		},
 	})
 	use({ -- For non-lsp sources, such as linters
-		"/nvimtools/none-ls.nvim", -- replacement for "jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim", -- replacement for "jose-elias-alvarez/null-ls.nvim",
 		"jayp0521/mason-null-ls.nvim",
 	})
 
