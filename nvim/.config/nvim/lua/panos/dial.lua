@@ -19,18 +19,19 @@ require("dial.config").augends:register_group({
             },
   },
 })
-
 local dm = require("dial.map")
 local wk = require("which-key")
 wk.register(
   {
     ["<C-a>"] = {dm.inc_normal(), "Increment"},
     ["<C-x>"] = {dm.dec_normal(), "Decrement"},
+  }
+)
+wk.register(
+  {
     ["<C-a>"] = {dm.inc_visual(), "Increment", mode='v'},
     ["<C-x>"] = {dm.dec_visual(), "Decrement", mode='v'},
     ["g<C-a>"] = {dm.inc_gvisual(), "Increment", mode='v'},
     ["g<C-x>"] = {dm.dec_gvisual(), "Decrement", mode='v'},
   }
 )
-
-
