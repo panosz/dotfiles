@@ -34,6 +34,8 @@ require "panos.dap-python"
 require "panos.neoai"
 require "panos.chatgpt"
 
+vim.notify = require("notify")
+
 vim.cmd[[
 	augroup my-glyph-palette
 	  autocmd!
@@ -43,4 +45,4 @@ vim.cmd[[
 	augroup END
 ]]
 
-
+vim.api.nvim_set_keymap('n', '\\', '<cmd>FineCmdline<CR>', {noremap = true})

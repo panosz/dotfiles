@@ -354,6 +354,7 @@ return packer.startup(function(use)
 	use({ "frabjous/knap" }) -- auto-refreshing latex
 
 	use({ "junegunn/fzf" })
+	use({ "junegunn/fzf.vim" })
 
 	use("stevearc/dressing.nvim") -- A plugin for applying a consistent style to your Neovim UI
 
@@ -373,6 +374,14 @@ return packer.startup(function(use)
 			"nvim-telescope/telescope.nvim",
 		},
 	})
+
+    use 'rcarriga/nvim-notify'
+    use {
+      'VonHeikemen/fine-cmdline.nvim',
+      requires = {
+        {'MunifTanjim/nui.nvim'}
+      }
+    }
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
