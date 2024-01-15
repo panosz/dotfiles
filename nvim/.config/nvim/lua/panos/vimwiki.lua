@@ -11,6 +11,7 @@ vim.g.vimwiki_list = {wiki}
 vim.g.vimwiki_hl_headers= 1 --Use group colors to highlight different header levels.
 
 vim.g.vimwiki_global_ext = 0 -- Dont treat other makrdown files as wikis
+vim.g.zettel_fzf_command = "rg --column --line-number --ignore-case  --no-heading --color=always "
 
 -- write title in diary files
 vim.api.nvim_create_autocmd("BufNewFile", {
@@ -23,3 +24,5 @@ vim.api.nvim_create_autocmd("BufNewFile", {
         vim.api.nvim_buf_set_lines(0, 0, 0, false, {"# " .. filename})
     end
 })
+
+
