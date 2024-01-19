@@ -20,11 +20,12 @@ local servers = {
 	clangd = {},
 	pyright = require("panos.lsp.settings.pyright"),
 	texlab = require("panos.lsp.settings.texlab"),
-	ltex = {
-		root_dir = function(fname)
-			return require("lspconfig").util.find_git_ancestor(fname)
-		end,
-	},
+	-- ltex = {
+		-- root_dir = function(fname)
+			-- return require("lspconfig").util.find_git_ancestor(fname)
+		-- end,
+        -- enabled = {latex = "latex", "tex", "bib"},
+	-- },
 	rust_analyzer = {
 		checkOnSave = {
 			command = "clippy",
