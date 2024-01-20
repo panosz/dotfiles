@@ -166,6 +166,7 @@ wk.register({
 			["g"] = { "<cmd>Git<CR>", "Git window" },
 			["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
 			["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
+            ["s"] = { "<cmd>Telescope git_status<CR>", "git  [S]tatus" },
 		},
 	},
 })
