@@ -46,3 +46,5 @@ vim.cmd[[
 ]]
 
 vim.api.nvim_set_keymap('n', '\\', '<cmd>FineCmdline<CR>', {noremap = true})
+
+require('refactoring').setup()
