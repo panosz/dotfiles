@@ -20,7 +20,7 @@ project_nvim.setup {
 
   -- Table of lsp clients to ignore by name
   -- eg: { "efm", ... }
-  ignore_lsp = {},
+  ignore_lsp = {"null-ls"},
 
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
@@ -31,7 +31,7 @@ project_nvim.setup {
 
   -- When set to false, you will get a message when project.nvim changes your
   -- directory.
-  silent_chdir = true,
+  silent_chdir = false,
 
   -- What scope to change the directory, valid options are
   -- * global (default)
