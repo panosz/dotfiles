@@ -124,18 +124,7 @@ return packer.startup(function(use)
         "nvim-lua/plenary.nvim",
 
         -- see below for full list of optional dependencies 👇
-      },
-      config = function()
-        require("obsidian").setup({
-          workspaces = {
-            {
-              name = "personal",
-              path = "~/obsidian_home/",
-            },
-          },
-
-        })
-      end,
+      }
     })
 
 	use({

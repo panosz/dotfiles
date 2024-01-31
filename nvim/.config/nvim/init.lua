@@ -33,6 +33,7 @@ require "panos.project_nvim"
 require "panos.dap-python"
 require "panos.neoai"
 require "panos.chatgpt"
+require "panos.obsidian"
 
 vim.notify = require("notify")
 
