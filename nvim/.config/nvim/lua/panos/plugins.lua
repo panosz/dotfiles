@@ -106,9 +106,7 @@ return packer.startup(function(use)
 		branch = "dev",
 	})
 
-    use 'michal-h21/vim-zettel'
-
-	use("mattn/calendar-vim") -- callendar-vim
+	use("itchyny/calendar.vim") -- callendar-vim
 
 	-- use 'tools-life/taskwiki'  -- task-wiki %integrate vim-wiki with taskwarrior
 
