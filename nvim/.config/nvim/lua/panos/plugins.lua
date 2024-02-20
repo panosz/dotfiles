@@ -168,6 +168,9 @@ return packer.startup(function(use)
         end,
         }
     )
+
+    use "rbong/vim-flog" -- a git log viewer
+
 	--}}}
 	-- cmp plugins{{{
 	use("hrsh7th/nvim-cmp") -- The completion plugin
