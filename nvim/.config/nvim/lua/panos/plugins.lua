@@ -379,7 +379,22 @@ return packer.startup(function(use)
           {"nvim-treesitter/nvim-treesitter"}
       }
   }
-
+  use({
+    "~/Documents/programming/papis_nvim/papis.nvim",
+    branch ="quick_and_dirty_formatting",
+    after = { "telescope.nvim", "nvim-cmp" },
+    requires = {
+      "kkharji/sqlite.lua",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("papis").setup(
+      -- Your configuration goes here
+      )
+    end,
+  })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
