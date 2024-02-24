@@ -212,9 +212,7 @@ return packer.startup(function(use)
 		cmd = "Copilot",
 		event = "InsertEnter", -- this is the recommended way to lazy load copilot
 		config = function()
-			vim.defer_fn(function()
-				require("panos.copilot")
-			end, 10)
+          require("panos.copilot")
 		end,
 	})
 	use({
