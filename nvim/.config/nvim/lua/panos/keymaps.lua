@@ -16,7 +16,7 @@ keymap("c", "<C-r><C-f>", "<C-r>=expand('%:t')<CR>", { noremap = true })
 
 -- Normal{{{
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- open file explorer
-keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], opts) -- search and replace under cursor
+keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], {noremap=true, silent=false}) -- search and replace under cursor
 keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
 keymap("n", "<Leader>w", ":w<CR>|", opts) -- Save file
 
