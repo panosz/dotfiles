@@ -147,9 +147,10 @@ wk.register({
   ["<leader>"] = {
     o = {
       name = "+[O]bsidian",
-      n = { '<cmd>ObsidianNew', "[N]ew note" },
+      n = { '<cmd>ObsidianNew<CR>', "[N]ew note" },
       s = { '<cmd>ObsidianSearch<CR>', "[S]earch in notes" },
       o = { '<cmd>ObsidianOpen<CR>', "[O]pen note in obsidian" },
+      b = { '<cmd>ObsidianBacklinks<CR>', "[B]acklinks" },
       t = { '<cmd>ObsidianTags<CR>', "Search [T]ags" },
       ll = {':ObsidianLink ', "[L]ink selection to existing note", mode='v', silent=false},
       ln = {':ObsidianLinkNew ', "Link selection to [N]ew note", mode='v', silent=false},
