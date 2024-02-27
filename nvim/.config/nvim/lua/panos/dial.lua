@@ -8,7 +8,7 @@ require("dial.config").augends:register_group({
 		augend.integer.alias.decimal,
 		augend.date.alias["%m/%d"],
 		augend.date.alias["%Y-%m-%d"], -- standard date %Y-%m-%d
-		augend.date.alias["%Y/%m/%d"], -- standard date %Y/%m/%d
+		augend.date.alias["%d/%m/%Y"], -- standard date %d/%m/%Y
 		augend.date.alias["%H:%M:%S"], -- standard time %H:%M:%S
 		augend.date.alias["%H:%M"],
         augend.constant.alias.bool, -- boolean value (true <-> false)
