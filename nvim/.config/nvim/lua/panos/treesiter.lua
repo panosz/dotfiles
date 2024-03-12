@@ -63,6 +63,12 @@ configs.setup({
 				["ic"] = "@class.inner",
 				["ia"] = "@parameter.inner",
 				["aa"] = "@parameter.outer",
+                ["ii"] = "@conditional.inner",
+                ["ai"] = "@conditional.outer",
+                ["il"] = "@loop.inner",
+                ["al"] = "@loop.outer",
+                ["at"] = "comment.outer",
+            
 
 				-- Or you can define your own textobjects like this
 				-- ["iF"] = {
