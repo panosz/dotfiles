@@ -7,18 +7,18 @@ local servers = {
 	eslint = {},
 	biome = {},
 	volar = {},
-	pylsp = {
+    pylsp = {
       pylsp = {       -- needs a seemingly redundant pylsp key, see https://vi.stackexchange.com/a/39768/32018
         plugins = {
           jedi_completion = { include_params = true },
           pycodestyle = { enabled = false },
         }
       },
-	},
+    },
     vuels = {},
 	jsonls = require("panos.lsp.settings.jsonls"),
 	clangd = {},
-	pyright = require("panos.lsp.settings.pyright"),
+	-- pyright = require("panos.lsp.settings.pyright"),
 	texlab = require("panos.lsp.settings.texlab"),
 	-- ltex = {
 		-- root_dir = function(fname)
@@ -58,16 +58,15 @@ mason_lspconfig.setup_handlers({
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
-		null_ls.builtins.diagnostics.flake8.with({
-			extra_args = { "--extend-ignore=E203,E501,W503,W504" }, -- ignore line break after binary operator
-		}),
-		null_ls.builtins.diagnostics.chktex,
+		--null_ls.builtins.diagnostics.flake8.with({
+			--extra_args = { "--extend-ignore=E203,E501,W503,W504" }, -- ignore line break after binary operator
+		--}),
 		null_ls.builtins.code_actions.refactoring,
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.black.with({
 			extra_args = { "--line-length", "88" },
 		}),
-		null_ls.builtins.formatting.beautysh,
+		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.diagnostics.zsh,
