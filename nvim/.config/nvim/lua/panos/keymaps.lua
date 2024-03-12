@@ -4,11 +4,6 @@ local term_opts = { silent = true }
 local keymap = vim.keymap.set
 --}}}
 
--- leader key{{{
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
---}}}
 
 -- keymap to enter the tail of the current file name to the command line
 

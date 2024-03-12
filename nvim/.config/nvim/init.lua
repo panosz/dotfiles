@@ -1,12 +1,35 @@
 require "panos.python"
 require "panos.options"
 require "panos.spelling"
-require "panos.plugins"
+
+
+-- leader key{{{
+vim.keymap.set("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+--}}}
+
+-- require "panos.plugins"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("panos.plugins2")
+
 require "panos.latex"
 require "panos.whichkey"
 require "panos.keymaps"
 require "panos.hop"
-require "panos.colorscheme"
+ require "panos.colorscheme"
 require "panos.cmp"
 require "panos.aerial"
 require "panos.lsp"
@@ -33,6 +56,10 @@ require "panos.dap-python"
 require "panos.neoai"
 require "panos.chatgpt"
 require "panos.obsidian"
+
+
+ vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
+ vim.g.NERDToggleCheckAllLines = 1 -- Enable NERDCommenterToggle to check all selected lines is commented or not
 
 vim.notify = require("notify")
 
