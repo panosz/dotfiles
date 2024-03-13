@@ -50,8 +50,6 @@ local options = {
 
 		-- Trigger completion at 0 chars.
 		min_chars = 0,
-
-
 	},
 	-- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
 	-- way then set 'mappings = {}'.
@@ -72,10 +70,10 @@ local options = {
 		-- },
 	},
 
-    -- Where to put new notes created from completion. Valid options are
-    --  * "current_dir" - put new notes in same directory as the current buffer.
-    --  * "notes_subdir" - put new notes in the default notes subdirectory.
-    new_notes_location = "notes_subdir",
+	-- Where to put new notes created from completion. Valid options are
+	--  * "current_dir" - put new notes in same directory as the current buffer.
+	--  * "notes_subdir" - put new notes in the default notes subdirectory.
+	new_notes_location = "current_dir",
 
 	-- Optional, customize how names/IDs for new notes are created.
 	note_id_func = function(title)
@@ -224,23 +222,14 @@ local options = {
 		-- You can always override this per image by passing a full path to the command instead of just a filename.
 		img_folder = "assets/imgs", -- This is the default
 		-- A function that determines the text to insert in the note when pasting an image.
-		-- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
+		-- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
 		-- This is the default implementation.
 		---@param client obsidian.Client
-		---@param path Path the absolute path to the image file
+		---@param path obsidian.Path the absolute path to the image file
 		---@return string
 		img_text_func = function(client, path)
-			local link_path
-			local vault_relative_path = client:vault_relative_path(path)
-			if vault_relative_path ~= nil then
-				-- Use relative path if the image is saved in the vault dir.
-				link_path = vault_relative_path
-			else
-				-- Otherwise use the absolute path.
-				link_path = tostring(path)
-			end
-			local display_name = vim.fs.basename(link_path)
-			return string.format("![%s](%s)", display_name, link_path)
+			path = client:vault_relative_path(path) or path
+			return string.format("![%s](%s)", path.name, path)
 		end,
 	},
 
@@ -252,6 +241,5 @@ local options = {
 	-- case you can temporarily switch to the "yq" parser until the bug is fixed.
 	yaml_parser = "native",
 }
-
 
 require("obsidian").setup(options)
