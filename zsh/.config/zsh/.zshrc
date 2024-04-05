@@ -67,7 +67,7 @@ zstyle ':completion:*' menu select
 # [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # zoxide{{{
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 # }}}
 # fzf{{{
 [ -f ~/.config/zsh/fzf_config.zsh ] && source ~/.config/zsh/fzf_config.zsh

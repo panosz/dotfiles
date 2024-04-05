@@ -9,16 +9,13 @@
   antigen bundle vi-mode
   antigen bundle dirhistory
   antigen bundle colored-man-pages
+  antigen bundle taskwarrior
 
 
   # Syntax highlighting bundle.
   antigen bundle zsh-users/zsh-syntax-highlighting
 
-  # ZSH-z - a native ZSH port of rupa/z,
-  antigen bundle agkozak/zsh-z
 
-  # taskwarrior. Add it here, because adding it before zsh-z breaks zsh-z's tab autocompletion
-  antigen bundle taskwarrior
 
   # suggest existing aliases.
   antigen bundle MichaelAquilina/zsh-you-should-use
