@@ -15,8 +15,8 @@ keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], {noremap=true, s
 keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
 keymap("n", "<Leader>w", ":w<CR>|", opts) -- Save file
 
-keymap("n", "<Leader>t", ":vs |:term<CR> i", opts) -- open terminal in vertical split
-keymap("n", "<Leader>T", ":sp |:term<CR> i", opts) -- open terminal in horizontal split
+-- keymap("n", "<Leader>t", ":vs |:term<CR> i", opts) -- open terminal in vertical split
+-- keymap("n", "<Leader>T", ":sp |:term<CR> i", opts) -- open terminal in horizontal split
 
 keymap("n", "gV", "`[v`]", opts) -- highlight last inserted text
 
@@ -24,10 +24,10 @@ keymap("n", "<leader>n", ":nohlsearch<CR>", opts) -- turn off search highlight
 
 keymap("n", "<F5>", ":MundoToggle<CR>", opts) -- Toggle undo tree
 -- Better window navigation{{{
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- keymap("n", "<C-h>", "<C-w>h", opts)
+-- keymap("n", "<C-j>", "<C-w>j", opts)
+-- keymap("n", "<C-k>", "<C-w>k", opts)
+-- keymap("n", "<C-l>", "<C-w>l", opts)
 --}}}
 
 -- move vertically by visual line{{{
@@ -145,8 +145,10 @@ wk.register({
       n = { '<cmd>ObsidianNew<CR>', "[N]ew note" },
       s = { '<cmd>ObsidianSearch<CR>', "[S]earch in notes" },
       o = { '<cmd>ObsidianOpen<CR>', "[O]pen note in obsidian" },
+      p = { '<cmd>ObsidianPasteImg<CR>', "[P]aste image" },
       b = { '<cmd>ObsidianBacklinks<CR>', "[B]acklinks" },
       t = { '<cmd>ObsidianTags<CR>', "Search [T]ags" },
+      d = { '<cmd>ObsidianDailies<CR>', "[D]aily notes" },
       ll = {':ObsidianLink ', "[L]ink selection to existing note", mode='v', silent=false},
       ln = {':ObsidianLinkNew ', "Link selection to [N]ew note", mode='v', silent=false},
     }
@@ -177,7 +179,7 @@ wk.register({
 	["<leader>"] = {
 		["g"] = {
 			name = "+[G]it",
-			["g"] = { "<cmd>Git<CR>", "Git window" },
+			["g"] = { "<cmd>Neogit<CR>", "Git window" },
 			["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
 			["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
             ["s"] = { "<cmd>Telescope git_status<CR>", "git  [S]tatus" },

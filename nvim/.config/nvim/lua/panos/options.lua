@@ -20,6 +20,7 @@ local options = {
     updatetime=100,                                 -- Wait time in ms for various operations. Also used by gitgutter.
     omnifunc="syntaxcomplete#Complete",
     wrap=true,
+    whichwrap="b,s,h,l,<,>,[,],~",                  -- move to next line with these keys
     termguicolors = true,                           -- set term gui colors (most terminals support this)
     linebreak=true,                                 -- wrap lines at convenient points
     wildmenu=true,                                  -- visual autocomplete for command menu

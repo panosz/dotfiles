@@ -23,7 +23,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("panos.plugins2")
+require("lazy").setup("plugins")
 
 require "panos.latex"
 require "panos.whichkey"
@@ -34,11 +34,10 @@ require "panos.cmp"
 require "panos.aerial"
 require "panos.lsp"
 require "panos.treesiter"
-require "panos.vimwiki"
+-- require "panos.vimwiki"
 require "panos.abbreviations"
 require "panos.gitsigns_config"
 require "panos.autopairs"
-require "panos.greek"
 require "panos.nvim-tree"
 require "panos.telescope"
 require "panos.toggleterm"
@@ -55,13 +54,14 @@ require "panos.project_nvim"
 require "panos.dap-python"
 require "panos.neoai"
 require "panos.chatgpt"
-require "panos.obsidian"
+-- require "panos.obsidian"
 
 
  vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
  vim.g.NERDToggleCheckAllLines = 1 -- Enable NERDCommenterToggle to check all selected lines is commented or not
 
 vim.notify = require("notify")
+require "panos.greek"
 
 vim.cmd[[
 	augroup my-glyph-palette
@@ -72,6 +72,5 @@ vim.cmd[[
 	augroup END
 ]]
 
-vim.api.nvim_set_keymap('n', '\\', '<cmd>FineCmdline<CR>', {noremap = true})
 
 require('refactoring').setup()

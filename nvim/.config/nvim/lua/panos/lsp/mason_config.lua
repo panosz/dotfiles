@@ -17,7 +17,7 @@ local servers = {
     },
     vuels = {},
 	jsonls = require("panos.lsp.settings.jsonls"),
-	clangd = {},
+	clangd = require("panos.lsp.settings.clangd"),
 	-- pyright = require("panos.lsp.settings.pyright"),
 	texlab = require("panos.lsp.settings.texlab"),
 	-- ltex = {

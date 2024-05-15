@@ -1,23 +1,7 @@
 return {
 	-- My plugins here
-	{ "wbthomason/packer.nvim" }, -- Have packer manage itself
 	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
-	--{{{ colorschemes
-	{ "morhetz/gruvbox" }, -- gruvbox: Colorscheme for Vim
-	{ "lifepillar/vim-gruvbox8" },
-	{ "sainnhe/gruvbox-material" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "EdenEast/nightfox.nvim" }, -- nightfox: Colorscheme for Vim
-	{ "cocopon/iceberg.vim" },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "sainnhe/sonokai" },
-	{ "savq/melange-nvim" },
-	{ "aktersnurra/no-clown-fiesta.nvim" },
-	{ "arcticicestudio/nord-vim" },
-	{ "folke/tokyonight.nvim" },
-	{ "ishan9299/nvim-solarized-lua" },
-	--}}}
 	{ "tpope/vim-unimpaired" }, -- Vim-Unimpared - useful mappings
 	{ "lervag/vimtex" }, -- vimtex
 	{ "anufrievroman/vim-angry-reviewer" },
@@ -58,10 +42,10 @@ return {
 
 	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
 
-	{
-		"vimwiki/vimwiki", -- vim-wiki
-		branch = "dev",
-	},
+	-- {
+		-- "vimwiki/vimwiki", -- vim-wiki
+		-- branch = "dev",
+	-- },
 
 	{ "itchyny/calendar.vim" }, -- callendar-vim
 
@@ -70,17 +54,6 @@ return {
 	{ "powerman/vim-plugin-AnsiEsc" }, -- AnsiEsc %color text with Ansi escape sequences
 
 	{ "farseer90718/vim-taskwarrior" }, -- vim-taskwarrior %a vim interface for taskwarrior
-
-	{
-		"epwalsh/obsidian.nvim",
-		-- tag = "*",  -- recommended, use latest release instead of latest commit
-		dependencies = {
-			-- Required.
-			"nvim-lua/plenary.nvim",
-
-			-- see below for full list of optional dependencies 👇
-		},
-	},
 
 	{
 		"goolord/alpha-nvim",
@@ -95,87 +68,6 @@ return {
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
 
-	-- Git stuff{{{
-	{ "tpope/vim-fugitive" },
-	{
-		"lewis6991/gitsigns.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	{ "junegunn/gv.vim" }, -- A git commit browser.
-	{ "tpope/vim-rhubarb" }, -- If fugitive.vim is the Git, rhubarb.vim is the Hub
-	{
-		"wintermute-cell/gitignore.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim", -- optional: for multi-select
-		},
-	},
-
-	{ "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" }, -- review all changed files for any git rev.
-
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			-- Only one of these is needed, not both.
-			"nvim-telescope/telescope.nvim", -- optional
-		},
-		config = true,
-	},
-
-	{ "rbong/vim-flog" }, -- a git log viewer
-
-	--}}}
-	-- cmp plugins{{{
-	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
-	{ "hrsh7th/cmp-buffer" }, -- buffer completions
-	{ "hrsh7th/cmp-path" }, -- path completions
-	{ "hrsh7th/cmp-cmdline" }, -- cmdline completions
-	{ "saadparwaiz1/cmp_luasnip" }, -- snippet completions
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-nvim-lua" },
-	{ "petertriho/cmp-git", dependencies = "nvim-lua/plenary.nvim" }, -- git completins
-	--   }}}
-	--   LSP{{{
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "j-hui/fidget.nvim" },
-	{ "folke/neodev.nvim" }, -- Additional lua configuration, makes nvim stuff amazing
-	{ -- LSP Configuration & Plugins
-		"neovim/nvim-lspconfig",
-	},
-	{ -- For non-lsp sources, such as linters
-		"nvimtools/none-ls.nvim", -- replacement for "jose-elias-alvarez/null-ls.nvim",
-		"jayp0521/mason-null-ls.nvim",
-	},
-
-	{ "ray-x/lsp_signature.nvim" }, -- show function signature when you type
-
-	{ "onsails/lspkind-nvim" }, -- vscode-like pictograms for neovim lsp completion items
-
-	--  }}} LSP
-
-	-- {{{ Colilot
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter", -- this is the recommended way to lazy load copilot
-		config = function()
-			require("panos.copilot")
-		end,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup({ event = "LspAttach" })
-		end,
-	},
-	--}}}
-
-	-- {"zbirenbaum/neodim"}, -- dim the highlights of unused elements
 
 	-- snippets{{{
 	{ "L3MON4D3/LuaSnip" }, --snippet engine
@@ -185,36 +77,10 @@ return {
 	{ "junegunn/fzf" },
 	{ "junegunn/fzf.vim" },
 
-	-- Telescope{{{
-	{ "nvim-telescope/telescope.nvim" },
-	{ "nvim-telescope/telescope-media-files.nvim" },
-	{
-		"nvim-telescope/telescope-fzf-native.nvim",
-		build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	},
-	{ "nvim-telescope/telescope-symbols.nvim" }, -- symbols
-	{ "jvgrootveld/telescope-zoxide" }, -- integration with zoxide
-	{ "nvim-telescope/telescope-project.nvim" }, -- switch between projects
-	{
-		"nvim-telescope/telescope-frecency.nvim", -- intelligent prioritization when selecting files from your editing history.
-		dependencies = { "kkharji/sqlite.lua" },
-	},
-	{ "nvim-telescope/telescope-ui-select.nvim" }, -- It sets vim.ui.select to telescope
-	{ "nvim-telescope/telescope-file-browser.nvim" },
-	{ "ElPiloto/telescope-vimwiki.nvim" },
-	---}}}
 
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
-	-- Treesitter {{{
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-	},
-	{ "nvim-treesitter/playground" },
-	{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	{ "p00f/nvim-ts-rainbow" },
-	--}}}
+	
 	--{{{ devicons - add filetype signs to your plugins
 	{
 		"kyazdani42/nvim-web-devicons",
@@ -318,12 +184,6 @@ return {
 
 	{ "rcarriga/nvim-notify" },
 
-	{
-		"VonHeikemen/fine-cmdline.nvim",
-		dependencies = {
-			{ "MunifTanjim/nui.nvim" },
-		},
-	},
 
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -346,14 +206,5 @@ return {
 			})
 		end,
 	},
--- Lua
-{
-  "folke/zen-mode.nvim",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-}
 
 }
