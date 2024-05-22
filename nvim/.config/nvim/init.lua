@@ -4,26 +4,12 @@ require "panos.spelling"
 
 
 -- leader key{{{
-vim.keymap.set("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 --}}}
 
--- require "panos.plugins"
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins")
+require "panos.lazy"
 
 require "panos.latex"
 require "panos.whichkey"
