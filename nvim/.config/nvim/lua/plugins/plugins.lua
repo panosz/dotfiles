@@ -89,13 +89,11 @@ return {
 		end,
 	},
 	--}}}
-	{ "kyazdani42/nvim-tree.lua" }, -- A File Explorer For Neovim Written In Lua
 	{ "akinsho/toggleterm.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
 	{ "xiyaowong/nvim-transparent" },
 	{ "lambdalisue/glyph-palette.vim" },
-	{ "stevearc/aerial.nvim" }, -- A code outline window for skimming and quick navigation
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
 	--   { "p00f/clangd_extensions.nvim" }, -- extensions for c/cpp
