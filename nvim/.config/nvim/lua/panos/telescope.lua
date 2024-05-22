@@ -177,20 +177,20 @@ telescope.setup {
         case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                          -- the default case_mode is "smart_case"
       },
-      frecency = {
-        -- db_root = "home/my_username/path/to/db_root",
-        show_scores = false,
-        show_unindexed = true,
-        ignore_patterns = {"*.git/*", "*/tmp/*"},
-        disable_devicons = false,
-        db_safe_mode = true,
-        -- workspaces = {
-          -- ["conf"]    = "/home/my_username/.config",
-          -- ["data"]    = "/home/my_username/.local/share",
-          -- ["project"] = "/home/my_username/projects",
-          -- ["wiki"]    = "/home/my_username/wiki"
-        -- }
-      },
+      -- frecency = {
+        -- -- db_root = "home/my_username/path/to/db_root",
+        -- show_scores = false,
+        -- show_unindexed = true,
+        -- ignore_patterns = {"*.git/*", "*/tmp/*"},
+        -- disable_devicons = false,
+        -- db_safe_mode = true,
+        -- -- workspaces = {
+          -- -- ["conf"]    = "/home/my_username/.config",
+          -- -- ["data"]    = "/home/my_username/.local/share",
+          -- -- ["project"] = "/home/my_username/projects",
+          -- -- ["wiki"]    = "/home/my_username/wiki"
+        -- -- }
+      -- },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
