@@ -68,7 +68,6 @@ return {
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
 
-
 	-- snippets{{{
 	{ "L3MON4D3/LuaSnip" }, --snippet engine
 	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
@@ -77,10 +76,8 @@ return {
 	{ "junegunn/fzf" },
 	{ "junegunn/fzf.vim" },
 
-
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
-	
 	--{{{ devicons - add filetype signs to your plugins
 	{
 		"kyazdani42/nvim-web-devicons",
@@ -182,7 +179,6 @@ return {
 
 	{ "rcarriga/nvim-notify" },
 
-
 	{
 		"ThePrimeagen/refactoring.nvim",
 		dependencies = {
@@ -191,10 +187,11 @@ return {
 		},
 	},
 	{
-		dir = "~/Documents/programming/papis_nvim/papis.nvim",
+		"jghauser/papis.nvim",
 		dependencies = {
 			"kkharji/sqlite.lua",
-			"nvim-lua/plenary.nvim",
+            "pysan3/pathlib.nvim",
+            "nvim-neotest/nvim-nio",
 			"MunifTanjim/nui.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -204,5 +201,4 @@ return {
 			})
 		end,
 	},
-
 }
