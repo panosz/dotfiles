@@ -73,6 +73,7 @@ eval "$(zoxide init --cmd cd zsh)"
 [ -f ~/.config/zsh/fzf_config.zsh ] && source ~/.config/zsh/fzf_config.zsh
 #}}}
 # custom aliases {{{
+alias bat="batcat"
 alias tmux="~/.local/bin/tmux"
 alias fd=fdfind # this is the name of `fd` in ubuntu, when installed with apt
 alias toka="cd ~/Documents/programming/python/Dynamics/tokamaks"
