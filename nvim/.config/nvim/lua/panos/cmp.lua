@@ -109,9 +109,28 @@ cmp.setup {
   -- documentation = {
   -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   -- },
+  sorting = { -- from copilot-cmp documentation
+    priority_weight = 2,
+    comparators = {
+      require("copilot_cmp.comparators").prioritize,
+
+      -- Below is the default comparator list and order for nvim-cmp
+      cmp.config.compare.offset,
+      -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+
+  },
   experimental = {
     ghost_text = false,
-  },
+  }
 }
 
 -- Set configuration for specific filetype
