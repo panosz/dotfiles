@@ -32,16 +32,14 @@ local function Tchar()
   })
 end
 
-wk.register{
-  ["<Leader><Leader>"] = {
-    name = "Hop",
-    f = { fchar, "find character forward" },
-    F = { Fchar, "find character backward" },
-    t = { tchar, "to character forward" },
-    T = { Tchar, "to character backward" },
-    w = { "<cmd>HopWordAC<cr>", "word forward" },
-    W = { "<cmd>HopWordBC<cr>", "word backward" },
-    j = { "<cmd>HopLineAC<cr>", "line forward" },
-    k = { "<cmd>HopLineBC<cr>", "line backward" },
-  }
-}
+wk.add({
+  { "<Leader><Leader>",  group = "Hop" },
+  { "<Leader><Leader>f", fchar,                desc = "find character forward" },
+  { "<Leader><Leader>F", Fchar,                desc = "find character backward" },
+  { "<Leader><Leader>t", tchar,                desc = "to character forward" },
+  { "<Leader><Leader>T", Tchar,                desc = "to character backward" },
+  { "<Leader><Leader>w", "<cmd>HopWordAC<cr>", desc = "word forward" },
+  { "<Leader><Leader>W", "<cmd>HopWordBC<cr>", desc = "word backward" },
+  { "<Leader><Leader>j", "<cmd>HopLineAC<cr>", desc = "line forward" },
+  { "<Leader><Leader>k", "<cmd>HopLineBC<cr>", desc = "line backward" },
+})

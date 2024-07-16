@@ -4,13 +4,12 @@ local term_opts = { silent = true }
 local keymap = vim.keymap.set
 --}}}
 
-
 -- keymap to enter the tail of the current file name to the command line
 
 keymap("c", "<C-r><C-f>", "<C-r>=expand('%:t')<CR>", { noremap = true })
 
 -- Normal{{{
-keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], {noremap=true, silent=false}) -- search and replace under cursor
+keymap("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { noremap = true, silent = false }) -- search and replace under cursor
 keymap("n", "<Leader>q", ":Bdelete<CR>", opts) -- close buffer without closing window
 keymap("n", "<Leader>w", ":w<CR>|", opts) -- Save file
 
@@ -101,108 +100,95 @@ local t_frecency = require("telescope").extensions.frecency.frecency
 local t_project = require("telescope").extensions.project.project
 
 local wk = require("which-key")
-wk.register({
-	["<leader>"] = {
-		["f"] = {
-			name = "+[F]ind",
-			["f"] = { t_b.find_files, "Find File" },
-			["b"] = { t_b.buffers, "Find Buffer" },
-			["h"] = { t_b.help_tags, "Find Help" },
-			["w"] = { t_b.grep_string, "Find Word" },
-			["r"] = { t_frecency, "Find Recent" },
-			["p"] = { t_project, "Find Project" },
-			["d"] = { t_zoxide.list, "Find Directory" },
-			["g"] = { t_b.git_files, "Find file in Git repo" },
-			["o"] = { t_b.oldfiles, "Find old file" },
-			["s"] = { t_b.live_grep, "Find string in files" },
-			["/"] = { t_b.current_buffer_fuzzy_find, "Fuzzily search in current buffer" },
-		},
-	},
+wk.add({
+	{ "<leader>f", group = "[F]ind" },
+	{ "<leader>ff", t_b.find_files, desc = "Find File" },
+	{ "<leader>fb", t_b.buffers, desc = "Find Buffer" },
+	{ "<leader>fh", t_b.help_tags, desc = "Find Help" },
+	{ "<leader>fw", t_b.grep_string, desc = "Find Word" },
+	{ "<leader>fr", t_frecency, desc = "Find Recent" },
+	{ "<leader>fp", t_project, desc = "Find Project" },
+	{ "<leader>fd", t_zoxide.list, desc = "Find Directory" },
+	{ "<leader>fg", t_b.git_files, desc = "Find file in Git repo" },
+	{ "<leader>fo", t_b.oldfiles, desc = "Find old file" },
+	{ "<leader>fs", t_b.live_grep, desc = "Find string in files" },
+	{ "<leader>f/", t_b.current_buffer_fuzzy_find, desc = "Fuzzily search in current buffer" },
 })
 -- }}}
 
---vimwiki{{{
-wk.register({
-	["<leader>"] = {
-		["v"] = {
-			name = "+[V]imwiki",
-			["n"] = { require("telescope").extensions.vimwiki.vimwiki, "find Note" },
-			["s"] = { require("telescope").extensions.vimwiki.live_grep, "Search in notes" },
-            ["l"] = {"<cmd>Telescope vw link<CR>", "insert Link"},
-            ["b"] = {"<cmd>VimwikiBacklinks<CR>", "Back links"},
-		},
-	},
-})
----}}}
 ---
 -- obsidian{{{
 
-wk.register({
-  ["<leader>"] = {
-    o = {
-      name = "+[O]bsidian",
-      n = { '<cmd>ObsidianNew<CR>', "[N]ew note" },
-      s = { '<cmd>ObsidianSearch<CR>', "[S]earch in notes" },
-      o = { '<cmd>ObsidianOpen<CR>', "[O]pen note in obsidian" },
-      p = { '<cmd>ObsidianPasteImg<CR>', "[P]aste image" },
-      b = { '<cmd>ObsidianBacklinks<CR>', "[B]acklinks" },
-      t = { '<cmd>ObsidianTags<CR>', "Search [T]ags" },
-      d = { '<cmd>ObsidianDailies<CR>', "[D]aily notes" },
-      ll = {':ObsidianLink ', "[L]ink selection to existing note", mode='v', silent=false},
-      ln = {':ObsidianLinkNew ', "Link selection to [N]ew note", mode='v', silent=false},
-    }
-  }
-}
-)
+wk.add({
+	{ "<leader>o", group = "[O]bsidian" },
+	{ "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc = "[B]acklinks" },
+	{ "<leader>od", "<cmd>ObsidianDailies<CR>", desc = "[D]aily notes" },
+	{ "<leader>on", "<cmd>ObsidianNew<CR>", desc = "[N]ew note" },
+	{ "<leader>oo", "<cmd>ObsidianOpen<CR>", desc = "[O]pen note in obsidian" },
+	{ "<leader>op", "<cmd>ObsidianPasteImg<CR>", desc = "[P]aste image" },
+	{ "<leader>os", "<cmd>ObsidianSearch<CR>", desc = "[S]earch in notes" },
+	{ "<leader>ot", "<cmd>ObsidianTags<CR>", desc = "Search [T]ags" },
+	{
+		mode = "v",
+		{ "<leader>ol", group = "[L]ink" },
+		{
+			"<leader>oll",
+			":ObsidianLink ",
+			desc = "[L]ink selection to existing note",
+			mode = "v",
+			silent = false,
+		},
+		{
+			"<leader>oln",
+			":ObsidianLinkNew ",
+			desc = "Link selection to [N]ew note",
+			mode = "v",
+			silent = false,
+		},
+	},
+})
 -- }}}
 
 -- sessions{{{
-wk.register({
-	["<leader>"] = {
-		["s"] = {
-			name = "+[S]ession",
-			["s"] = { "<cmd>SessionManager save_current_session<CR>", "Save current session" },
-			["l"] = { "<cmd>SessionManager load_session<CR>", "Load session" },
-			["L"] = { "<cmd>SessionManager load_last_session<CR>", "Load last session" },
-		},
-	},
-})
+wk.add(
+  {
+    { "<leader>s", group = "[S]ession" },
+    { "<leader>sL", "<cmd>SessionManager load_last_session<CR>", desc = "Load last session" },
+    { "<leader>sl", "<cmd>SessionManager load_session<CR>", desc = "Load session" },
+    { "<leader>ss", "<cmd>SessionManager save_current_session<CR>", desc = "Save current session" },
+  }
+)
 -- }}}
 --
 -- Git{{{
-wk.register({
-	["<leader>"] = {
-		["g"] = {
-			name = "+[G]it",
-			["g"] = { "<cmd>Neogit<CR>", "Git window" },
-			["w"] = { "<cmd>Gwrite<CR>", "write and stage" },
-			["r"] = { "<cmd>Gread<CR>", "checkout to buffer" },
-            ["s"] = { "<cmd>Telescope git_status<CR>", "git  [S]tatus" },
-		},
-	},
-})
+wk.add({
+    { "<leader>g", group = "[G]it" },
+    { "<leader>gg", "<cmd>Neogit<CR>", desc = "Git window" },
+    { "<leader>gr", "<cmd>Gread<CR>", desc = "checkout to buffer" },
+    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "git [S]tatus" },
+    { "<leader>gw", "<cmd>Gwrite<CR>", desc = "write and stage" },
+  })
 -- }}}
 -- chat-gpt{{{
-wk.register({
-	["<LocalLeader>"] = {
-		["c"] = {
-			name = "+[C]hatGPT",
-			c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-			e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-			g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-			t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-			k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-			d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-			a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-			o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-			s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-			f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-			x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-			r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-			l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-		},
-	},
-})
+wk.add({
+    { "<LocalLeader>c", group = "[C]hatGPT" },
+    { "<LocalLeader>cc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+    {
+      mode = { "n", "v" },
+      { "<LocalLeader>ca", "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+      { "<LocalLeader>cd", "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+      { "<LocalLeader>ce", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+      { "<LocalLeader>cf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+      { "<LocalLeader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+      { "<LocalLeader>ck", "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+      { "<LocalLeader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis" },
+      { "<LocalLeader>co", "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+      { "<LocalLeader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+      { "<LocalLeader>cs", "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+      { "<LocalLeader>ct", "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+      { "<LocalLeader>cx", "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+    },
+  })
 
 -- }}}
 

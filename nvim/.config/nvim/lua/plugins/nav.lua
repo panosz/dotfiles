@@ -82,8 +82,8 @@ return {
 			init = function()
 				local wk = require("which-key")
 
-				wk.register({
-					["<leader>a"] = { "<cmd>AerialToggle<CR>", "Aerial" },
+				wk.add({
+					{ "<leader>a", "<cmd>AerialToggle<CR>", desc = "Aerial" },
 				})
 			end,
 		},
