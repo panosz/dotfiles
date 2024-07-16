@@ -43,8 +43,8 @@ return {
 	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
 
 	-- {
-		-- "vimwiki/vimwiki", -- vim-wiki
-		-- branch = "dev",
+	-- "vimwiki/vimwiki", -- vim-wiki
+	-- branch = "dev",
 	-- },
 
 	{ "itchyny/calendar.vim" }, -- callendar-vim
