@@ -118,10 +118,10 @@ local function lsp_keymaps(bufnr)
 			{ "<leader>lSw", tb.lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
 			{ "<leader>lo", vim.diagnostic.open_float, desc = "Open float with diagnostic message" },
 			{ "<leader>lw", group = "Workspace" },
-			{ "<leader>la", vim.lsp.buf.add_workspace_folder, desc = "Add Folder" },
-			{ "<leader>lr", vim.lsp.buf.remove_workspace_folder, desc = "Remove Folder" },
+			{ "<leader>lwa", vim.lsp.buf.add_workspace_folder, desc = "Add Folder" },
+			{ "<leader>lwr", vim.lsp.buf.remove_workspace_folder, desc = "Remove Folder" },
 			{
-				"<leader>ll",
+				"<leader>lwl",
 				function()
 					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 				end,
@@ -130,7 +130,7 @@ local function lsp_keymaps(bufnr)
 		},
 		{ buffer = bufnr },
 	})
-	wk.register({
+	wk.add({
     {"<C-s>", vim.lsp.buf.signature_help, desc = "signature help", buffer = bufnr, mode = "i" },
     {"[d", vim.diagnostic.goto_prev, desc = "previous diagnostic", buffer = bufnr, mode = "n" },
     {"]d", vim.diagnostic.goto_next, desc = "next diagnostic", buffer = bufnr, mode = "n" },
