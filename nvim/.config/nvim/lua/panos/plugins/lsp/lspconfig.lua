@@ -19,7 +19,7 @@ return { -- LSP Configuration & Plugins
           { "<leader>ld",  vim.lsp.buf.definition,              desc = "Goto Definition" },
           { "<leader>la",  vim.lsp.buf.code_action,             desc = "Code Action" },
           { "<leader>lD",  vim.lsp.buf.declaration,             desc = "Goto Declaration" },
-          { "<leader>lf",  vim.lsp.buf.format,                  desc = "Format" },
+          -- { "<leader>lf",  vim.lsp.buf.format,                  desc = "Format" },
           { "<leader>li",  vim.lsp.buf.implementation,          desc = "Goto Implementation" },
           { "<leader>lh",  vim.lsp.buf.hover,                   desc = "Hover" },
           { "<leader>ll",  vim.diagnostic.setloclist,           desc = "Send diagnostics to Loclist" },
