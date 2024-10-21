@@ -37,8 +37,15 @@ return {
 				lint.try_lint()
 			end,
 		})
-
-		vim.keymap.set("n", "<leader>l", function()
+		vim.diagnostic.config({
+			virtual_text = {
+				source = true,
+			},
+			float = {
+				source = true,
+			},
+		})
+		vim.keymap.set("n", "<leader>lL", function()
 			lint.try_lint()
 		end, { desc = "Trigger linting for current file" })
 	end,
