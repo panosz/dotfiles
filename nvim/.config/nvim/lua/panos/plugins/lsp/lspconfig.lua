@@ -3,6 +3,7 @@ return { -- LSP Configuration & Plugins
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    { "ray-x/lsp_signature.nvim" }, -- show function signature when you type
     -- "antosha417/nvim-lsp-file-operations", TODO: enable this in the future
   },
   config = function()
@@ -58,7 +59,7 @@ return { -- LSP Configuration & Plugins
       if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
       end
-      -- require("lsp_signature").on_attach()
+      require("lsp_signature").on_attach()
       lsp_keymaps(bufnr)
     end
 
@@ -182,5 +183,4 @@ return { -- LSP Configuration & Plugins
       },
     }
   end,
-
 }

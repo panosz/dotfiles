@@ -7,7 +7,5 @@ return {
 		"jayp0521/mason-null-ls.nvim",
 	},
 
-	{ "ray-x/lsp_signature.nvim" }, -- show function signature when you type
-
 	{ "onsails/lspkind-nvim" }, -- vscode-like pictograms for neovim lsp completion items
 }
