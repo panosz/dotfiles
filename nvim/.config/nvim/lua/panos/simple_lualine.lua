@@ -34,10 +34,9 @@ lualine.setup {
 
         shorting_target = 60, -- Shortens path to leave 60 spaces in the window
         -- for other components. (terrible name, any suggestions?)
-      }
-
+      },
     },
-    lualine_x = { 'filetype' },
+    lualine_x = { 'copilot', 'filetype' },
     lualine_y = { 'aerial' },
     lualine_z = { 'location', 'progress' }
   },

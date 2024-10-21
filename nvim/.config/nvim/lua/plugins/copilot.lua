@@ -13,4 +13,5 @@ return {
 			require("copilot_cmp").setup({ event = "LspAttach" })
 		end,
 	},
+	{ "AndreM222/copilot-lualine" },
 }
