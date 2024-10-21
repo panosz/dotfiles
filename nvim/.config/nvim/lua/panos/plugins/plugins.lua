@@ -38,7 +38,7 @@ return {
 		end,
 	},
 
-	{ "tpope/vim-abolish" }, -- abolish  - Tim pope's plugin for working with variants of a word
+	{ "tpope/vim-eunuch" }, -- abolish  - Tim pope's plugin for working with variants of a word
 
 	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
 
@@ -55,16 +55,7 @@ return {
 
 	{ "farseer90718/vim-taskwarrior" }, -- vim-taskwarrior %a vim interface for taskwarrior
 
-	{
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").config)
-		end,
-	},
-
-	{ "echasnovski/mini.nvim" },
-
-	{ "tpope/vim-eunuch" }, -- eunuch.vim: Helpers for UNIX shell commands
+	{ "tpope/vim-abolish" }, -- eunuch.vim: Helpers for UNIX shell commands
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
 
