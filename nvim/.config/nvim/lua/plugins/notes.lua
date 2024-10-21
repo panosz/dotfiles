@@ -1,21 +1,50 @@
 return {
-  {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    lazy = true,
-    -- opts = {
-      -- markdown = {
-        -- headline_highlights = { "Headline1", "Headline2", "Headline3" },
-        -- -- bullet_highlights = { "Headline1", "Headline2", "Headline3" },
-        -- -- bullets = { "❯", "❯", "❯", "❯" },
-        -- -- dash_string = "⎯",
-        -- fat_headlines = false,
-      -- },
-    -- },
-    config = function(_, opts)
-      require("headlines").setup(opts)
-    end,
-  },
+
+  -- {
+    -- "vimwiki/vimwiki",
+    -- init = function()
+      -- -- Disable all default keybindings and autocommands
+      -- vim.g.vimwiki_list = { { path = '~/vimwiki_markdown', syntax = 'markdown', ext = '.md' } }
+      -- vim.g.vimwiki_key_mappings = {
+        -- -- all_maps = 0,
+        -- -- global = 0,
+        -- headers = 0,
+        -- text_objs = 0,
+        -- -- table_format = 0,
+        -- -- table_mappings = 0,
+        -- lists = 0,
+        -- links = 0,
+        -- html = 0,
+        -- mouse = 0,
+        -- tags = 0,
+        -- diary = 0,
+        -- markdown = 0,
+        -- calendar = 0,
+        -- cheatsheet = 0,
+      -- }
+
+      -- -- Disable automatic wiki setup (no auto directory or files)
+      -- vim.g.vimwiki_auto_chdir = 0
+    -- end
+  -- },
+
+  -- {
+    -- "lukas-reineke/headlines.nvim",
+    -- dependencies = "nvim-treesitter/nvim-treesitter",
+    -- lazy = true,
+    -- -- opts = {
+    -- -- markdown = {
+    -- -- headline_highlights = { "Headline1", "Headline2", "Headline3" },
+    -- -- -- bullet_highlights = { "Headline1", "Headline2", "Headline3" },
+    -- -- -- bullets = { "❯", "❯", "❯", "❯" },
+    -- -- -- dash_string = "⎯",
+    -- -- fat_headlines = false,
+    -- -- },
+    -- -- },
+    -- config = function(_, opts)
+      -- require("headlines").setup(opts)
+    -- end,
+  -- },
 
   {
     "epwalsh/obsidian.nvim",
@@ -208,7 +237,7 @@ return {
       -- Optional, configure additional syntax highlighting / extmarks.
       -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
       ui = {
-        enable = true,     -- set to false to disable all additional syntax features
+        enable = false,         -- set to false to disable all additional syntax features
         update_debounce = 200, -- update delay after a text change (in milliseconds)
         -- Define how various check-boxes are displayed
         checkboxes = {
@@ -274,4 +303,19 @@ return {
       yaml_parser = "native",
     },
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    -- config = function(_, opts)
+      -- require("render-markdonw").setup(opts)
+    -- end,
+    opts = {
+      checkbox = {
+        custom = {
+              started = { raw = '[>]', rendered = '', highlight = 'DiagnosticWarn' },
+        },
+      },
+    }
+
+}
 }
