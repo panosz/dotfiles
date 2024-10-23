@@ -57,8 +57,10 @@ configs.setup({
 
 			keymaps = {
 				-- You can use the capture groups defined in textobjects.scm
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
+				["am"] = "@function.outer",
+				["im"] = "@function.inner",
+                ["if"] = "@call.inner",
+                ["af"] = "@call.outer",
 				["ac"] = "@class.outer",
 				["ic"] = "@class.inner",
 				["ia"] = "@parameter.inner",
@@ -67,8 +69,11 @@ configs.setup({
                 ["ai"] = "@conditional.outer",
                 ["il"] = "@loop.inner",
                 ["al"] = "@loop.outer",
-                ["at"] = "comment.outer",
-            
+                ["at"] = "@comment.outer",
+                ["l="] = "@assignment.lhs",
+                ["r="] = "@assignment.rhs",
+                ["i="] = "@assignment.inner",
+                ["a="] = "@assignment.outer",
 
 				-- Or you can define your own textobjects like this
 				-- ["iF"] = {
