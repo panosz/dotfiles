@@ -1,22 +1,14 @@
 return {
 	"hrsh7th/nvim-cmp", -- The completion plugin
 	event = "InsertEnter",
-	dependencies = {
-		"hrsh7th/cmp-buffer", -- buffer completions
-		"hrsh7th/cmp-path", -- path completions
-		"hrsh7th/cmp-cmdline", -- cmdline completions
-		"saadparwaiz1/cmp_luasnip", -- snippet completions
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lua",
-		"petertriho/cmp-git", -- git completins
-		"onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
-	},
 	config = function()
 		local cmp = require("cmp")
 
 		local luasnip = require("luasnip")
 
 		require("luasnip/loaders/from_vscode").lazy_load()
+
+		vim.opt.completeopt = "menu,menuone,noselect,preview"
 
 		local check_backspace = function()
 			local col = vim.fn.col(".") - 1
@@ -104,7 +96,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
-                { name = "git" },
+				{ name = "git" },
 			},
 			confirm_opts = {
 				behavior = cmp.ConfirmBehavior.Replace,
@@ -140,4 +132,14 @@ return {
 		-- Set configuration for specific filetype
 		require("cmp_git").setup()
 	end,
+	dependencies = {
+		"hrsh7th/cmp-buffer", -- buffer completions
+		"hrsh7th/cmp-path", -- path completions
+		"hrsh7th/cmp-cmdline", -- cmdline completions
+		"saadparwaiz1/cmp_luasnip", -- snippet completions
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lua",
+		"petertriho/cmp-git", -- git completins
+		"onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
+	},
 }
