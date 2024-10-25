@@ -69,14 +69,6 @@ return {
 
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
-	--{{{ devicons - add filetype signs to your plugins
-	{
-		"kyazdani42/nvim-web-devicons",
-		config = function()
-			require("nvim-web-devicons").setup()
-		end,
-	},
-	--}}}
 	{ "akinsho/toggleterm.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
@@ -154,7 +146,6 @@ return {
 	-- ChatGPT
 	--
 	--
-	{ "MunifTanjim/nui.nvim" },
 	{
 		"Bryley/neoai.nvim",
 	},
@@ -168,7 +159,6 @@ return {
 		},
 	},
 
-	{ "rcarriga/nvim-notify" },
 
 	{
 		"ThePrimeagen/refactoring.nvim",
