@@ -1,4 +1,6 @@
 return {
+	{ "stevearc/dressing.nvim" }, -- A plugin for applying a consistent style to your Neovim UI
+
 	-- {
 	-- "VonHeikemen/fine-cmdline.nvim",
 	-- dependencies = {

@@ -141,8 +141,6 @@ return {
 
 	{ "frabjous/knap" }, -- auto-refreshing latex
 
-	{ "stevearc/dressing.nvim" }, -- A plugin for applying a consistent style to your Neovim UI
-
 	-- ChatGPT
 	--
 	--
