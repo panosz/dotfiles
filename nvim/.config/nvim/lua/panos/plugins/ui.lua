@@ -36,7 +36,7 @@ return {
 			"rcarriga/nvim-notify",
 		},
 		config = function()
-			require("noice").setup({ 
+			require("noice").setup({
 				lsp = {
 					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 					override = {
@@ -57,12 +57,21 @@ return {
 		end,
 	},
 
-	--{{{ devicons - add filetype signs to your plugins
-	{
+	{ -- add filetype signs to your plugins
 		"kyazdani42/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").setup()
 		end,
 	},
-	--}}}
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			local ibl = require("ibl")
+			ibl.setup({
+				scope = { enabled = false },
+				indent = { char = "┊" },
+			})
+		end,
+	},
 }

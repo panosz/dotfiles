@@ -70,7 +70,6 @@ return {
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
 	{ "akinsho/toggleterm.nvim" },
-	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
 	{ "xiyaowong/nvim-transparent" },
 	{ "lambdalisue/glyph-palette.vim" },
