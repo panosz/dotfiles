@@ -35,6 +35,13 @@ lualine.setup {
         shorting_target = 60, -- Shortens path to leave 60 spaces in the window
         -- for other components. (terrible name, any suggestions?)
       },
+
+      {  -- show macro recording in statusline
+        require("noice").api.status.mode.get,
+        cond = require("noice").api.status.mode.has,
+        color = { fg = "#ff9e64" },
+      },
+
     },
     lualine_x = { 'copilot', 'filetype' },
     lualine_y = { 'aerial' },
