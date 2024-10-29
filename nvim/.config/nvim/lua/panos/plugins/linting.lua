@@ -11,14 +11,14 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
-			python = { "pylint" },
+            python = { "pylint" },
 			cpp = { "cpplint" },
 			c = { "cpplint" },
 			cmake = { "cmakelint" },
 		}
 		-- Set pylint to work in virtualenv, see https://gist.github.com/Norbiox/652befc91ca0f90014aec34eccee27b2?permalink_comment_id=5230129#gistcomment-5230129
 		lint.linters.pylint.cmd = "python"
-		lint.linters.pylint.args = { "-m", "pylint", "-f", "json" }
+		lint.linters.pylint.args = { "-m", "pylint", "-f", "json",  function() return vim.api.nvim_buf_get_name(0) end,}
 		lint.linters.pylint.args = {
 			"-m",
 			"pylint",
