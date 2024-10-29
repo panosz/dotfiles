@@ -59,7 +59,7 @@ return { -- LSP Configuration & Plugins
       if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
       end
-      require("lsp_signature").on_attach()
+      -- require("lsp_signature").on_attach()
       lsp_keymaps(bufnr)
     end
 
