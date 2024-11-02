@@ -16,18 +16,6 @@ return {
 
 	{ "godlygeek/tabular" }, -- tabular.vim: Text aligning tools
 
-	-- status line{{{
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
-	},
-	--}}}
-	-- tabline{{{
-	{
-		"romgrk/barbar.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-	},
-	--}}}
 
 	{
 		"phaazon/hop.nvim", -- Easymotion-like plugin
