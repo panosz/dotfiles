@@ -1,10 +1,4 @@
 fortune
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # Ruby exports
   # add user gems to your PATH
@@ -47,13 +41,37 @@ setopt multios
 setopt prompt_subst
 # }}}
 
-# source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
-# Antigen {{{
-  ANTIGEN_PATH=~/dotfiles
-  source $ANTIGEN_PATH/antigen/antigen.zsh
-  ## Load antigen configuration (see [https://github.com/zsh-users/antigen/wiki/Cookbook#init-command])
-  antigen init ~/.config/zsh/.antigenrc
-# }}}
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    # plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/pip
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/common-aliases
+    zgen oh-my-zsh plugins/vi-mode
+    zgen oh-my-zsh plugins/dirhistory
+    zgen oh-my-zsh plugins/colored-man-pages
+    zgen oh-my-zsh plugins/taskwarrior
+
+    # Syntax highlighting
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # save all to init script
+    zgen save
+fi
+
+## theme
+eval "$(starship init zsh)"
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/panosz/.zshrc'
@@ -62,9 +80,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 zstyle ':completion:*' menu select
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
 # zoxide{{{
 eval "$(zoxide init --cmd cd zsh)"
@@ -160,11 +175,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# enable starship
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-
