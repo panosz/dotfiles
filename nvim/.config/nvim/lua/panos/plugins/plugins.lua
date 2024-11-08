@@ -47,11 +47,6 @@ return {
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
 
-	-- snippets{{{
-	{ "L3MON4D3/LuaSnip" }, --snippet engine
-	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
-	--}}}
-
 	{ "junegunn/fzf" },
 	{ "junegunn/fzf.vim" },
 
