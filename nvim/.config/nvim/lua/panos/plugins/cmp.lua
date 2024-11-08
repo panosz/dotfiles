@@ -93,6 +93,7 @@ return {
 				{ name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
+				{ name = "vimtex" },
 				{ name = "luasnip" },
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },
@@ -128,29 +129,27 @@ return {
 				ghost_text = false,
 			},
 		})
-        -- `/` cmdline setup.
-        cmp.setup.cmdline('/', {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = {
-            { name = 'buffer' }
-          }
-        })
-        -- `:` cmdline setup.
-        cmp.setup.cmdline(':', {
-          mapping = cmp.mapping.preset.cmdline(),
-          sources = cmp.config.sources({
-            { name = 'path' }
-          }, {
-            {
-              name = 'cmdline',
-              option = {
-                ignore_cmds = { 'Man', '!' }
-              }
-            }
-          })
-        })
-
-
+		-- `/` cmdline setup.
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+		-- `:` cmdline setup.
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{
+					name = "cmdline",
+					option = {
+						ignore_cmds = { "Man", "!" },
+					},
+				},
+			}),
+		})
 
 		-- Set configuration for specific filetype
 		require("cmp_git").setup()
@@ -164,5 +163,6 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"petertriho/cmp-git", -- git completins
 		"onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items
+		"micangl/cmp-vimtex", -- vimtex completions
 	},
 }
