@@ -31,14 +31,7 @@ return {
 					}
 				end,
 			})
-			vim.cmd([[colorscheme kanagawa-wave]])
-			local wk = require("which-key")
-			wk.add({
-				{ "<leader>u", group = "colorscheme" },
-				{ "<leader>uw", "<cmd>colorscheme kanagawa-wave<CR>", desc = "kanagawa wave" },
-				{ "<leader>ud", "<cmd>colorscheme kanagawa-dragon<CR>", desc = "kanagawa dragon" },
-				{ "<leader>ul", "<cmd>colorscheme kanagawa-lotus<CR>", desc = "kanagawa lotus" },
-			})
+			-- vim.cmd([[colorscheme kanagawa-wave]])
 		end,
 	},
 	{
@@ -96,7 +89,17 @@ return {
 		end,
 	},
 	{ "cocopon/iceberg.vim", lazy = false, priority = 1002 },
-	{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1003 },
+	{ "catppuccin/nvim", name = "catppuccin", lazy = false, priority = 1003,
+    config = function ()
+			vim.cmd([[colorscheme catppuccin]])
+			local wk = require("which-key")
+			wk.add({
+				{ "<leader>u", group = "colorscheme" },
+				{ "<leader>ud", "<cmd>colorscheme catppuccin-mocha<CR>", desc = "catppuccin" },
+				{ "<leader>ul", "<cmd>colorscheme catppuccin-latte<CR>", desc = "catppuccin light" },
+			})
+    end
+  },
 	{ "folke/tokyonight.nvim", lazy = false, priority = 1004 },
 	{ "sainnhe/everforest", lazy = false, priority = 1005 },
 }
