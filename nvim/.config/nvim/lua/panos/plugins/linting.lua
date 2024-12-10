@@ -38,9 +38,7 @@ return {
 			end,
 		})
 		vim.diagnostic.config({
-			virtual_text = {
-				source = true,
-			},
+			virtual_text = false,
 			float = {
 				source = true,
 			},
