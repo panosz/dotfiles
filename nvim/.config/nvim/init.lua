@@ -32,7 +32,6 @@ require "panos.chatgpt"
  vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
  vim.g.NERDToggleCheckAllLines = 1 -- Enable NERDCommenterToggle to check all selected lines is commented or not
 
-vim.notify = require("notify")
 require "panos.greek"
 
 vim.cmd[[
