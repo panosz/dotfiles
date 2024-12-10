@@ -66,6 +66,9 @@ if ! zgen saved; then
     # completions
     zgen load zsh-users/zsh-completions src
 
+    zgen load zsh-users/zsh-autosuggestions
+
+
     # save all to init script
     zgen save
 fi
