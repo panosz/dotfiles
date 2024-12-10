@@ -207,6 +207,7 @@ telescope.load_extension('project')
 telescope.load_extension("ui-select")
 telescope.load_extension("file_browser")
 telescope.load_extension('vimwiki')
+telescope.load_extension('notify')
 
 -- hacky solution for telescope opening file in insert mode, see https://github.com/nvim-telescope/telescope.nvim/issues/2501#issuecomment-1561838990
 vim.api.nvim_create_autocmd("WinLeave", {
