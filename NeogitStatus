@@ -1,0 +1,39 @@
+Hint: <tab> toggle | s stage | u unstage | x discard | c commit | ? help
+
+Head:     4d3c97b main nvim. keymap for find config file
+Merge:    484f0c7 origin/main nvim. enable telescope for notifications.
+
+Untracked files (12)
+Session.vim
+alacritty/
+nvim/.config/nvim/dummy.lua
+nvim/.config/nvim/ftplugin/
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/lua/.luarc.json
+nvim/.config/nvim/lua/panos/check_plenary_path.lua
+nvim/.config/nvim/lua/panos/clangd-extensions_config.lua
+nvim/.config/nvim/lua/panos/neorg.lua
+nvim/.config/nvim/python_more.lua
+nvim/.config/nvim/static/
+nvim/.config/nvim/what_is_rtp.lua
+
+Unstaged changes (2)
+modified   nvim/.config/nvim/lua/panos/plugins/copilot.lua
+modified   tmux/.tmux.conf
+
+Staged changes (1)
+modified   zsh/.config/zsh/.zshrc
+@@ -128,6 +128,9 @@ alias -g cs="| xclip -selection clipboard" # copy to clipboard so that it can be
+ alias vs="xclip -o -selection clipboard" # paste from clipboard (from non `X` application)
+ 
+ # }}}
++# dymola
++alias dymola /opt/dymola-2023xRefresh1-x86_64/bin64/dymola.sh
++
+ # }}}
+ # key bindings{{{
+ #
+
+Unmerged into origin/main (1)
+4d3c97b main nvim. keymap for find config file
+

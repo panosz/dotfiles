@@ -128,6 +128,9 @@ alias -g cs="| xclip -selection clipboard" # copy to clipboard so that it can be
 alias vs="xclip -o -selection clipboard" # paste from clipboard (from non `X` application)
 
 # }}}
+# dymola
+alias dymola /opt/dymola-2023xRefresh1-x86_64/bin64/dymola.sh
+
 # }}}
 # key bindings{{{
 #
