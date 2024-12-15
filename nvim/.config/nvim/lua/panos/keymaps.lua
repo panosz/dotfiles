@@ -113,6 +113,15 @@ wk.add({
 	{ "<leader>fo", t_b.oldfiles, desc = "Find old file" },
 	{ "<leader>fs", t_b.live_grep, desc = "Find string in files" },
 	{ "<leader>f/", t_b.current_buffer_fuzzy_find, desc = "Fuzzily search in current buffer" },
+	{
+		"<leader>fc",
+		function()
+			t_b.find_files({
+				cwd = vim.fn.stdpath("config"),
+			})
+		end,
+		desc = "Find config file",
+	},
 })
 -- }}}
 
@@ -150,45 +159,43 @@ wk.add({
 -- }}}
 
 -- sessions{{{
-wk.add(
-  {
-    { "<leader>s", group = "[S]ession" },
-    { "<leader>sL", "<cmd>SessionManager load_last_session<CR>", desc = "Load last session" },
-    { "<leader>sl", "<cmd>SessionManager load_session<CR>", desc = "Load session" },
-    { "<leader>ss", "<cmd>SessionManager save_current_session<CR>", desc = "Save current session" },
-  }
-)
+wk.add({
+	{ "<leader>s", group = "[S]ession" },
+	{ "<leader>sL", "<cmd>SessionManager load_last_session<CR>", desc = "Load last session" },
+	{ "<leader>sl", "<cmd>SessionManager load_session<CR>", desc = "Load session" },
+	{ "<leader>ss", "<cmd>SessionManager save_current_session<CR>", desc = "Save current session" },
+})
 -- }}}
 --
 -- Git{{{
 wk.add({
-    { "<leader>g", group = "[G]it" },
-    { "<leader>gg", "<cmd>Neogit<CR>", desc = "Git window" },
-    { "<leader>gr", "<cmd>Gread<CR>", desc = "checkout to buffer" },
-    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "git [S]tatus" },
-    { "<leader>gw", "<cmd>Gwrite<CR>", desc = "write and stage" },
-  })
+	{ "<leader>g", group = "[G]it" },
+	{ "<leader>gg", "<cmd>Neogit<CR>", desc = "Git window" },
+	{ "<leader>gr", "<cmd>Gread<CR>", desc = "checkout to buffer" },
+	{ "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "git [S]tatus" },
+	{ "<leader>gw", "<cmd>Gwrite<CR>", desc = "write and stage" },
+})
 -- }}}
 -- chat-gpt{{{
 wk.add({
-    { "<LocalLeader>c", group = "[C]hatGPT" },
-    { "<LocalLeader>cc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
-    {
-      mode = { "n", "v" },
-      { "<LocalLeader>ca", "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
-      { "<LocalLeader>cd", "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
-      { "<LocalLeader>ce", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
-      { "<LocalLeader>cf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
-      { "<LocalLeader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
-      { "<LocalLeader>ck", "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
-      { "<LocalLeader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis" },
-      { "<LocalLeader>co", "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
-      { "<LocalLeader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
-      { "<LocalLeader>cs", "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
-      { "<LocalLeader>ct", "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
-      { "<LocalLeader>cx", "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
-    },
-  })
+	{ "<LocalLeader>c", group = "[C]hatGPT" },
+	{ "<LocalLeader>cc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+	{
+		mode = { "n", "v" },
+		{ "<LocalLeader>ca", "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests" },
+		{ "<LocalLeader>cd", "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring" },
+		{ "<LocalLeader>ce", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction" },
+		{ "<LocalLeader>cf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs" },
+		{ "<LocalLeader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction" },
+		{ "<LocalLeader>ck", "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords" },
+		{ "<LocalLeader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis" },
+		{ "<LocalLeader>co", "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code" },
+		{ "<LocalLeader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit" },
+		{ "<LocalLeader>cs", "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize" },
+		{ "<LocalLeader>ct", "<cmd>ChatGPTRun translate<CR>", desc = "Translate" },
+		{ "<LocalLeader>cx", "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code" },
+	},
+})
 
 -- }}}
 
