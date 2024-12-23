@@ -1,5 +1,6 @@
 return {
 
+	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
 	{ "tpope/vim-eunuch" },  -- eunuch.vim: Helpers for UNIX shell commands
 
 

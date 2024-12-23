@@ -1,7 +1,6 @@
 return {
 	-- My plugins here
 	{ "anufrievroman/vim-angry-reviewer" },
-	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
 
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
