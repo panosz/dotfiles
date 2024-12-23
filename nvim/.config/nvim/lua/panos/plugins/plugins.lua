@@ -15,8 +15,6 @@ return {
 
 	{ "tpope/vim-eunuch" }, -- abolish  - Tim pope's plugin for working with variants of a word
 
-	{ "powerman/vim-plugin-AnsiEsc" }, -- AnsiEsc %color text with Ansi escape sequences
-
 	{ "farseer90718/vim-taskwarrior" }, -- vim-taskwarrior %a vim interface for taskwarrior
 
 	{ "tpope/vim-abolish" }, -- eunuch.vim: Helpers for UNIX shell commands
