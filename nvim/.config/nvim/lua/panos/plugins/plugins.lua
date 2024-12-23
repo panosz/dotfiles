@@ -8,7 +8,6 @@ return {
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
-
 	{
 		"iamcco/markdown-preview.nvim",
 		build = function()
@@ -52,13 +51,6 @@ return {
 		end,
 	},
 
-	{
-		"ThePrimeagen/refactoring.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	},
 	{
 		"jghauser/papis.nvim",
 		dependencies = {
