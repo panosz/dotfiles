@@ -25,8 +25,6 @@ require "panos.tabline"
 require "panos.session_manager"
 require "panos.project_nvim"
 require "panos.dap-python"
-require "panos.neoai"
-require "panos.chatgpt"
 
 
  vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
