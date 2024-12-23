@@ -36,7 +36,13 @@ return {
 			})
 		end,
 	},
-	{ "scrooloose/nerdcommenter" }, -- comment functions
+	{ -- nerdcommenter - comment functions
+		"scrooloose/nerdcommenter",
+		config = function()
+			vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
+			vim.g.NERDToggleCheckAllLines = 1 -- Enable NERDCommenterToggle to check all selected lines is commented or not
+		end,
+	},
 	{ "simnalamburt/vim-mundo" }, -- Mundo - visualize undo tree
 	{ "tpope/vim-surround" }, -- surround.vim: quoting/parenthesizing made simple
 	{ "tpope/vim-repeat" }, -- repeat.vim: Repeat plugin maps using the `.` command

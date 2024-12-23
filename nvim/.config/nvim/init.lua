@@ -15,11 +15,6 @@ require "panos.abbreviations"
 require "panos.toggleterm"
 require "panos.commands"
 require "panos.dap-python"
-
-
- vim.g.NERDSpaceDelims = 1 -- Add spaces after comment delimiters by default
- vim.g.NERDToggleCheckAllLines = 1 -- Enable NERDCommenterToggle to check all selected lines is commented or not
-
 require "panos.greek"
 
 
