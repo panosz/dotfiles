@@ -5,7 +5,6 @@ return {
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
 	{ "akinsho/toggleterm.nvim" },
-	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
 	{
