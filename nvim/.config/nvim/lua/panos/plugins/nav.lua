@@ -108,4 +108,14 @@ return {
 		config = true, -- default settings
 		submodules = false, -- not needed, submodules are required only for tests
 	},
+
+	{
+		"phaazon/hop.nvim", -- Easymotion-like plugin
+		branch = "v1", -- optional but strongly recommended
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
+		end,
+	},
+
 }

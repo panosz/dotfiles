@@ -16,16 +16,6 @@ return {
 
 	{ "godlygeek/tabular" }, -- tabular.vim: Text aligning tools
 
-
-	{
-		"phaazon/hop.nvim", -- Easymotion-like plugin
-		branch = "v1", -- optional but strongly recommended
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-		end,
-	},
-
 	{ "tpope/vim-eunuch" }, -- abolish  - Tim pope's plugin for working with variants of a word
 
 	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
@@ -123,10 +113,6 @@ return {
 
 	{ "frabjous/knap" }, -- auto-refreshing latex
 
-	-- ChatGPT
-	--
-	--
-
 
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -139,8 +125,8 @@ return {
 		"jghauser/papis.nvim",
 		dependencies = {
 			"kkharji/sqlite.lua",
-            "pysan3/pathlib.nvim",
-            "nvim-neotest/nvim-nio",
+			"pysan3/pathlib.nvim",
+			"nvim-neotest/nvim-nio",
 			"MunifTanjim/nui.nvim",
 			"nvim-treesitter/nvim-treesitter",
 		},
