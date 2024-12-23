@@ -16,6 +16,3 @@ require "config.toggleterm"
 require "config.commands"
 require "config.dap-python"
 require "config.greek"
-
-
-require('refactoring').setup()
