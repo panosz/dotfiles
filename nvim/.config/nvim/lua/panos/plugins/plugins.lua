@@ -3,7 +3,6 @@ return {
 	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
 	{ "tpope/vim-unimpaired" }, -- Vim-Unimpared - useful mappings
-	{ "lervag/vimtex" }, -- vimtex
 	{ "anufrievroman/vim-angry-reviewer" },
 	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
 
@@ -99,7 +98,6 @@ return {
 	{ "mfussenegger/nvim-dap-python" },
 	--}}}
 
-	{ "frabjous/knap" }, -- auto-refreshing latex
 
 
 	{

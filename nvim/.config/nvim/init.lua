@@ -11,7 +11,6 @@ vim.g.maplocalleader = ","
 
 require "panos.lazy"
 
-require "panos.latex"
 require "panos.whichkey"
 require "panos.keymaps"
 require "panos.hop"
