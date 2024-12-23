@@ -1,7 +1,5 @@
 return {
 	-- My plugins here
-	{ "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
-	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
 	{ "tpope/vim-unimpaired" }, -- Vim-Unimpared - useful mappings
 	{ "anufrievroman/vim-angry-reviewer" },
 	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
