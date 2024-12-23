@@ -13,7 +13,6 @@ require "panos.lazy"
 
 require "panos.whichkey"
 require "panos.keymaps"
-require "panos.hop"
 require "panos.abbreviations"
 require "panos.autopairs"
 require "panos.telescope"
