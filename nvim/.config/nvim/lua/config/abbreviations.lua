@@ -3,8 +3,3 @@ vim.cmd([[:iabbrev <expr> dateeu strftime('%d/%m/%Y')]])
 vim.cmd([[:iabbrev <expr> rnds toupper(system("pwgen"))]])
 vim.cmd([[:iabbrev chck ]])
 vim.cmd([[:iabbrev unchck ]])
-vim.cmd([[:iabbrev blt 喇]])
-
-
-
-

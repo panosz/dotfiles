@@ -11,7 +11,7 @@ vim.g.maplocalleader = ","
 
 require "config.lazy"
 require "config.keymaps"
-require "panos.abbreviations"
+require "config.abbreviations"
 require "panos.toggleterm"
 require "panos.commands"
 require "panos.dap-python"
