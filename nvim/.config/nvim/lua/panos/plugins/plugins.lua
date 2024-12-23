@@ -17,8 +17,6 @@ return {
 
 	{ "tpope/vim-eunuch" }, -- abolish  - Tim pope's plugin for working with variants of a word
 
-	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
-
 	{ "powerman/vim-plugin-AnsiEsc" }, -- AnsiEsc %color text with Ansi escape sequences
 
 	{ "farseer90718/vim-taskwarrior" }, -- vim-taskwarrior %a vim interface for taskwarrior
@@ -97,8 +95,6 @@ return {
 	--- add python support
 	{ "mfussenegger/nvim-dap-python" },
 	--}}}
-
-
 
 	{
 		"ThePrimeagen/refactoring.nvim",
