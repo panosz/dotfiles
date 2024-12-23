@@ -18,8 +18,6 @@ require "panos.telescope"
 require "panos.toggleterm"
 require "panos.commands"
 require "panos.tabline"
-require "panos.session_manager"
-require "panos.project_nvim"
 require "panos.dap-python"
 
 
