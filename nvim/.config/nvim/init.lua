@@ -17,7 +17,6 @@ require "panos.abbreviations"
 require "panos.telescope"
 require "panos.toggleterm"
 require "panos.commands"
-require "panos.tabline"
 require "panos.dap-python"
 
 

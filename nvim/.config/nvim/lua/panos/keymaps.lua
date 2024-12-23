@@ -199,5 +199,41 @@ wk.add({
 })
 
 -- }}}
+--
+--
+-- bufferline {{{
+-- Move to previous/next
+keymap("n", "<A-,>", "<CMD>BufferPrevious<CR>", opts)
+keymap("n", "<A-.>", "<CMD>BufferNext<CR>", opts)
+-- Re-order to previous/next
+keymap("n", "<A-<>", "<CMD>BufferMovePrevious<CR>", opts)
+keymap("n", "<A->>", " <CMD>BufferMoveNext<CR>", opts)
+-- Goto buffer in position...
+keymap("n", "<A-1>", "<CMD>BufferGoto 1<CR>", opts)
+keymap("n", "<A-2>", "<CMD>BufferGoto 2<CR>", opts)
+keymap("n", "<A-3>", "<CMD>BufferGoto 3<CR>", opts)
+keymap("n", "<A-4>", "<CMD>BufferGoto 4<CR>", opts)
+keymap("n", "<A-5>", "<CMD>BufferGoto 5<CR>", opts)
+keymap("n", "<A-6>", "<CMD>BufferGoto 6<CR>", opts)
+keymap("n", "<A-7>", "<CMD>BufferGoto 7<CR>", opts)
+keymap("n", "<A-8>", "<CMD>BufferGoto 8<CR>", opts)
+keymap("n", "<A-9>", "<CMD>BufferGoto 9<CR>", opts)
+keymap("n", "<A-0>", "<CMD>BufferLast<CR>", opts)
+-- Close buffer
+keymap("n", "<A-c>", "<CMD>BufferClose<CR>", opts)
+-- Wipeout buffer
+--                 <CMD>BufferWipeout<CR>
+-- Close commands
+--                 <CMD>BufferCloseAllButCurrent<CR>
+--                 <CMD>BufferCloseBuffersLeft<CR>
+--                 <CMD>BufferCloseBuffersRight<CR>
+-- Magic buffer-picking mode
+keymap("n", "<C-p>", "<CMD>BufferPick<CR>", opts)
+-- Sort automatically by...
+keymap("n", "<Space>bb", "<CMD>BufferOrderByBufferNumber<CR>", opts)
+keymap("n", "<Space>bd", "<CMD>BufferOrderByDirectory<CR>", opts)
+keymap("n", "<Space>bl", "<CMD>BufferOrderByLanguage<CR>", opts)
+keymap("n", "<Space>bo", "<CMD>BufferCloseAllButCurrent<CR>", opts)
+--}}}
 
 -- vim:foldmethod=marker:foldlevel=0

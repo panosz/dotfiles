@@ -1,8 +1,7 @@
 return {
 
 	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
-	{ "tpope/vim-eunuch" },  -- eunuch.vim: Helpers for UNIX shell commands
-
+	{ "tpope/vim-eunuch" }, -- eunuch.vim: Helpers for UNIX shell commands
 
 	{ "rcarriga/nvim-notify", opts = {
 		top_down = false,
@@ -76,7 +75,28 @@ return {
 
 	{ -- barbar tabline
 		"romgrk/barbar.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			icons = {
+				diagnostics = { -- Enables / disables diagnostic symbols
+					[vim.diagnostic.severity.ERROR] = { enabled = false, icon = "" },
+					[vim.diagnostic.severity.WARN] = { enabled = false, icon = "" },
+					[vim.diagnostic.severity.INFO] = { enabled = false, icon = "" },
+					[vim.diagnostic.severity.HINT] = { enabled = false, icon = "" },
+				},
+				gitsigns = {
+					added = { enabled = true, icon = "+" },
+					changed = { enabled = true, icon = "~" },
+					deleted = { enabled = true, icon = "-" },
+				},
+			},
+		},
 	},
 
 	{ -- noice
