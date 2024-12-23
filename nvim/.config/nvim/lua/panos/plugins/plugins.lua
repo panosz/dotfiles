@@ -20,15 +20,6 @@ return {
 
 	{ "Vimjas/vim-python-pep8-indent" }, -- A nicer Python indentation style for vim
 
-	-- {
-	-- "vimwiki/vimwiki", -- vim-wiki
-	-- branch = "dev",
-	-- },
-
-	{ "itchyny/calendar.vim" }, -- callendar-vim
-
-	-- use 'tools-life/taskwiki'  -- task-wiki %integrate vim-wiki with taskwarrior
-
 	{ "powerman/vim-plugin-AnsiEsc" }, -- AnsiEsc %color text with Ansi escape sequences
 
 	{ "farseer90718/vim-taskwarrior" }, -- vim-taskwarrior %a vim interface for taskwarrior
@@ -48,9 +39,6 @@ return {
 	{ "lambdalisue/glyph-palette.vim" },
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
-	--   { "p00f/clangd_extensions.nvim" }, -- extensions for c/cpp
-	--
-	--
 	{
 		"folke/twilight.nvim",
 		config = function()
