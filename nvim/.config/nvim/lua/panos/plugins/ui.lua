@@ -1,13 +1,13 @@
 return {
 
-	{ "rcarriga/nvim-notify",
-    opts = {
-      top_down = false,
-    },
-  },
+	{ "tpope/vim-eunuch" },  -- eunuch.vim: Helpers for UNIX shell commands
 
-	-- status line{{{
-	{
+
+	{ "rcarriga/nvim-notify", opts = {
+		top_down = false,
+	} },
+
+	{ -- lualine
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
 		lazy = false,
@@ -72,15 +72,13 @@ return {
 			})
 		end,
 	},
-	--}}}
-	-- tabline{{{
-	{
+
+	{ -- barbar tabline
 		"romgrk/barbar.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
 	},
-	--}}}
 
-	{
+	{ -- noice
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -123,7 +121,7 @@ return {
 		end,
 	},
 
-	{
+	{ -- indent blankline
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			local ibl = require("ibl")

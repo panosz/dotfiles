@@ -12,9 +12,7 @@ return {
 
 	{ "godlygeek/tabular" }, -- tabular.vim: Text aligning tools
 
-	{ "tpope/vim-eunuch" }, -- abolish  - Tim pope's plugin for working with variants of a word
-
-	{ "tpope/vim-abolish" }, -- eunuch.vim: Helpers for UNIX shell commands
+	{ "tpope/vim-abolish" }, -- abolish  - Tim pope's plugin for working with variants of a word
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
 
