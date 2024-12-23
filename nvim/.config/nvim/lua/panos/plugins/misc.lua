@@ -1,5 +1,4 @@
 return {
-	-- My plugins here
 	{ "anufrievroman/vim-angry-reviewer" },
 
 	{ "akinsho/toggleterm.nvim" },
