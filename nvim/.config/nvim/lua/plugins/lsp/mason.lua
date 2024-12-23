@@ -6,7 +6,7 @@ return {
 
     local mason_lspconfig = require("mason-lspconfig")
 
-    local servers = require("panos.plugins.lsp.settings.servers")
+    local servers = require("plugins.lsp.settings.servers")
     mason.setup({
       ui = {
         icons = {

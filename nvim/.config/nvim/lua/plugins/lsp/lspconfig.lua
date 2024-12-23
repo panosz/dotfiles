@@ -158,19 +158,19 @@ return { -- LSP Configuration & Plugins
     lspconfig.jsonls.setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = require("panos.plugins.lsp.settings.jsonls"),
+      settings = require("plugins.lsp.settings.jsonls"),
     }
 
     lspconfig.clangd.setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = require("panos.plugins.lsp.settings.clangd"),
+      settings = require("plugins.lsp.settings.clangd"),
     }
 
     lspconfig.texlab.setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = require("panos.plugins.lsp.settings.texlab"),
+      settings = require("plugins.lsp.settings.texlab"),
     }
 
     lspconfig.rust_analyzer.setup {
