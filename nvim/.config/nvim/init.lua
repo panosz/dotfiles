@@ -10,7 +10,7 @@ vim.g.maplocalleader = ","
 --}}}
 
 require "config.lazy"
-require "panos.keymaps"
+require "config.keymaps"
 require "panos.abbreviations"
 require "panos.telescope"
 require "panos.toggleterm"
