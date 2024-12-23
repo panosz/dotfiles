@@ -1,5 +1,5 @@
 return {
-	{
+	{ -- nvim-tree
 		"nvim-tree/nvim-tree.lua",
 		cmd = { "NvimTreeToggle" },
 		keys = { "<leader>e" },
@@ -69,7 +69,7 @@ return {
 			-- })
 		end,
 	},
-	{
+	{ -- Aerial
 		{
 			"stevearc/aerial.nvim", -- A code outline window for skimming and quick navigation
 			lazy = true,
@@ -88,7 +88,7 @@ return {
 			end,
 		},
 	},
-	{
+	{ -- oil.nvim
 		"stevearc/oil.nvim",
 		---@module 'oil'
 		---@type oil.SetupOpts
@@ -109,7 +109,7 @@ return {
 		submodules = false, -- not needed, submodules are required only for tests
 	},
 
-	{
+	{ -- hop
 		"phaazon/hop.nvim", -- Easymotion-like plugin
 		branch = "v1", -- optional but strongly recommended
 		config = function()
@@ -118,4 +118,7 @@ return {
 		end,
 	},
 
+	{ "junegunn/fzf" },
+	{ "junegunn/fzf.vim" },
+	{ "tpope/vim-unimpaired" }, -- Vim-Unimpared - useful navigation mappings
 }

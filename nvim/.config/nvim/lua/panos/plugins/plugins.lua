@@ -1,6 +1,5 @@
 return {
 	-- My plugins here
-	{ "tpope/vim-unimpaired" }, -- Vim-Unimpared - useful mappings
 	{ "anufrievroman/vim-angry-reviewer" },
 	{ "moll/vim-bbye" }, -- Buffer bye - delete buffers without closing windows
 
@@ -18,9 +17,6 @@ return {
 	{ "tpope/vim-abolish" }, -- eunuch.vim: Helpers for UNIX shell commands
 
 	{ "windwp/nvim-autopairs" }, -- autopair pluggin that suppors multiple characters
-
-	{ "junegunn/fzf" },
-	{ "junegunn/fzf.vim" },
 
 	{ "Shatur/neovim-session-manager" }, -- neovim session manager
 
