@@ -20,7 +20,6 @@ return {
 
 	{ "akinsho/toggleterm.nvim" },
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
-	{ "xiyaowong/nvim-transparent" },
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
 	{
