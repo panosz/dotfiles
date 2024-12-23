@@ -28,14 +28,5 @@ require "panos.dap-python"
 
 require "panos.greek"
 
-vim.cmd[[
-	augroup my-glyph-palette
-	  autocmd!
-	  autocmd FileType fern call glyph_palette#apply()
-	  autocmd FileType nerdtree call glyph_palette#apply()
-	  autocmd FileType startify call glyph_palette#apply()
-	augroup END
-]]
-
 
 require('refactoring').setup()
