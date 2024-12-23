@@ -22,16 +22,6 @@ return {
 	{ "monaqa/dial.nvim" }, -- Extended increment/decrement plugin for Neovim.
 	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
-	{
-		"folke/twilight.nvim",
-		config = function()
-			require("twilight").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
-	},
 
 	{
 		"iamcco/markdown-preview.nvim",
