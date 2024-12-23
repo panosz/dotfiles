@@ -40,6 +40,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 --}}}
 
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 --}}}
 
 -- Insert {{{
