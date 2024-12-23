@@ -2,10 +2,7 @@ return {
 	-- My plugins here
 	{ "anufrievroman/vim-angry-reviewer" },
 
-	{ "Shatur/neovim-session-manager" }, -- neovim session manager
-
 	{ "akinsho/toggleterm.nvim" },
-	{ "ahmedkhalf/project.nvim" }, -- an all in one neovim plugin written in lua that provides superior project management.
 
 	{
 		"iamcco/markdown-preview.nvim",
