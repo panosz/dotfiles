@@ -1,6 +1,6 @@
-require "panos.python"
-require "panos.options"
-require "panos.spelling"
+require "config.python"
+require "config.options"
+require "config.spelling"
 
 
 -- leader key{{{
@@ -12,10 +12,10 @@ vim.g.maplocalleader = ","
 require "config.lazy"
 require "config.keymaps"
 require "config.abbreviations"
-require "panos.toggleterm"
-require "panos.commands"
-require "panos.dap-python"
-require "panos.greek"
+require "config.toggleterm"
+require "config.commands"
+require "config.dap-python"
+require "config.greek"
 
 
 require('refactoring').setup()
