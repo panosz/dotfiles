@@ -82,7 +82,6 @@ return {
 						nvimtree = true,
 						telescope = true,
 						treesitter = true,
-						tsrainbow = true,
 					},
 				},
 			})
