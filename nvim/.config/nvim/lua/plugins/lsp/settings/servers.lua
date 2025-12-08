@@ -1,7 +1,7 @@
 return {
 	eslint = {},
 	biome = {},
-	volar = {},
+	-- volar = {},
 	pylsp = {
 		pylsp = {
 			plugins = {
@@ -19,7 +19,6 @@ return {
 			},
 		},
 	},
-	vuels = {},
 	jsonls = require("plugins.lsp.settings.jsonls"),
 	clangd = require("plugins.lsp.settings.clangd"),
 	-- pyright = require("panos.lsp.settings.pyright"),

@@ -46,19 +46,27 @@ return {
 		end,
 	},
 
-	{
-		"jghauser/papis.nvim",
-		dependencies = {
-			"kkharji/sqlite.lua",
-			"pysan3/pathlib.nvim",
-			"nvim-neotest/nvim-nio",
-			"MunifTanjim/nui.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			require("papis").setup({
-				-- Your configuration goes here
-			})
-		end,
-	},
+    {
+        "jghauser/papis.nvim",
+        dependencies = {
+            "kkharji/sqlite.lua",
+            "pysan3/pathlib.nvim",
+            "nvim-neotest/nvim-nio",
+            "MunifTanjim/nui.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+
+
+            require("papis").setup({
+
+        ["debug"] = {
+
+          -- Whether to enable this module.
+          enable = true,
+        },
+
+      })
+        end,
+    },
 }

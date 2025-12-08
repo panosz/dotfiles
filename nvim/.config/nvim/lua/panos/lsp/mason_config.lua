@@ -6,7 +6,7 @@
 local servers = {
 	eslint = {},
 	biome = {},
-	volar = {},
+	vue_ls = {},
     pylsp = {
       pylsp = {       -- needs a seemingly redundant pylsp key, see https://vi.stackexchange.com/a/39768/32018
         plugins = {
@@ -16,10 +16,10 @@ local servers = {
       },
     },
     vuels = {},
-	jsonls = require("panos.lsp.settings.jsonls"),
-	clangd = require("panos.lsp.settings.clangd"),
+	jsonls = require("plugins.lsp.settings.jsonls"),
+	clangd = require("plugins.lsp.settings.clangd"),
 	-- pyright = require("panos.lsp.settings.pyright"),
-	texlab = require("panos.lsp.settings.texlab"),
+	texlab = require("plugins.lsp.settings.texlab"),
 	-- ltex = {
 		-- root_dir = function(fname)
 			-- return require("lspconfig").util.find_git_ancestor(fname)

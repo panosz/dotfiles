@@ -94,6 +94,7 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "nvim_lua" },
 				{ name = "vimtex" },
+				{ name = "papis" },
 				{ name = "luasnip" },
 				{ name = "buffer", keyword_length = 4 },
 				{ name = "path" },

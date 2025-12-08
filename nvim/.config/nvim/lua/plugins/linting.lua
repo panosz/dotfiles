@@ -12,8 +12,8 @@ return {
 			typescriptreact = { "eslint_d" },
 			svelte = { "eslint_d" },
             python = { "pylint" },
-			cpp = { "cpplint" },
-			c = { "cpplint" },
+			-- cpp = { "cpplint" },
+			-- c = { "cpplint" },
 			cmake = { "cmakelint" },
 		}
 		-- Set pylint to work in virtualenv, see https://gist.github.com/Norbiox/652befc91ca0f90014aec34eccee27b2?permalink_comment_id=5230129#gistcomment-5230129

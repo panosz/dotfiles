@@ -110,8 +110,7 @@ return {
 	},
 
 	{ -- hop
-		"phaazon/hop.nvim", -- Easymotion-like plugin
-		branch = "v2", -- optional but strongly recommended
+		"smoka7/hop.nvim", -- Easymotion-like plugin
 		config = function()
 			-- you can configure Hop the way you like here; see :h hop-config
 			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })

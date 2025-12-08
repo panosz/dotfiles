@@ -13,4 +13,8 @@ return {
 			vim.g.vimtex_complete_bib_simple = 1
 		end,
 	},
+{
+  "micangl/cmp-vimtex",
+}
+
 }

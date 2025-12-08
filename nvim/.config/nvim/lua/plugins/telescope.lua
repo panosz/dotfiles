@@ -77,7 +77,7 @@ return {
 							["<Up>"] = actions.move_selection_previous,
 
 							["<CR>"] = actions.select_default,
-							["<C-x>"] = actions.select_horizontal,
+                            ["<C-x>"] = actions.select_horizontal,
 							["<C-v>"] = actions.select_vertical,
 							["<C-t>"] = actions.select_tab,
 
@@ -100,7 +100,7 @@ return {
 						n = {
 							["<esc>"] = actions.close,
 							["<CR>"] = actions.select_default,
-							["<C-x>"] = actions.select_horizontal,
+                            ["<C-x>"] = actions.select_horizontal,
 							["<C-v>"] = actions.select_vertical,
 							["<C-t>"] = actions.select_tab,
 
@@ -201,7 +201,7 @@ return {
 			telescope.load_extension("media_files")
 			telescope.load_extension("project")
 			telescope.load_extension("ui-select")
-			telescope.load_extension("file_browser")
+            telescope.load_extension("file_browser")
 			telescope.load_extension("vimwiki")
 			telescope.load_extension("notify")
 

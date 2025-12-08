@@ -7,6 +7,7 @@ return {
     -- to add more checks, create .clang-tidy file in the root directory
     -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
     "--clang-tidy",
+    "--checks=-*,clang-diagnostic-*,-modernize-*",
     "--completion-style=bundled",
     "--cross-file-rename",
     "--header-insertion=iwyu",

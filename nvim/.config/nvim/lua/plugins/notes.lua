@@ -5,11 +5,39 @@ return {
     dependencies = {
       -- optional
       "lukas-reineke/headlines.nvim",
-
-      -- see below for full list of optional dependencies 👇
     },
     config = function(_, opts)
       require("obsidian").setup(opts)
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>o", group = "[O]bsidian" },
+        { "<leader>ob", "<cmd>Obsidian backlinks<CR>", desc = "[B]acklinks" },
+        { "<leader>od", "<cmd>Obsidian dailies<CR>", desc = "[D]aily notes" },
+        { "<leader>on", "<cmd>Obsidian new<CR>", desc = "[N]ew note" },
+        { "<leader>oo", "<cmd>Obsidian open<CR>", desc = "[O]pen note in obsidian" },
+        { "<leader>op", "<cmd>Obsidian paste_img<CR>", desc = "[P]aste image" },
+        { "<leader>os", "<cmd>Obsidian search<CR>", desc = "[S]earch in notes" },
+        { "<leader>ot", "<cmd>Obsidian tags<CR>", desc = "Search [T]ags" },
+        {"<C-Space>", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Toggle checkbox"},
+        {
+          mode = "v",
+          { "<leader>ol", group = "[L]ink" },
+          {
+            "<leader>oll",
+            ":Obsidian link ",
+            desc = "[L]ink selection to existing note",
+            mode = "v",
+            silent = false,
+          },
+          {
+            "<leader>oln",
+            ":Obsidian link_new ",
+            desc = "Link selection to [N]ew note",
+            mode = "v",
+            silent = false,
+          },
+        },
+      })
     end,
     opts = {
       legacy_commands = false,
@@ -69,8 +97,21 @@ return {
         substitutions = {},
       },
 
-      open_notes_in = "vsplit",
+      open_notes_in = "current",
+      -- picker = {
+        -- name = nil,
+        -- note_mappings = {
+          -- new = "<C-x>",
+          -- insert_link = "<C-l>",
+        -- },
+        -- tag_mappings = {
+          -- tag_note = "<C-x>",
+          -- insert_tag = "<C-l>",
+        -- },
+      -- },
+
       ui = {
+        enable = false,
         checkboxes = {
           -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
           ["-"] = { char = "󰰱", hl_group = "ObsidianTilde" },
@@ -83,14 +124,6 @@ return {
           },
       },
 
-      callbacks = {
-            enter_note = function(_, note)
-               vim.keymap.set("n", "<C-Space>", "<cmd>Obsidian toggle_checkbox<cr>", {
-                  buffer = note.bufnr,
-                  desc = "Toggle checkbox",
-               })
-            end,
-         },
       ---@class obsidian.config.CheckboxOpts
       ---
       ---@field enabled? boolean
@@ -103,22 +136,30 @@ return {
       checkbox = {
         enabled = true,
         create_new = true,
-        order = { " ","x" },
+        order = { " ",">","x" },
       },
     },
   },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    -- config = function(_, opts)
-      -- require("render-markdonw").setup(opts)
-    -- end,
+ { "timantipov/md-table-tidy.nvim",
+    -- default config
     opts = {
-      checkbox = {
-        custom = {
-              started = { raw = '[>]', rendered = '', highlight = 'DiagnosticWarn' },
-        },
-      },
+      padding = 1,        -- number of spaces for cell padding
+      key = "<leader>tt", -- key for command :TableTidy<CR>
     }
-}
+},
+
+  -- {
+    -- 'MeanderingProgrammer/render-markdown.nvim',
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    -- -- config = function(_, opts)
+      -- -- require("render-markdonw").setup(opts)
+    -- -- end,
+    -- opts = {
+      -- checkbox = {
+        -- custom = {
+              -- started = { raw = '[>]', rendered = '', highlight = 'DiagnosticWarn' },
+        -- },
+      -- },
+    -- }
+-- }
 }
