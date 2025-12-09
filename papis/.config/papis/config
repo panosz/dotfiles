@@ -1,0 +1,20 @@
+[papers]
+dir = ~/Documents/papis_papers
+
+[settings]
+default-library = papers
+# Ask for confirmation when doing papis add ...
+add-confirm = True
+# Edit the info.yaml file before adding a doc into the library
+# papis add --edit
+add-edit = True
+# Open the files before adding a document into the library
+# papis add --open
+add-open = True
+# Default folder name for newly added documents
+add-folder-name = {doc[author_list][0][family]} - {doc[title]}
+# Default file name
+add-file-name = {doc[author_list][0][family]} - {doc[title]}
+bibtex-unicode = False
+extra-bibtex-types = ["thesis"]
+bibtex-ignore-keys = ["abstract", "extra", "language"]
