@@ -97,6 +97,8 @@ return {
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 	},
+   { "malewicz1337/oil-git.nvim", dependencies = { "stevearc/oil.nvim" } },
+
 	{ -- open links
 		"chrishrb/gx.nvim",
 		keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
