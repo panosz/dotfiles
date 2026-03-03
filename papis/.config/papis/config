@@ -2,12 +2,20 @@
 dir = ~/Documents/papis_papers
 
 [settings]
+
 default-library = papers
+
+# use fzf picker
+picktool = fzf
+
 # Ask for confirmation when doing papis add ...
 add-confirm = True
 # Edit the info.yaml file before adding a doc into the library
 # papis add --edit
 add-edit = True
+# Don't download files by default
+# papis add --no-download-files
+add-download-files = False
 # Open the files before adding a document into the library
 # papis add --open
 add-open = True
@@ -15,6 +23,16 @@ add-open = True
 add-folder-name = {doc[author_list][0][family]} - {doc[title]}
 # Default file name
 add-file-name = {doc[author_list][0][family]} - {doc[title]}
+
+# Run doctor fixes at newly added files
+auto-doctor = True
+
+#bibtex 
 bibtex-unicode = False
 extra-bibtex-types = ["thesis"]
 bibtex-ignore-keys = ["abstract", "extra", "language"]
+
+
+# preview (recipe from https://github.com/papis/papis/discussions/511#discussioncomment-5206928)
+# fzf-header-format = {c.Fore.MAGENTA}{doc[title]}{c.Style.RESET_ALL}~~ {c.Fore.CYAN}{doc[author]}{c.Style.RESET_ALL}~~ {c.Fore.YELLOW}«{doc[year]}»{c.Style.RESET_ALL}~~ {c.Fore.YELLOW}{doc[journal]}{c.Style.RESET_ALL}~~ :{doc[tags]}
+# fzf-extra-flags = ["--ansi", "--multi", "-i", "--preview", "$HOME/.config/papis/scripts/preview.sh {}", "--preview-window", "right:wrap"]
