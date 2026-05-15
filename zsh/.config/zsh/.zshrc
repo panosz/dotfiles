@@ -168,6 +168,11 @@ jpg_to_pdf(){
   convert "$infile" -quality "$quality" -page a4 "$outfile"
 }
 
+svg_to_latex()
+{
+  inkscape -D "$1" -o "${1:t:r}.pdf" --export-latex
+}
+
 # }}}
 # history{{{
 HISTFILE=~/.zsh_history
