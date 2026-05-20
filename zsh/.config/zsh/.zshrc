@@ -135,7 +135,7 @@ alias dymola /opt/dymola-2023xRefresh1-x86_64/bin64/dymola.sh
 # }}}
 # key bindings{{{
 #
-bindkey -s '^Z' 'zi\n'
+bindkey -s '^Z' 'cdi\n'
 # }}}
 # custom functions{{{
 
