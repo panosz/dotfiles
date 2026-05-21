@@ -17,6 +17,7 @@ return {
         { "<leader>oo", "<cmd>Obsidian open<CR>", desc = "[O]pen note in obsidian" },
         { "<leader>op", "<cmd>Obsidian paste_img<CR>", desc = "[P]aste image" },
         { "<leader>os", "<cmd>Obsidian search<CR>", desc = "[S]earch in notes" },
+        { "<leader>oc", "<cmd>Obsidian quick_switch<CR>", desc = "quick switch, searching by note name" },
         { "<leader>ot", "<cmd>Obsidian tags<CR>", desc = "Search [T]ags" },
         {"<C-Space>", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Toggle checkbox"},
         {
@@ -61,7 +62,14 @@ return {
         -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
         template = nil,
       },
-      wiki_link_func = "prepend_note_path",
+      -- wiki_link_func = "prepend_note_path",
+      -- link = {
+          -- style = "wiki",
+          -- format = "shortest",
+          -- auto_update = false,
+        -- },
+
+      
 
       -- Optional, customize how names/IDs for new notes are created.
       note_id_func = function(title)
@@ -78,19 +86,9 @@ return {
         
       end,
 
-      -- Optional, alternatively you can customize the frontmatter data.
-      note_frontmatter_func = function(note)
-        -- Add the title of the note as an alias.
-        if note.title then
-          note:add_alias(note.title)
-        end
 
-        return require("obsidian.builtin").frontmatter(note)
-      end,
-
-      -- Optional, for templates (see below).
       templates = {
-        subdir = "templates",
+        folder = "templates",
         date_format = "%Y-%m-%d",
         time_format = "%H:%M",
         -- A map for custom variables, the key should be the variable and the value a function
@@ -112,16 +110,16 @@ return {
 
       ui = {
         enable = false,
-        checkboxes = {
-          -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-          ["-"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-          [" "] = { char = "󰄱", hl_group = "obsidiantodo" },
-          ["~"] = { char = "󰰱", hl_group = "obsidiantilde" },
-          ["!"] = { char = "", hl_group = "obsidianimportant" },
-          [">"] = { char = "", hl_group = "obsidianrightarrow" },
-          ["x"] = { char = "", hl_group = "obsidiandone" },
-          ["X"] = { char = "", hl_group = "obsidiandone" },
-          },
+        -- checkboxes = {
+          -- -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+          -- ["-"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+          -- [" "] = { char = "󰄱", hl_group = "obsidiantodo" },
+          -- ["~"] = { char = "󰰱", hl_group = "obsidiantilde" },
+          -- ["!"] = { char = "", hl_group = "obsidianimportant" },
+          -- [">"] = { char = "", hl_group = "obsidianrightarrow" },
+          -- ["x"] = { char = "", hl_group = "obsidiandone" },
+          -- ["X"] = { char = "", hl_group = "obsidiandone" },
+          -- },
       },
 
       ---@class obsidian.config.CheckboxOpts
