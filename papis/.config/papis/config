@@ -5,6 +5,10 @@ dir = ~/Documents/papis_papers
 
 default-library = papers
 
+ask-llm = "openai/gpt-4.1"
+ask-summary-llm = "openai/gpt-4.1-mini"
+ask-embedding = "openai/text-embedding-3-small"
+
 # use fzf picker
 picktool = fzf
 
@@ -18,14 +22,14 @@ add-edit = True
 add-download-files = False
 # Open the files before adding a document into the library
 # papis add --open
-add-open = True
+add-open = False
 # Default folder name for newly added documents
 add-folder-name = {doc[author_list][0][family]} - {doc[title]}
 # Default file name
 add-file-name = {doc[author_list][0][family]} - {doc[title]}
 
 # Run doctor fixes at newly added files
-auto-doctor = True
+# auto-doctor = True
 
 #bibtex 
 bibtex-unicode = False

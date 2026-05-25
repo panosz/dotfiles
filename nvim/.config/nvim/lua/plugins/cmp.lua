@@ -22,7 +22,7 @@ return {
 			},
 		})
 
-		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+		-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 		local has_words_before = function()
 			if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then
@@ -90,8 +90,9 @@ return {
 				}),
 			},
 			sources = {
-				{ name = "copilot" },
+				-- { name = "copilot" },
 				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp_signature_help" },
 				{ name = "nvim_lua" },
 				{ name = "vimtex" },
 				{ name = "papis" },
@@ -112,7 +113,7 @@ return {
 				comparators = {
 
 					cmp.config.compare.exact,
-					require("copilot_cmp.comparators").prioritize,
+					-- require("copilot_cmp.comparators").prioritize,
 
 					-- Below is the default comparator list and order for nvim-cmp
 					cmp.config.compare.offset,
@@ -161,6 +162,7 @@ return {
 		"hrsh7th/cmp-cmdline", -- cmdline completions
 		"saadparwaiz1/cmp_luasnip", -- snippet completions
 		"hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
 		"hrsh7th/cmp-nvim-lua",
 		"petertriho/cmp-git", -- git completins
 		"onsails/lspkind-nvim", -- vscode-like pictograms for neovim lsp completion items

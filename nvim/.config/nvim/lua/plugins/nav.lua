@@ -72,6 +72,7 @@ return {
 	{ -- Aerial
 		{
 			"stevearc/aerial.nvim", -- A code outline window for skimming and quick navigation
+            branch= "nvim-0.11",
 			lazy = true,
 			cmd = { "AerialToggle" },
 			dependencies = {
