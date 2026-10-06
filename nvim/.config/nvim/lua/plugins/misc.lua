@@ -60,13 +60,25 @@ return {
 
             require("papis").setup({
 
-        ["debug"] = {
+            init_filetypes = { "markdown", "norg", "yaml", "typst", "tex" },
+              ["debug"] = {
 
-          -- Whether to enable this module.
-          enable = true,
-        },
+                -- Whether to enable this module.
+                enable = false,
+              },
+      }
+      )
 
+      local wk = require("which-key")
+      wk.add({
+        { "<leader>bb", "<cmd>Papis search<CR>", desc = "[B]ibliography search" },
+        { "<leader>bf", "<cmd>Papis at-cursor open-file<CR>", desc = "Open file attached to entry" },
+        { "<leader>be", "<cmd>Papis at-cursor edit<CR>", desc = "Edit the info.yaml file" },
+        { "<leader>bn", "<cmd>Papis at-cursor open-note<CR>", desc = "Open notes attached to the entry" },
+        { "<leader>bn", desc = "Show popup with information", "<cmd>Papis at-cursor show-popup<CR>" },
       })
+
+
         end,
     },
 }
