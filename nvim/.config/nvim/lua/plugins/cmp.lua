@@ -76,19 +76,30 @@ return {
 					"s",
 				}),
 			},
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text", -- show text and symbol annotations
-					maxwidth = 80, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-					-- The function below will be called before any actual modifications from lspkind
-					-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-					before = function(entry, vim_item)
-						-- ...
-						return vim_item
-					end,
-				}),
-			},
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = "symbol_text",
+                    maxwidth = 80,
+                    ellipsis_char = "...",
+
+                    menu = {
+                        nvim_lsp = "[LSP]",
+                        nvim_lsp_signature_help = "[Signature]",
+                        nvim_lua = "[Lua]",
+                        vimtex = "[VimTeX]",
+                        papis = "[Papis]",
+                        luasnip = "[Snippet]",
+                        buffer = "[Buffer]",
+                        path = "[Path]",
+                        git = "[Git]",
+                    },
+
+                    before = function(entry, vim_item)
+                        -- Keep any other customization you already do here.
+                        return vim_item
+                    end,
+                }),
+            },
 			sources = {
 				-- { name = "copilot" },
 				{ name = "nvim_lsp" },
