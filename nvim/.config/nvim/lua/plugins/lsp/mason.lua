@@ -25,9 +25,14 @@ return {
     })
 
     mason_lspconfig.setup({
-      ensure_installed = vim.tbl_keys(servers),
+      -- ensure_installed = vim.tbl_keys(servers),
       -- auto-install configured servers (with lspconfig)
       -- automatic_installation = true,
     })
+    require("lspconfig").texlab.setup({
+        cmd = { "/home/panosz/Documents/programming/various_libraries/texlab/texlab" },
+    })
+
+
   end,
 }

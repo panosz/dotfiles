@@ -168,6 +168,7 @@ return { -- LSP Configuration & Plugins
     }
 
     lspconfig.texlab.setup {
+      cmd = "/home/panosz/Documents/programming/various_libraries/texlab/texlab",
       capabilities = capabilities,
       on_attach = on_attach,
       settings = require("plugins.lsp.settings.texlab"),
