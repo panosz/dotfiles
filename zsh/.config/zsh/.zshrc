@@ -138,6 +138,7 @@ alias dymola /opt/dymola-2023xRefresh1-x86_64/bin64/dymola.sh
 bindkey -s '^Z' 'cdi\n'
 bindkey -s '^O' 'papis open'
 bindkey -s '^B' 'papis open type:book\n'
+bindkey -s '^N' 'nvim\n'
 # }}}
 # custom functions{{{
 
